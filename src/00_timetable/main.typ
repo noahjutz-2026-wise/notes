@@ -31,11 +31,16 @@
     })
   }
 
-  let colors = palette(4)
+  let colors = palette(5)
 
   let color_map = (
     "bib": colors.at(1),
     "gym": colors.at(2),
+    "teammeeting": colors.at(3),
+    "Q&A": colors.at(3),
+    "merle": colors.at(4),
+    "shawarmen": colors.at(4),
+    "sarah": colors.at(4),
   )
 
   let col(
@@ -123,19 +128,28 @@
     ),
     (
       from: datetime(hour: 8, minute: 0, second: 0),
-      to: datetime(hour: 12, minute: 0, second: 0),
+      to: datetime(hour: 11, minute: 0, second: 0),
       body: [bib],
+    ),
+    (
+      from: datetime(hour: 12, minute: 0, second: 0),
+      to: datetime(hour: 13, minute: 0, second: 0),
+      body: [teammeeting],
     ),
     (
       from: datetime(hour: 13, minute: 30, second: 0),
-      to: datetime(hour: 14, minute: 0, second: 0),
+      to: datetime(hour: 14, minute: 15, second: 0),
       body: [Q&A],
     ),
-
     (
-      from: datetime(hour: 14, minute: 0, second: 0),
-      to: datetime(hour: 20, minute: 0, second: 0),
+      from: datetime(hour: 14, minute: 15, second: 0),
+      to: datetime(hour: 19, minute: 0, second: 0),
       body: [bib],
+    ),
+    (
+      from: datetime(hour: 20, minute: 0, second: 0),
+      to: datetime(hour: 22, minute: 0, second: 0),
+      body: [merle],
     ),
   )
   let tue = (
@@ -195,8 +209,13 @@
     ),
     (
       from: datetime(hour: 13, minute: 0, second: 0),
-      to: datetime(hour: 20, minute: 0, second: 0),
+      to: datetime(hour: 19, minute: 0, second: 0),
       body: [bib],
+    ),
+    (
+      from: datetime(hour: 20, minute: 0, second: 0),
+      to: datetime(hour: 22, minute: 0, second: 0),
+      body: [shawarmen],
     ),
   )
   let fri = tue
@@ -208,8 +227,13 @@
     ),
     (
       from: datetime(hour: 8, minute: 0, second: 0),
-      to: datetime(hour: 12, minute: 0, second: 0),
+      to: datetime(hour: 11, minute: 45, second: 0),
       body: [bib],
+    ),
+    (
+      from: datetime(hour: 12, minute: 0, second: 0),
+      to: datetime(hour: 14, minute: 0, second: 0),
+      body: [sarah],
     ),
   )
   let sun = (
@@ -232,6 +256,11 @@
       from: datetime(hour: 17, minute: 0, second: 0),
       to: datetime(hour: 19, minute: 0, second: 0),
       body: [meal prep],
+    ),
+    (
+      from: datetime(hour: 20, minute: 0, second: 0),
+      to: datetime(hour: 22, minute: 0, second: 0),
+      body: [merle],
     ),
   )
 
