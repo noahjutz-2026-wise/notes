@@ -1,4 +1,30 @@
 #{
+  let hue = 150deg
+
+  let zip_longest(..arrs, pad: []) = {
+    let n = arrs.pos().fold(0, (acc, x) => calc.max(acc, x.len()))
+    return range(n).map(i => {
+      arrs
+        .pos()
+        .map(a => {
+          a.at(i, default: pad)
+        })
+    })
+  }
+
+  let palette(n) = {
+    return range(n).map(i => {
+      let h = hue + 1deg * (360 / n) * i
+      (
+        _90: color.hsv(h, 10%, 90%),
+        _50: color.hsv(h, 60%, 50%),
+        _10: color.hsv(h, 60%, 40%),
+      )
+    })
+  }
+
+  let colors = palette(4)
+
   let times = (
     "06:45",
     "08:15",
@@ -20,11 +46,6 @@
   let sat = ()
   let sun = ()
 
-  let hue = 150deg
-
-  let fg = color.hsv(hue, 5%, 96%)
-  let fg_light = color.hsv(hue, 10%, 60%)
-
   set page(
     width: auto,
     height: auto,
@@ -32,8 +53,8 @@
     fill: color.hsv(hue, 50%, 20%),
   )
   set text(font: "DejaVu Sans Mono", fill: white)
-  show table.cell.where(y: 0): strong
-  show table.cell.where(x: 0): set text(fg_light)
+  show table.cell.where(y: 0): set text(colors.at(0)._90)
+  show table.cell.where(x: 0): set text(colors.at(0)._50)
 
   show table.cell: it => {
     show "relax": emph
@@ -53,17 +74,6 @@
         ]
       })
     }
-  }
-
-  let zip_longest(..arrs, pad: []) = {
-    let n = arrs.pos().fold(0, (acc, x) => calc.max(acc, x.len()))
-    return range(n).map(i => {
-      arrs
-        .pos()
-        .map(a => {
-          a.at(i, default: pad)
-        })
-    })
   }
 
   table(
