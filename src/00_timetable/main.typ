@@ -70,8 +70,10 @@
     fill: color.hsv(hue, 50%, 20%),
   )
   set text(font: "DejaVu Sans Mono", fill: white)
-  show table.cell.where(y: 0): set text(colors.at(0)._90)
   show table.cell.where(x: 0): set text(colors.at(0)._50)
+  show table.cell.where(x: 0): align.with(end)
+  show table.cell.where(y: 0): box.with(inset: (x: 4pt))
+  show table.cell.where(y: 0): set text(colors.at(0)._90)
   show table.cell.where(y: 1): box.with(height: max_height, width: 80pt)
 
   let times = (
