@@ -5,7 +5,7 @@
   let hue = 150deg
   let max_height = 150pt
 
-  let lo = datetime(hour: 6, minute: 0, second: 0)
+  let lo = datetime(hour: 8, minute: 0, second: 0)
   let hi = datetime(hour: 23, minute: 0, second: 0)
 
   let zip_longest(..arrs, pad: []) = {
@@ -23,6 +23,7 @@
     return range(n).map(i => {
       let h = hue + 1deg * (360 / n) * i
       (
+        _95: color.hsv(h, 5%, 95%),
         _90: color.hsv(h, 10%, 90%),
         _50: color.hsv(h, 60%, 50%),
         _10: color.hsv(h, 60%, 40%),
@@ -30,9 +31,11 @@
     })
   }
 
-  let choose_color(s) = {
-    // todo
-  }
+  let colors = palette(4)
+
+  let color_map = (
+    "bib": colors.at(1),
+  )
 
   let col(
     day,
@@ -43,17 +46,22 @@
       for block in day {
         let ty = ((block.from - lo) / (hi - lo)) * height
         let hy = ((block.to - lo) / (hi - lo)) * height
-        place(dy: ty, box(
-          height: hy,
-          width: width,
-          stroke: black,
-          block.body,
-        ))
+        let c = color_map.at(block.body.text, default: none)
+        place(dy: ty)[
+          #box(
+            height: hy,
+            width: width,
+            inset: 4pt,
+            fill: c._10,
+          )[
+            #set text(fill: c._95)
+            #set align(horizon)
+            #block.body
+          ]
+        ]
       }
     })
   }
-
-  let colors = palette(4)
 
   set page(
     width: auto,
@@ -64,7 +72,7 @@
   set text(font: "DejaVu Sans Mono", fill: white)
   show table.cell.where(y: 0): set text(colors.at(0)._90)
   show table.cell.where(x: 0): set text(colors.at(0)._50)
-  show table.cell.where(y: 1): box.with(height: max_height)
+  show table.cell.where(y: 1): box.with(height: max_height, width: 80pt)
 
   let times = (
     "06:45",
@@ -82,8 +90,8 @@
   let mon = (
     (
       from: datetime(hour: 8, minute: 0, second: 0),
-      to: datetime(hour: 9, minute: 0, second: 0),
-      body: [hi],
+      to: datetime(hour: 12, minute: 0, second: 0),
+      body: [bib],
     ),
   )
   let tue = ()
@@ -92,26 +100,6 @@
   let fri = ()
   let sat = ()
   let sun = ()
-
-  show table.cell: it => {
-    show "relax": emph
-    show "bib": strong
-    let fill = if it.body.has("text") {
-      (:).pairs().find(((entry, ..)) => entry in it.body.text)
-    }
-
-    if fill == none {
-      it
-    } else {
-      let (_, bg, fg) = fill.flatten()
-      set text(fill: fg)
-      layout(((width, height)) => {
-        box(width: width, height: height, fill: bg, inset: it.inset)[
-          #it.body
-        ]
-      })
-    }
-  }
 
   table(
     columns: 8,
