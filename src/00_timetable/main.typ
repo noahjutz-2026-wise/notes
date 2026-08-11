@@ -73,11 +73,11 @@
 
     layout(((width, height)) => {
       for tick in ticks {
-        let body = tick.display()
+          let body = tick.display("[hour]")
         let size = measure(body)
         let ty = (tick - lo) / (hi - lo) * height
-        place(dy: ty - 0.5pt)[
-          #line(length: 1000%, stroke: 1pt + colors.at(0)._30)
+        place(dx: 16pt, dy: ty - 0.25pt)[
+          #line(length: 1000%, stroke: .5pt + colors.at(0)._30)
         ]
         place(dy: ty - size.height / 2)[
           #body
@@ -96,11 +96,11 @@
   set text(font: "DejaVu Sans Mono", fill: white)
   show table.cell.where(x: 0): strong
   show table.cell.where(x: 0): set text(colors.at(0)._50)
-  show table.cell.where(x: 0): align.with(end)
   show table.cell.where(y: 0): box.with(inset: (x: 4pt))
   show table.cell.where(y: 0): strong
   show table.cell.where(y: 0): set text(colors.at(0)._90)
   show table.cell.where(y: 1): box.with(height: max_height, width: 80pt)
+  show table.cell.where(x: 0): box.with(width: 24pt)
 
   let times = (
     "06:45",
