@@ -1,3 +1,11 @@
+#import "/template.typ": template_base
+
+#show: template_base
+
+#set document(
+  date: datetime(year: 2026, month: 7, day: 8),
+)
+
 #set par(justify: true)
 
 #title[Sim-to-Real Transfer]

@@ -1,16 +1,9 @@
+#import "/template.typ": template_base
+
+#show: template_base
+
 #set document(
-  author: "Noah Jutz",
   date: datetime(year: 2026, month: 8, day: 11),
-)
-#set page(
-  header: [
-    #stack(dir: ltr, spacing: 1fr)[
-      #context document.author.join("") \
-      Bachelorarbeit -- CyberRunner Sim2Real
-    ][
-      #context document.date.display()
-    ]
-  ],
 )
 
 #title[Kernpunkte]
