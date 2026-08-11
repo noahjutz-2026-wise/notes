@@ -5,7 +5,7 @@
   let hue = 150deg
   let max_height = 350pt
 
-  let lo = datetime(hour: 8, minute: 0, second: 0)
+  let lo = datetime(hour: 7, minute: 0, second: 0)
   let hi = datetime(hour: 23, minute: 0, second: 0)
 
   let zip_longest(..arrs, pad: []) = {
@@ -35,6 +35,7 @@
 
   let color_map = (
     "bib": colors.at(1),
+    "gym": colors.at(2),
   )
 
   let col(
@@ -73,7 +74,7 @@
 
     layout(((width, height)) => {
       for tick in ticks {
-          let body = tick.display("[hour]")
+        let body = tick.display("[hour]")
         let size = measure(body)
         let ty = (tick - lo) / (hi - lo) * height
         place(dx: 16pt, dy: ty - 0.25pt)[
@@ -82,7 +83,6 @@
         place(dy: ty - size.height / 2)[
           #body
         ]
-
       }
     })
   }
@@ -117,6 +117,11 @@
   )
   let mon = (
     (
+      from: datetime(hour: 7, minute: 0, second: 0),
+      to: datetime(hour: 7, minute: 30, second: 0),
+      body: [get ready],
+    ),
+    (
       from: datetime(hour: 8, minute: 0, second: 0),
       to: datetime(hour: 12, minute: 0, second: 0),
       body: [bib],
@@ -135,6 +140,11 @@
   )
   let tue = (
     (
+      from: datetime(hour: 7, minute: 0, second: 0),
+      to: datetime(hour: 7, minute: 30, second: 0),
+      body: [get ready],
+    ),
+    (
       from: datetime(hour: 8, minute: 0, second: 0),
       to: datetime(hour: 12, minute: 0, second: 0),
       body: [bib],
@@ -151,6 +161,11 @@
     ),
   )
   let wed = (
+    (
+      from: datetime(hour: 7, minute: 0, second: 0),
+      to: datetime(hour: 7, minute: 30, second: 0),
+      body: [get ready],
+    ),
     (
       from: datetime(hour: 8, minute: 0, second: 0),
       to: datetime(hour: 12, minute: 0, second: 0),
@@ -169,6 +184,11 @@
   )
   let thu = (
     (
+      from: datetime(hour: 7, minute: 0, second: 0),
+      to: datetime(hour: 7, minute: 30, second: 0),
+      body: [get ready],
+    ),
+    (
       from: datetime(hour: 8, minute: 0, second: 0),
       to: datetime(hour: 12, minute: 0, second: 0),
       body: [bib],
@@ -182,18 +202,44 @@
   let fri = tue
   let sat = (
     (
+      from: datetime(hour: 7, minute: 0, second: 0),
+      to: datetime(hour: 7, minute: 30, second: 0),
+      body: [get ready],
+    ),
+    (
       from: datetime(hour: 8, minute: 0, second: 0),
       to: datetime(hour: 12, minute: 0, second: 0),
       body: [bib],
     ),
   )
-  let sun = ()
+  let sun = (
+    (
+      from: datetime(hour: 8, minute: 0, second: 0),
+      to: datetime(hour: 9, minute: 0, second: 0),
+      body: [get ready],
+    ),
+    (
+      from: datetime(hour: 9, minute: 15, second: 0),
+      to: datetime(hour: 12, minute: 0, second: 0),
+      body: [clean],
+    ),
+    (
+      from: datetime(hour: 13, minute: 0, second: 0),
+      to: datetime(hour: 16, minute: 0, second: 0),
+      body: [gym],
+    ),
+    (
+      from: datetime(hour: 17, minute: 0, second: 0),
+      to: datetime(hour: 19, minute: 0, second: 0),
+      body: [meal prep],
+    ),
+  )
 
   table(
     columns: 8,
     stroke: none,
     inset: (x: 1pt, y: 4pt),
     [], [Mon], [Tue], [Wed], [Thu], [Fri], [Sat], [Sun],
-    time_col(), col(mon), col(tue), col(wed), col(thu), col(fri), col(sat),
+    time_col(), col(mon), col(tue), col(wed), col(thu), col(fri), col(sat), col(sun),
   )
 }
