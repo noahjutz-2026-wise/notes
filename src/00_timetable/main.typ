@@ -63,6 +63,30 @@
     })
   }
 
+  let time_col(lo: lo, hi: hi, tick_gap: duration(hours: 1)) = {
+    let t = lo
+    let ticks = ()
+    while t < hi {
+      ticks.push(t)
+      t += tick_gap
+    }
+
+    layout(((width, height)) => {
+      for tick in ticks {
+        let body = tick.display()
+        let size = measure(body)
+        let ty = (tick - lo) / (hi - lo) * height
+        place(dy: ty - 0.5pt)[
+          #line(length: 1000%, stroke: 1pt + colors.at(0)._30)
+        ]
+        place(dy: ty - size.height / 2)[
+          #body
+        ]
+
+      }
+    })
+  }
+
   set page(
     width: auto,
     height: auto,
@@ -170,6 +194,6 @@
     stroke: none,
     inset: (x: 1pt, y: 4pt),
     [], [Mon], [Tue], [Wed], [Thu], [Fri], [Sat], [Sun],
-    stack(lo.display(), hi.display(), spacing: 1fr), col(mon), col(tue), col(wed), col(thu), col(fri), col(sat),
+    time_col(), col(mon), col(tue), col(wed), col(thu), col(fri), col(sat),
   )
 }
