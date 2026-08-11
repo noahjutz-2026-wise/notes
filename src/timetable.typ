@@ -23,6 +23,27 @@
     })
   }
 
+  let choose_color(s) = {
+    // todo
+  }
+
+  let col(
+    day,
+    hi: datetime(hour: 6, minute: 0, second: 0),
+    lo: datetime(hour: 23, minute: 0, second: 0),
+  ) = {
+    layout((width, height) => {
+      for block in day {
+        let ty = (day.from - lo) * (hi - lo)
+        let hy = (day.to - lo) * (hi - lo)
+        place(dy: ty, box(
+          height: hy,
+          day.body,
+        ))
+      }
+    })
+  }
+
   let colors = palette(4)
 
   let times = (
