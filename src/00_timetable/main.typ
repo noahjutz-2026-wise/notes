@@ -76,6 +76,7 @@
       ticks.push(t)
       t += tick_gap
     }
+    ticks.push(hi)
 
     layout(((width, height)) => {
       for tick in ticks {
@@ -95,7 +96,7 @@
   set page(
     width: auto,
     height: auto,
-    margin: 0pt,
+    margin: 32pt,
     fill: color.hsv(hue, 50%, 20%),
   )
   set text(font: "DejaVu Sans Mono", fill: white)
