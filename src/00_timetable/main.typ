@@ -3,7 +3,7 @@
 #{
   let rng = suiji.gen-rng-f(4)
   let hue = 150deg
-  let max_height = 150pt
+  let max_height = 350pt
 
   let lo = datetime(hour: 8, minute: 0, second: 0)
   let hi = datetime(hour: 23, minute: 0, second: 0)
@@ -26,7 +26,7 @@
         _95: color.hsv(h, 5%, 95%),
         _90: color.hsv(h, 10%, 90%),
         _50: color.hsv(h, 60%, 50%),
-        _10: color.hsv(h, 60%, 40%),
+        _30: color.hsv(h, 60%, 30%),
       )
     })
   }
@@ -45,17 +45,17 @@
     layout(((width, height)) => {
       for block in day {
         let ty = ((block.from - lo) / (hi - lo)) * height
-        let hy = ((block.to - lo) / (hi - lo)) * height
+        let hy = ((block.to - block.from) / (hi - lo)) * height
         let c = color_map.at(block.body.text, default: none)
         place(dy: ty)[
           #box(
             height: hy,
             width: width,
             inset: 4pt,
-            fill: c._10,
+            fill: if c == none { colors.at(0)._30 } else { c._50 },
           )[
-            #set text(fill: c._95)
-            #set align(horizon)
+            #set text(fill: if c == none { colors.at(0)._95 } else { c._95 })
+            #set align(center + horizon)
             #block.body
           ]
         ]
@@ -70,9 +70,11 @@
     fill: color.hsv(hue, 50%, 20%),
   )
   set text(font: "DejaVu Sans Mono", fill: white)
+  show table.cell.where(x: 0): strong
   show table.cell.where(x: 0): set text(colors.at(0)._50)
   show table.cell.where(x: 0): align.with(end)
   show table.cell.where(y: 0): box.with(inset: (x: 4pt))
+  show table.cell.where(y: 0): strong
   show table.cell.where(y: 0): set text(colors.at(0)._90)
   show table.cell.where(y: 1): box.with(height: max_height, width: 80pt)
 
@@ -95,19 +97,79 @@
       to: datetime(hour: 12, minute: 0, second: 0),
       body: [bib],
     ),
+    (
+      from: datetime(hour: 13, minute: 30, second: 0),
+      to: datetime(hour: 14, minute: 0, second: 0),
+      body: [Q&A],
+    ),
+
+    (
+      from: datetime(hour: 14, minute: 0, second: 0),
+      to: datetime(hour: 20, minute: 0, second: 0),
+      body: [bib],
+    ),
   )
-  let tue = ()
-  let wed = ()
-  let thu = ()
-  let fri = ()
-  let sat = ()
+  let tue = (
+    (
+      from: datetime(hour: 8, minute: 0, second: 0),
+      to: datetime(hour: 12, minute: 0, second: 0),
+      body: [bib],
+    ),
+    (
+      from: datetime(hour: 13, minute: 0, second: 0),
+      to: datetime(hour: 17, minute: 0, second: 0),
+      body: [bib],
+    ),
+    (
+      from: datetime(hour: 18, minute: 0, second: 0),
+      to: datetime(hour: 20, minute: 0, second: 0),
+      body: [gym],
+    ),
+  )
+  let wed = (
+    (
+      from: datetime(hour: 8, minute: 0, second: 0),
+      to: datetime(hour: 12, minute: 0, second: 0),
+      body: [bib],
+    ),
+    (
+      from: datetime(hour: 13, minute: 0, second: 0),
+      to: datetime(hour: 18, minute: 0, second: 0),
+      body: [bib],
+    ),
+    (
+      from: datetime(hour: 19, minute: 0, second: 0),
+      to: datetime(hour: 20, minute: 0, second: 0),
+      body: [gym],
+    ),
+  )
+  let thu = (
+    (
+      from: datetime(hour: 8, minute: 0, second: 0),
+      to: datetime(hour: 12, minute: 0, second: 0),
+      body: [bib],
+    ),
+    (
+      from: datetime(hour: 13, minute: 0, second: 0),
+      to: datetime(hour: 20, minute: 0, second: 0),
+      body: [bib],
+    ),
+  )
+  let fri = tue
+  let sat = (
+    (
+      from: datetime(hour: 8, minute: 0, second: 0),
+      to: datetime(hour: 12, minute: 0, second: 0),
+      body: [bib],
+    ),
+  )
   let sun = ()
 
   table(
     columns: 8,
     stroke: none,
-    inset: (x: 8pt, y: 4pt),
+    inset: (x: 1pt, y: 4pt),
     [], [Mon], [Tue], [Wed], [Thu], [Fri], [Sat], [Sun],
-    stack(lo.display(), hi.display(), spacing: 1fr), col(mon),
+    stack(lo.display(), hi.display(), spacing: 1fr), col(mon), col(tue), col(wed), col(thu), col(fri), col(sat),
   )
 }
