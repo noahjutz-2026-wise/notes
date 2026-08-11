@@ -2,7 +2,7 @@
 
 #{
   let rng = suiji.gen-rng-f(4)
-  let hue = 150deg
+  let hue = 275deg
   let max_height = 350pt
 
   let lo = datetime(hour: 7, minute: 0, second: 0)
