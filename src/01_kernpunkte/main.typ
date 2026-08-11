@@ -15,7 +15,7 @@
 
 #title[Kernpunkte]
 
-- *Titel:* CyberRunner Sim2Real: Beschleunigung des Trainings eines physischen Reinforcement-Learning Murmelspiel-Roboters durch Sim-to-Real transfer.
+- *Titel:* CyberRunner Sim2Real: Beschleunigung des Trainings eines physischen Reinforcement-Learning Murmelspiel-Roboters durch Sim-to-Real Transfer.
 - *Hypothese:* Ein Sim-to-Real-Transfer am CyberRunner reduziert die benötigten Umgebungsschritte am physischen System um mindestens 80%, um eine Erfolgsquote von 76% zu erreichen, wobei die finale Durchlaufzeit maximal 15% über der eines rein hardwaretrainierten Modells liegt. Annahme: Der Reality Gap bezüglich physikalischer Dynamiken und visueller Beobachtungen lässt sich durch die Simulation hinreichend minimieren.
 - *Basis:* CyberRunner paper, "Marble Maze" Unity Masterprojekt
 - *Ziele*
