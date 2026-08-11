@@ -4,6 +4,7 @@
   let rng = suiji.gen-rng-f(4)
   let hue = 275deg
   let max_height = 350pt
+  let col_width = 80pt
 
   let lo = datetime(hour: 7, minute: 0, second: 0)
   let hi = datetime(hour: 23, minute: 0, second: 0)
@@ -84,7 +85,7 @@
         let size = measure(body)
         let ty = (tick - lo) / (hi - lo) * height
         place(dx: 16pt, dy: ty - 0.25pt)[
-          #line(length: 1000%, stroke: .5pt + colors.at(0)._30)
+          #line(length: 7 * col_width + 8pt, stroke: .5pt + colors.at(0)._30)
         ]
         place(dy: ty - size.height / 2)[
           #body
@@ -105,7 +106,7 @@
   show table.cell.where(y: 0): box.with(inset: (x: 4pt))
   show table.cell.where(y: 0): strong
   show table.cell.where(y: 0): set text(colors.at(0)._90)
-  show table.cell.where(y: 1): box.with(height: max_height, width: 80pt)
+  show table.cell.where(y: 1): box.with(height: max_height, width: col_width)
   show table.cell.where(x: 0): box.with(width: 24pt)
 
   let times = (
