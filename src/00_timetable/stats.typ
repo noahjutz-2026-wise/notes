@@ -75,7 +75,7 @@
 
 #expected_work.values().map(((work, ..)) => work).sum()
 
-= Deviation
+= Success rate
 
 #let raw_data = csv("assets/tomato.tsv", delimiter: "\t")
 #let data = (
@@ -88,8 +88,8 @@
       let weekday = t.weekday() - 1
       if weekday > 5 { return }
       let expected_dur = expected_work.values().at(weekday).work
-      let dur_dev = dur - expected_dur
-      (t, dur_dev.hours())
+      let part = dur / expected_dur
+      (t, part)
     })
     .filter(it => it != none)
 )
@@ -101,7 +101,7 @@
 #lq.diagram(
   width: 100%,
   height: 300pt,
-  lq.plot(
+  lq.bar(
     x,
     y,
   ),
