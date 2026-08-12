@@ -77,23 +77,26 @@
 
 = Deviation
 
-#let data = csv("assets/tomato.tsv", delimiter: "\t")
-#let x = data.map(row => {
-  let (y, m, d) = row.at(0).split("-").map(int)
-  datetime(year: y, month: m, day: d)
-})
-#let y = (
-  data
-    .enumerate()
-    .map(((i, row)) => {
-      let s = duration(seconds: int(1000 * float(row.at(1))))
-      let idx = x.at(i).weekday() - 1
-      if (idx > 5) { return float.nan }
-      let expected = expected_work.values().at(idx).work
+#let raw_data = csv("assets/tomato.tsv", delimiter: "\t")
+#let data = (
+  raw_data
+    .map(row => {
+      let (y, m, d) = row.at(0).split("-").map(int)
+      let t = datetime(year: y, month: m, day: d)
+      let dur = duration(seconds: int(1000 * float(row.at(1))))
 
-      (s - expected).hours()
+      let weekday = t.weekday() - 1
+      if weekday > 5 { return }
+      let expected_dur = expected_work.values().at(weekday).work
+      let dur_dev = dur - expected_dur
+      (t, dur_dev.hours())
     })
+    .filter(it => it != none)
 )
+
+
+#let x = data.map(it => it.at(0))
+#let y = data.map(it => it.at(1))
 
 #lq.diagram(
   width: 100%,
