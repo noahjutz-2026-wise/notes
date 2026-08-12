@@ -1,4 +1,20 @@
+#set text(lang: "en")
+
 = BartoSutton
+
+== Notes
+
+_Page 55_
+
+- *Action-Value methods*
+  - _Weighted Average:_ $Q_(n+1)=R_n+alpha_n (R_n-Q_n)$
+  - _Sample Average:_ $alpha_n (a) = 1/n$
+  - _Exponential recency-weighted Average:_ $alpha (1-alpha)^(n-i)$
+    - _Constant step-size parameter:_ $alpha_n (a)=alpha$
+- *Action selection*
+  - _$epsilon$-Greedy methods:_ Exploit with $p(1-epsilon)$, explore with $p(epsilon)$.
+
+== Exercises
 
 _Exercise 2.4_
 
