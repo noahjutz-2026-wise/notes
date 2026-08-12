@@ -48,6 +48,7 @@
   width: 100%,
   height: 200pt,
   xaxis: (
+    ticks: range(7),
     format-ticks: (ticks, ..args) => {
       ticks.map(tick => {
         expected_work.keys().at(int(tick))
@@ -69,3 +70,5 @@
     label: [Breaks],
   ),
 )
+
+#expected_work.values().map(((work, ..)) => work).sum()
