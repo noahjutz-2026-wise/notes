@@ -1,8 +1,6 @@
-#import "/deps.typ": suiji
 #import "schedule.typ": *
 
 #{
-  let rng = suiji.gen-rng-f(4)
   let hue = 275deg
   let max_height = 350pt
   let col_width = 80pt
