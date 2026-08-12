@@ -1,3 +1,4 @@
+#import "/deps.typ": lilaq as lq
 #import "schedule.typ": fri, mon, sat, sun, thu, tue, wed
 
 #let days = (
@@ -43,4 +44,28 @@
     .to-dict()
 }
 
-#expected_work
+#lq.diagram(
+  width: 100%,
+  height: 200pt,
+  xaxis: (
+    format-ticks: (ticks, ..args) => {
+      ticks.map(tick => {
+        expected_work.keys().at(int(tick))
+      })
+    },
+  ),
+  yaxis: (
+    format-ticks: lq.tick-format.linear,
+  ),
+  lq.bar(
+    range(expected_work.keys().len()),
+    expected_work.values().map(it => it.work.hours()),
+    label: [Work],
+  ),
+  lq.bar(
+    range(expected_work.keys().len()),
+    expected_work.values().map(it => it.work.hours() + it.breaks.hours()),
+    base: expected_work.values().map(it => it.work.hours()),
+    label: [Breaks],
+  ),
+)
