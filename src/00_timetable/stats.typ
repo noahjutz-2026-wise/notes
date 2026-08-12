@@ -44,6 +44,8 @@
     .to-dict()
 }
 
+= Expected work
+
 #lq.diagram(
   width: 100%,
   height: 200pt,
@@ -72,3 +74,32 @@
 )
 
 #expected_work.values().map(((work, ..)) => work).sum()
+
+= Deviation
+
+#let data = csv("assets/tomato.tsv", delimiter: "\t")
+#let x = data.map(row => {
+  let (y, m, d) = row.at(0).split("-").map(int)
+  datetime(year: y, month: m, day: d)
+})
+#let y = (
+  data
+    .enumerate()
+    .map(((i, row)) => {
+      let s = duration(seconds: int(1000 * float(row.at(1))))
+      let idx = x.at(i).weekday() - 1
+      if (idx > 5) { return float.nan }
+      let expected = expected_work.values().at(idx).work
+
+      (s - expected).hours()
+    })
+)
+
+#lq.diagram(
+  width: 100%,
+  height: 300pt,
+  lq.plot(
+    x,
+    y,
+  ),
+)
