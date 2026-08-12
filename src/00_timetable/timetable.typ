@@ -1,37 +1,12 @@
 #import "schedule.typ": *
+#import "colors.typ": colors
 
 #{
-  let hue = 275deg
   let max_height = 350pt
   let col_width = 80pt
 
   let lo = datetime(hour: 6, minute: 0, second: 0)
   let hi = datetime(hour: 23, minute: 0, second: 0)
-
-  let zip_longest(..arrs, pad: []) = {
-    let n = arrs.pos().fold(0, (acc, x) => calc.max(acc, x.len()))
-    return range(n).map(i => {
-      arrs
-        .pos()
-        .map(a => {
-          a.at(i, default: pad)
-        })
-    })
-  }
-
-  let palette(n) = {
-    return range(n).map(i => {
-      let h = hue + 1deg * (360 / n) * i
-      (
-        _95: color.hsv(h, 5%, 95%),
-        _90: color.hsv(h, 10%, 90%),
-        _50: color.hsv(h, 60%, 50%),
-        _30: color.hsv(h, 60%, 30%),
-      )
-    })
-  }
-
-  let colors = palette(5)
 
   let color_map = (
     "bib": colors.at(1),
@@ -97,7 +72,7 @@
     width: auto,
     height: auto,
     margin: 32pt,
-    fill: color.hsv(hue, 50%, 20%),
+    fill: colors.at(0)._20,
   )
   set text(font: "DejaVu Sans Mono", fill: white)
   show table.cell.where(x: 0): strong
