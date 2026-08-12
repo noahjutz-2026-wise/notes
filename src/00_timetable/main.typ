@@ -6,7 +6,7 @@
   let max_height = 350pt
   let col_width = 80pt
 
-  let lo = datetime(hour: 7, minute: 0, second: 0)
+  let lo = datetime(hour: 6, minute: 0, second: 0)
   let hi = datetime(hour: 23, minute: 0, second: 0)
 
   let zip_longest(..arrs, pad: []) = {
@@ -124,7 +124,7 @@
   )
   let mon = (
     (
-      from: datetime(hour: 7, minute: 0, second: 0),
+      from: datetime(hour: 6, minute: 30, second: 0),
       to: datetime(hour: 7, minute: 30, second: 0),
       body: [get ready],
     ),
@@ -156,7 +156,7 @@
   )
   let tue = (
     (
-      from: datetime(hour: 7, minute: 0, second: 0),
+      from: datetime(hour: 6, minute: 30, second: 0),
       to: datetime(hour: 7, minute: 30, second: 0),
       body: [get ready],
     ),
@@ -178,7 +178,7 @@
   )
   let wed = (
     (
-      from: datetime(hour: 7, minute: 0, second: 0),
+      from: datetime(hour: 6, minute: 30, second: 0),
       to: datetime(hour: 7, minute: 30, second: 0),
       body: [get ready],
     ),
@@ -200,7 +200,7 @@
   )
   let thu = (
     (
-      from: datetime(hour: 7, minute: 0, second: 0),
+      from: datetime(hour: 6, minute: 30, second: 0),
       to: datetime(hour: 7, minute: 30, second: 0),
       body: [get ready],
     ),
@@ -223,7 +223,7 @@
   let fri = tue
   let sat = (
     (
-      from: datetime(hour: 7, minute: 0, second: 0),
+      from: datetime(hour: 6, minute: 30, second: 0),
       to: datetime(hour: 7, minute: 30, second: 0),
       body: [get ready],
     ),
