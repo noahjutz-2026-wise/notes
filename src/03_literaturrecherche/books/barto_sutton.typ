@@ -1,4 +1,5 @@
 #set text(lang: "en")
+#let argmax = $op("arg max", limits: #true)$
 
 = BartoSutton
 
@@ -11,8 +12,22 @@ _Page 55_
   - _Sample Average:_ $alpha_n (a) = 1/n$
   - _Exponential recency-weighted Average:_ $alpha (1-alpha)^(n-i)$
     - _Constant step-size parameter:_ $alpha_n (a)=alpha$
-- *Action selection*
-  - _$epsilon$-Greedy methods:_ Exploit with $p(1-epsilon)$, explore with $p(epsilon)$.
+
+_Page 64_
+
+- *Balancing Exploitation and Exploration*
+  - _Greedy:_ $ A_t = argmax_a Q_t (a) $
+  - _Epsilon-Greedy:_
+    $
+      A_t <- cases(
+        argmax_a Q(a) & "with" p(1-epsilon) "(breaking ties randomly)",
+        "random" a & "with" p(epsilon)
+      )
+    $
+  - _Upper Confidence Bound (UCB):_ $ A_t (a) = argmax_a (Q_t (a) + c sqrt((ln t)/(N_t (a)))) $
+  - _Gradient Bandit:_ $ Pr(A_t=a) = e^(H_t (a))/(sum_(b=1)^k e^(H_t (b))) = pi_t (a) $
+
+
 
 == Exercises
 
