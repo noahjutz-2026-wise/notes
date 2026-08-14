@@ -27,7 +27,51 @@ _Page 64_
   - _Upper Confidence Bound (UCB):_ $ A_t (a) = argmax_a (Q_t (a) + c sqrt((ln t)/(N_t (a)))) $
   - _Gradient Bandit:_ $ Pr(A_t=a) = e^(H_t (a))/(sum_(b=1)^k e^(H_t (b))) = pi_t (a) $
 
+_Page 71_
 
+*...*
+
+#table(
+  columns: 2,
+  [_Dynamics_ of the MDP],
+  $
+    p(s', r | s, a) = Pr {S_t = s', R_t = r | S_(t-1) = s, A_(t-1) = a}
+  $,
+
+  [_State-Transition Probabilities_], [Todo],
+)
+
+_Page 81_
+
+*Value Functions*
+
+#table(
+  columns: 2,
+  [_Discounted Expected Return_],
+  $
+    G_t = sum_(k=t+1)^T gamma^(k-t-1) R_k
+  $,
+
+  [_Policy_],
+  $
+    sum_(a in cal(A)(s)) pi(a | s) = 1
+  $,
+
+  [_State-Value Function_],
+  $
+    v_pi (s) = EE_pi [G_t | S_t = s]
+  $,
+
+  [_Action-Value Function_],
+  $
+    q_pi (s, a) = EE_pi [G_t | S_t = s, A_t = a]
+  $,
+
+  [_Bellman Equation for $v_pi$_],
+  $
+    v_pi (s) = sum_a pi(a|s) sum_(s', r) ..."todo"
+  $,
+)
 
 == Exercises
 
