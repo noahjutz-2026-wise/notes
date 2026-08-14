@@ -85,3 +85,14 @@ $
                              & = (dash(o)_(n-1) (1-alpha))/dash(o)_n \
   product_(i=1)^n 1 - beta_i & = product_(i=1)^n (dash(o)_(i-1) (1-alpha))/dash(o)_i \
 $
+
+_Exercise 3.11_
+
+$
+  p(s', r | s, a) & eq.def Pr(S_t = s', R_t = r | S_(t-1)=s, A_(t-1)=a) \
+          pi(a|s) & eq.def Pr(A_t=a | S_t=s)
+$
+
+$
+  EE(R_(t+1) | S_t=s) = sum_(a in cal(A)(s)) pi(a|s) dot r(s, a)
+$
