@@ -15,6 +15,13 @@
       ]
     },
     numbering: "1",
+    footer: context {
+      place(center, counter(page).display())
+      place(end)[
+        #set text(black.lighten(25%))
+        #sys.inputs.at("revision", default: [])
+      ]
+    },
   )
   set text(
     lang: "de",
