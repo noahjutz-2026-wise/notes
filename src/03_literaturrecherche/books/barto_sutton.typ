@@ -11,7 +11,7 @@
 #let p10 = lq.color.map.petroff10.enumerate().map(((i, c)) => ("_" + str(i), c)).to-dict()
 
 
-*Action-Value methods* _Page 55_
+*Step Size / Learning Rate (Action-Value methods)* _Page 55_
 #table(
   columns: 2,
   [_Weighted Average_],
@@ -67,7 +67,7 @@
 
 #table(
   columns: (1fr, auto),
-  table.cell(fill: p10._0)[_Dynamics_ of the MDP],
+  table.cell(fill: p10._0)[_Dynamics_ of the Environment],
   $
     p(s', r | s, a) = Pr {S_t = s', R_t = r | S_(t-1) = s, A_(t-1) = a}
   $,
@@ -115,6 +115,17 @@
     v_pi (s) = sum_a pi(a|s) sum_(s', r) markhl(p(s', r | s, a), color: #p10._0) [r + gamma v_pi (s')]
   $,
 
+  [_Optimal State-Value Function_],
+  $
+    v_* (s) = max_pi v_pi (s)
+  $,
+
+  [_Bellman Optimality Equation for $v_*$_],
+  $
+    v_* (s) & = max_(a in cal(A)(s)) q_* (a, s) \
+            & = max sum_(s', r) p(s', r | s, a) [r + gamma v_* (s')]
+  $,
+
   [_Action-Value Function_],
   $
     q_pi (s, a) = EE_pi [G_t | S_t = s, A_t = a]
@@ -123,6 +134,17 @@
   [_Bellman Equation for $q_pi$_],
   $
     q_pi (s, a) = sum_(s', r) p(s', r | s, a) [r + gamma sum_a' pi(s', a') q_pi (s', a') ]
+  $,
+
+  [_Optimal Action-Value Function_],
+  $
+    q_* (s, a) & = max_pi q_pi (s, a) \
+               & = EE [R_(t+1) + gamma v_* (s) | S_t=s, A_t=a]
+  $,
+
+  [_Bellman Optimality Equation for $q_*$_],
+  $
+    q_* (s, a) & = sum_(s', r) p(s', r | s, a) [r + max_(a') q_*(s', a')]
   $,
 )
 
