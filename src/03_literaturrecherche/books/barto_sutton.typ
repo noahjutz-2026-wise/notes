@@ -5,27 +5,58 @@
 
 == Notes
 
-_Page 55_
 
-- *Action-Value methods*
-  - _Weighted Average:_ $Q_(n+1)=Q_n+alpha_n (R_n-Q_n)$
-  - _Sample Average:_ $alpha_n (a) = 1/n$
-  - _Exponential recency-weighted Average:_ $alpha (1-alpha)^(n-i)$
-    - _Constant step-size parameter:_ $alpha_n (a)=alpha$
+*Action-Value methods* _Page 55_
+#table(
+  columns: 2,
+  [_Weighted Average_],
+  $
+    Q_(n+1)=Q_n+alpha_n (R_n-Q_n)
+  $,
 
-_Page 64_
+  [_Sample Average_],
+  $
+    alpha_n (a) = 1/n
+  $,
 
-- *Balancing Exploitation and Exploration*
-  - _Greedy:_ $ A_t = argmax_a Q_t (a) $
-  - _Epsilon-Greedy:_
-    $
-      A_t <- cases(
-        argmax_a Q(a) & "with" p(1-epsilon) "(breaking ties randomly)",
-        "random" a & "with" p(epsilon)
-      )
-    $
-  - _Upper Confidence Bound (UCB):_ $ A_t (a) = argmax_a (Q_t (a) + c sqrt((ln t)/(N_t (a)))) $
-  - _Gradient Bandit:_ $ Pr(A_t=a) = e^(H_t (a))/(sum_(b=1)^k e^(H_t (b))) = pi_t (a) $
+  [_Exponential recency-weighted Average_],
+  $
+    alpha (1-alpha)^(n-i)
+  $,
+
+  [_Constant step-size parameter_],
+  $
+    alpha_n (a)=alpha
+  $,
+)
+
+
+*Balancing Exploitation and Exploration* _Page 64_
+#table(
+  columns: (1fr, auto),
+  [_Greedy_],
+  $
+    A_t = argmax_a Q_t (a)
+  $,
+
+  [_Epsilon-Greedy_],
+  $
+    A_t <- cases(
+      argmax_a Q(a) & "with" p(1-epsilon) "(breaking ties randomly)",
+      "random" a & "with" p(epsilon)
+    )
+  $,
+
+  [_Upper Confidence Bound (UCB)_],
+  $
+    A_t (a) = argmax_a (Q_t (a) + c sqrt((ln t)/(N_t (a))))
+  $,
+
+  [_Gradient Bandit_],
+  $
+    Pr(A_t=a) = e^(H_t (a))/(sum_(b=1)^k e^(H_t (b))) = pi_t (a)
+  $,
+)
 
 *Markov Decision Processes* _Page 71_
 
