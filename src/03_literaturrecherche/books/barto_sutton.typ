@@ -188,3 +188,15 @@ $
 $
   EE(R_(t+1) | S_t=s) = sum_(a in cal(A)(s)) pi(a|s) dot r(s, a)
 $
+
+_Exercise 3.14_
+
+Assuming $pi(a | s) = 1/4; gamma=0.9; r=0;p(s',r|s,a)=1$, then
+
+$
+  v_pi (s) & eq.def sum_a pi(a | s) sum_(s', r) p(s',r|s,a)[r+gamma v_pi (s')] \
+           & = sum_a 1/4 sum_(s',r) bb(1)_(s'=s_a) [0 + gamma v_pi (s')] \
+           & = 1/4 dot gamma dot sum_(a in {arrow.t, <-, arrow.b, ->}) v_pi (s_a) \
+           & = 1/4 dot 0.9 dot (0.7+2.3+0.4-0.4) \
+           & = 0.675 approx 0.7 space square.filled
+$
