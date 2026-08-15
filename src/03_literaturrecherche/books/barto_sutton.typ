@@ -27,23 +27,35 @@ _Page 64_
   - _Upper Confidence Bound (UCB):_ $ A_t (a) = argmax_a (Q_t (a) + c sqrt((ln t)/(N_t (a)))) $
   - _Gradient Bandit:_ $ Pr(A_t=a) = e^(H_t (a))/(sum_(b=1)^k e^(H_t (b))) = pi_t (a) $
 
-_Page 71_
-
-*...*
+*Markov Decision Processes* _Page 71_
 
 #table(
-  columns: 2,
+  columns: (1fr, auto),
   [_Dynamics_ of the MDP],
   $
     p(s', r | s, a) = Pr {S_t = s', R_t = r | S_(t-1) = s, A_(t-1) = a}
   $,
 
-  [_State-Transition Probabilities_], [Todo],
+  [_State-Transition Probabilities_],
+  $
+    p(s' | s, a) & = Pr(S_t = s' | S_(t-1)=s, A_(t-1)=a) \
+                 & = sum_(r in cal(R)) p(s', r | s, a)
+  $,
+
+  [Expected Reward for (State, Action)],
+  $
+    r(s,a) & = EE [R_t | S_(t-1)=s, A_(t-1)=a] \
+           & = sum_(r in cal(R)) ( r sum_(s' in cal(S)) p(s', r | s, a))
+  $,
+
+  [Expected reward for (State, Action, next State)],
+  $
+    r(s, a, s') & = EE[R_t | S_(t-1)=s, A_(t-1)=a, S_t = s'] \
+                & = sum_(r in cal(R)) r underbrace((p(s', r | s, a))/(p(s' | s, a)), =p(r | s, a, s'))
+  $,
 )
 
-_Page 81_
-
-*Value Functions*
+*Value Functions* _Page 81_
 
 #table(
   columns: 2,
