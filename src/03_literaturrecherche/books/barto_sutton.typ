@@ -1,9 +1,14 @@
+#import "/deps.typ": lilaq as lq, mannot
+#import mannot: markhl
+
 #set text(lang: "en")
 #let argmax = $op("arg max", limits: #true)$
 
 = BartoSutton
 
 == Notes
+
+#let p10 = lq.color.map.petroff10.enumerate().map(((i, c)) => ("_" + str(i), c)).to-dict()
 
 
 *Action-Value methods* _Page 55_
@@ -62,7 +67,7 @@
 
 #table(
   columns: (1fr, auto),
-  [_Dynamics_ of the MDP],
+  table.cell(fill: p10._0)[_Dynamics_ of the MDP],
   $
     p(s', r | s, a) = Pr {S_t = s', R_t = r | S_(t-1) = s, A_(t-1) = a}
   $,
@@ -112,7 +117,7 @@
 
   [_Bellman Equation for $v_pi$_],
   $
-    v_pi (s) = sum_a pi(a|s) sum_(s', r) ..."todo"
+    v_pi (s) = sum_a pi(a|s) sum_(s', r) markhl(p(s', r | s, a), color: #p10._0) [r + gamma v_pi (s')]
   $,
 )
 
