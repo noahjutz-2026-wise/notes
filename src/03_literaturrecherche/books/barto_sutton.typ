@@ -148,6 +148,16 @@
   $,
 )
 
+*Dynamic Programming* _Page 96_
+
+#table(
+  columns: 2,
+  [_Iterative Policy Evaluation_],
+  $
+    v_(k+1) (s) & = EE_pi [R_(t+1) + gamma v_k (S_(t+1)) | S_t = s]
+  $,
+)
+
 == Exercises
 
 _Exercise 2.4_
