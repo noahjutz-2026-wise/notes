@@ -110,14 +110,19 @@
     v_pi (s) = EE_pi [G_t | S_t = s]
   $,
 
+  [_Bellman Equation for $v_pi$_],
+  $
+    v_pi (s) = sum_a pi(a|s) sum_(s', r) markhl(p(s', r | s, a), color: #p10._0) [r + gamma v_pi (s')]
+  $,
+
   [_Action-Value Function_],
   $
     q_pi (s, a) = EE_pi [G_t | S_t = s, A_t = a]
   $,
 
-  [_Bellman Equation for $v_pi$_],
+  [_Bellman Equation for $q_pi$_],
   $
-    v_pi (s) = sum_a pi(a|s) sum_(s', r) markhl(p(s', r | s, a), color: #p10._0) [r + gamma v_pi (s')]
+    q_pi (s, a) = sum_(s', r) p(s', r | s, a) [r + gamma sum_a' pi(s', a') q_pi (s', a') ]
   $,
 )
 
@@ -199,4 +204,10 @@ $
            & = 1/4 dot gamma dot sum_(a in {arrow.t, <-, arrow.b, ->}) v_pi (s_a) \
            & = 1/4 dot 0.9 dot (0.7+2.3+0.4-0.4) \
            & = 0.675 approx 0.7 space square.filled
+$
+
+_Exercise 3.17_
+
+$
+  q_pi (s, a) = sum_(s', r) p(s', r | s, a) [r + gamma sum_a' pi(s', a') q_pi (s', a') ]
 $
