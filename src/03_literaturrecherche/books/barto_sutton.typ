@@ -241,5 +241,24 @@ $
 _Exercise 3.17_
 
 $
-  q_pi (s, a) = sum_(s', r) p(s', r | s, a) [r + gamma sum_a' pi(s', a') q_pi (s', a') ]
+  q_pi (s, a) = sum_(s', r) p(s', r | s, a) [r + gamma sum_a' pi(a' | s') q_pi (s', a') ]
+$
+
+_Exercise 4.1_
+
+$
+  q_pi (s, a) & = EE_pi (G_t | S_t=s, A_t=a) \
+              & = sum_(s', r) p(s', r | s, a) [r + gamma sum_a' pi(a' | s') q_pi (s', a')] \
+$
+
+$
+  q_pi (11, "down") & = 1 [ -1 + gamma 0 ] \
+                    & = -1
+$
+
+$
+  q_pi (7, "down") & = 1 [-1 + gamma v_pi (s')] \
+                   & = -1 + gamma (-14) \
+                   & = -1 + 1 (-14) \
+                   & = -15
 $
