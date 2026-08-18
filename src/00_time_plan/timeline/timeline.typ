@@ -29,7 +29,7 @@
     rect(
       (0, y),
       (width, h + y),
-      fill: p10.at(calc.rem(i, 10)).lighten(20%),
+      fill: p10.at(calc.rem(i, 10)).lighten(50%),
       name: name,
     )
 
