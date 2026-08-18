@@ -5,6 +5,10 @@
 
 #let sections = (
   (
+    datetime(year: 2026, month: 8, day: 22),
+    [Study RL],
+  ),
+  (
     datetime(year: 2026, month: 9, day: 1),
     [Literature Review],
   ),
@@ -36,11 +40,19 @@
 
 #let milestones = (
   (
+    datetime(year: 2026, month: 8, day: 18),
+    [Barto Sutton],
+  ),
+  (
+    datetime(year: 2026, month: 8, day: 22),
+    [HF Deep Learning],
+  ),
+  (
     datetime(year: 2026, month: 9, day: 1),
-    [Final list of literature],
+    [literature list v1.0.0],
   ),
   (
     datetime(year: 2026, month: 9, day: 20),
-    [Working Prototype],
+    [100% run],
   ),
 )
