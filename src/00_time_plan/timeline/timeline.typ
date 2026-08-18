@@ -3,10 +3,10 @@
 
 #let p10 = lq.color.map.petroff10
 
-#cetz.canvas(length: 15cm, {
+#cetz.canvas(length: 18cm, {
   import cetz.draw: *
 
-  let width = 32pt
+  let width = 128pt
   let pad = 8pt
 
   scale(y: -1)
@@ -62,6 +62,44 @@
       padding: pad,
       c,
     )
+  }
+
+  let tick = daterange.from + duration(days: 1)
+  while true {
+    if tick >= daterange.to { break }
+    let y = (tick - daterange.from) / (daterange.to - daterange.from)
+    let name = "tick" + tick.display()
+
+    let mid = width / 2
+
+    if tick.day() == 1 {
+      line(
+        (mid - pad, y),
+        (mid + pad, y),
+        stroke: 1pt,
+        name: name,
+      )
+      content(
+        name + ".start",
+        anchor: "east",
+        padding: pad,
+        str((tick - daterange.from).days()),
+      )
+      content(
+        name + ".end",
+        anchor: "west",
+        padding: pad,
+        str(tick.display("[month]")),
+      )
+    } else {
+      line(
+        (mid - pad / 2, y),
+        (mid + pad / 2, y),
+        stroke: 1pt + black.transparentize(50%),
+      )
+    }
+
+    tick += duration(days: 1)
   }
 
   let elapsed = (datetime.today() - daterange.from) / (daterange.to - daterange.from)

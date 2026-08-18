@@ -9,7 +9,7 @@
     [Prep],
   ),
   (
-    datetime(year: 2026, month: 12, day: 23),
+    datetime(year: 2026, month: 11, day: 23),
     [x],
   ),
 )
