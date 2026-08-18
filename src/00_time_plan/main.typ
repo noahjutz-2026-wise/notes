@@ -1,4 +1,4 @@
-#import "/template.typ": template_base
+#import "/template.typ": template_base, template_doc_part
 
 #show: template_base
 
@@ -12,6 +12,18 @@
 
 #pagebreak()
 
-#include "timetable/main.typ"
+= Stundenplan
 
-#include "stats/main.typ"
+#{
+  show: template_doc_part
+  include "timetable/table.typ"
+}
+
+#pagebreak()
+
+= Statistik
+
+#{
+  show: template_doc_part
+  include "stats/main.typ"
+}
