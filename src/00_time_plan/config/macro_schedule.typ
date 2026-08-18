@@ -9,3 +9,10 @@
     [Prep],
   ),
 )
+
+#let milestones = (
+  (
+    datetime(year: 2026, month: 8, day: 19),
+    [Finish learning],
+  ),
+)
