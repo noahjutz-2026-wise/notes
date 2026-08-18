@@ -15,6 +15,8 @@
       - Not RL
     ],
 
+    [Stop Condition], [],
+
     [Search Tools],
     [
       Search
@@ -37,7 +39,29 @@
       - #link("https://ieeexplore.ieee.org/")[IEEE Xplore]
     ],
 
-    [Search Terms], [],
+    [Search Term Matrix], [],
+    [Data Extraction Schema],
+    [
+      Metadata
+      - unique _key_
+      - _stage_ in [new, skimmed, read, understood]
+      - _decision_ in [exclude, include, uncertain, keep]
+      - _reason_ for decision
+      - _cluster_ in [sim2real, cyberrunner]
+      - _date_ of modification
+    ],
+
+    [Methodology],
+    [
+      Screening
+      - 1 min / paper
+
+      Reading
+      - 1 h / paper
+
+      Snowballing
+    ],
+
     [Seed Papers],
     [
       BRIO
