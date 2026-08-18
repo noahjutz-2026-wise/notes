@@ -37,7 +37,23 @@
       - #link("https://ieeexplore.ieee.org/")[IEEE Xplore]
     ],
 
-    [Search Term Matrix], [],
+    [Search Terms],
+    [
+      #{
+        json("../data/search_terms.json")
+          .pairs()
+          .map(p => {
+            let (t, c) = p
+            [
+              #t
+              #list(..c)
+            ]
+          })
+          .flatten()
+          .join()
+      }
+    ],
+
     [Data Extraction Schema],
     [
       Metadata
@@ -67,9 +83,10 @@
     [
       BRIO
       - #link("https://doi.org/10.48550/arXiv.2312.09906")[CyberRunner]
-      - #link("https://doi.org/10.1109/IROS60139.2025.11247146")[CyberRunner 2]
       Sim2Real: // todo
 
     ],
   )
 }
+
+= Search Log

@@ -1,0 +1,56 @@
+{
+  "Task": [
+    "labyrinth game",
+    "labyrinth",
+    "BRIO labyrinth",
+    "marble maze",
+    "maze solving",
+    "maze navigation",
+    "labyrinth navigation",
+    "real-world labyrinth game",
+    "physical labyrinth",
+    "marble game"
+  ],
+  "Method": [
+    "reinforcement learning",
+    "deep reinforcement learning",
+    "model-based reinforcement learning",
+    "model-free reinforcement learning",
+    "world models",
+    "DreamerV3",
+    "proximal policy optimization",
+    "twin delayed deep deterministic policy gradient",
+    "asynchronous advantage actor-critic",
+    "deep Q-network",
+    "recurrent policy",
+    "history-dependent policy"
+  ],
+  "Transfer Technique": [
+    "simulation-to-reality",
+    "transfer learning",
+    "policy transfer",
+    "domain randomization",
+    "dynamics randomization",
+    "domain adaptation",
+    "fine-tuning",
+    "additional real-world training",
+    "system identification",
+    "residual physics",
+    "neural-augmented simulation"
+  ],
+  "Evaluation Context": [
+    "real robot",
+    "physical system",
+    "hardware evaluation",
+    "real-world training",
+    "training exclusively in simulation",
+    "direct deployment",
+    "no additional training",
+    "number of evaluation episodes = 50",
+    "success rate",
+    "completion time",
+    "sample efficiency",
+    "environment interactions",
+    "reality gap"
+  ]
+}
