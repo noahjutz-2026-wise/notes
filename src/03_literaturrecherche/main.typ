@@ -13,7 +13,16 @@
 
 #pagebreak()
 
-= Bücher
+= Übersicht
+
+#{
+  show: template_doc_part
+  include "overview/main.typ"
+}
+
+#pagebreak()
+
+= Notizen
 
 #{
   show: template_doc_part

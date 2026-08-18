@@ -27,6 +27,7 @@
     lang: "de",
     font: "New Computer Modern",
   )
+  show link: set text(blue.darken(30%))
   body
 }
 
