@@ -41,7 +41,7 @@
   for i in range(milestones.len()) {
     let (d, c) = milestones.at(i)
     let y = (d - daterange.from) / (daterange.to - daterange.from)
-    let target = (0, y)
+    let target = (width / 2, y)
     let source = (rel: (-(width / 2 + 2 * pad), 0), to: target)
     circle(
       target,
@@ -53,7 +53,7 @@
     line(
       source,
       target,
-      stroke: 1pt,
+      stroke: 1pt + black.lighten(40%),
     )
 
     content(

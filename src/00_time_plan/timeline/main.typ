@@ -1,1 +1,3 @@
-#include "timeline.typ"
+#figure(caption: [Timeline])[
+  #include "timeline.typ"
+]
