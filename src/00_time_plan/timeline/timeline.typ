@@ -3,19 +3,22 @@
 
 #let p10 = lq.color.map.petroff10
 
-#cetz.canvas(length: 10cm, {
+#cetz.canvas(length: 15cm, {
   import cetz.draw: *
 
-  let width = 16pt
+  let width = 32pt
   let pad = 8pt
 
-  rect((0, 0), (width, 1))
-  //set-style(stroke: none)
+  scale(y: -1)
+
   let current_date = daterange.from
+  set-style(stroke: none)
+  rect((0, 0), (width, 1), fill: black.lighten(95%))
+
   for i in range(sections.len()) {
     let (d, c) = sections.at(i)
     let h = (d - current_date) / (daterange.to - daterange.from)
-    let y = (daterange.to - current_date) / (daterange.to - daterange.from)
+    let y = (current_date - daterange.from) / (daterange.to - daterange.from)
 
     let name = "r" + str(i)
 
@@ -37,8 +40,8 @@
 
   for i in range(milestones.len()) {
     let (d, c) = milestones.at(i)
-    let y = (daterange.to - d) / (daterange.to - daterange.from)
-    let target = (width / 2, y)
+    let y = (d - daterange.from) / (daterange.to - daterange.from)
+    let target = (0, y)
     let source = (rel: (-(width / 2 + 2 * pad), 0), to: target)
     circle(
       target,
@@ -50,6 +53,7 @@
     line(
       source,
       target,
+      stroke: 1pt,
     )
 
     content(
@@ -59,4 +63,11 @@
       c,
     )
   }
+
+  let elapsed = (datetime.today() - daterange.from) / (daterange.to - daterange.from)
+  rect(
+    fill: black.transparentize(50%),
+    (0, 0),
+    (width, elapsed),
+  )
 })
