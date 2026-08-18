@@ -7,7 +7,7 @@
   #place(line(start: (0%, 100%), end: (100%, 0%), stroke: 0.5pt))
 ]
 
-#cetz.canvas(length: 18cm, {
+#cetz.canvas(length: 20cm, {
   import cetz.draw: *
 
   let width = 128pt
@@ -29,7 +29,7 @@
     rect(
       (0, y),
       (width, h + y),
-      fill: p10.at(calc.rem(i, 10)),
+      fill: p10.at(calc.rem(i, 10)).lighten(20%),
       name: name,
     )
 
@@ -73,6 +73,7 @@
     if tick >= daterange.to { break }
     let y = (tick - daterange.from) / (daterange.to - daterange.from)
     let name = "tick" + tick.display()
+    let days = (tick - daterange.from).days()
 
     let mid = width / 2
 
@@ -84,22 +85,32 @@
         name: name,
       )
       content(
-        name + ".start",
-        anchor: "east",
-        padding: pad,
-        str((tick - daterange.from).days()),
-      )
-      content(
         name + ".end",
         anchor: "west",
         padding: pad,
-        str(tick.display("[month]")),
+        [*#tick.display("[month repr:short]")*],
       )
-    } else {
+    } else if calc.rem(days, 10) == 0 {
       line(
         (mid - pad / 2, y),
         (mid + pad / 2, y),
         stroke: 1pt + black.transparentize(50%),
+        name: name,
+      )
+    } else {
+      circle(
+        (mid, y),
+        stroke: none,
+        radius: 1pt,
+        fill: black.transparentize(75%),
+      )
+    }
+    if calc.rem(days, 10) == 0 {
+      content(
+        name + ".start",
+        anchor: "east",
+        padding: pad,
+        str(days),
       )
     }
 

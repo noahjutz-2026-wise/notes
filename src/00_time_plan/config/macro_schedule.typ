@@ -5,8 +5,12 @@
 
 #let sections = (
   (
-    datetime(year: 2026, month: 9, day: 23),
+    datetime(year: 2026, month: 9, day: 1),
     [Literature Review],
+  ),
+  (
+    datetime(year: 2026, month: 9, day: 23),
+    [Physical Setup],
   ),
   (
     datetime(year: 2026, month: 9, day: 28),
@@ -36,11 +40,7 @@
     [Final list of literature],
   ),
   (
-    datetime(year: 2026, month: 9, day: 10),
-    [Final list of literature],
-  ),
-  (
-    datetime(year: 2026, month: 9, day: 23),
-    [Start],
+    datetime(year: 2026, month: 9, day: 20),
+    [Working Prototype],
   ),
 )
