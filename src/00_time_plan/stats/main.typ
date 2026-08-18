@@ -1,15 +1,5 @@
 #import "/deps.typ": lilaq as lq
-#import "../config/schedule.typ": fri, mon, sat, sun, thu, tue, wed
-
-#let days = (
-  "mon": mon,
-  "tue": tue,
-  "wed": wed,
-  "thu": thu,
-  "fri": fri,
-  "sat": sat,
-  "sun": sun,
-)
+#import "../config/schedule.typ": days
 
 #let break_ratio = 2.5 / 1 // work to breaks
 
@@ -28,7 +18,7 @@
     })
 }
 
-#let expected_work = {
+#let expected_work = (
   units
     .bib
     .pairs()
@@ -42,67 +32,17 @@
       (k, durs)
     })
     .to-dict()
-}
+)
 
 = Expected work
 
-#lq.diagram(
-  width: 100%,
-  height: 200pt,
-  xaxis: (
-    ticks: range(7),
-    format-ticks: (ticks, ..args) => {
-      ticks.map(tick => {
-        expected_work.keys().at(int(tick))
-      })
-    },
-  ),
-  yaxis: (
-    format-ticks: lq.tick-format.linear,
-  ),
-  lq.bar(
-    range(expected_work.keys().len()),
-    expected_work.values().map(it => it.work.hours()),
-    label: [Work],
-  ),
-  lq.bar(
-    range(expected_work.keys().len()),
-    expected_work.values().map(it => it.work.hours() + it.breaks.hours()),
-    base: expected_work.values().map(it => it.work.hours()),
-    label: [Breaks],
-  ),
-)
+#import "bars_expected_work.typ"
+#bars_expected_work.d(expected_work)
 
-#expected_work.values().map(((work, ..)) => work).sum()
+// #expected_work.values().map(((work, ..)) => work).sum()
 
 = Success rate
 
 #let raw_data = csv("../assets/tomato.tsv", delimiter: "\t")
-#let data = (
-  raw_data
-    .map(row => {
-      let (y, m, d) = row.at(0).split("-").map(int)
-      let t = datetime(year: y, month: m, day: d)
-      let dur = duration(seconds: int(1000 * float(row.at(1))))
-
-      let weekday = t.weekday() - 1
-      if weekday > 5 { return }
-      let expected_dur = expected_work.values().at(weekday).work
-      let part = dur / expected_dur
-      (t, part)
-    })
-    .filter(it => it != none)
-)
-
-
-#let x = data.map(it => it.at(0))
-#let y = data.map(it => it.at(1))
-
-#lq.diagram(
-  width: 100%,
-  height: 300pt,
-  lq.bar(
-    x,
-    y,
-  ),
-)
+#import "bars_success_rate.typ"
+#bars_success_rate.d(raw_data, expected_work)
