@@ -1,3 +1,10 @@
-#include "timetable.typ"
+#set document(
+  title: [Time Plan],
+)
 
-#include "stats.typ"
+#title()
+#pagebreak()
+
+#include "timetable/main.typ"
+
+#include "stats/main.typ"

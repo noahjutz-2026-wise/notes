@@ -1,5 +1,5 @@
 #import "/deps.typ": lilaq as lq
-#import "schedule.typ": fri, mon, sat, sun, thu, tue, wed
+#import "../config/schedule.typ": fri, mon, sat, sun, thu, tue, wed
 
 #let days = (
   "mon": mon,
@@ -77,7 +77,7 @@
 
 = Success rate
 
-#let raw_data = csv("assets/tomato.tsv", delimiter: "\t")
+#let raw_data = csv("../assets/tomato.tsv", delimiter: "\t")
 #let data = (
   raw_data
     .map(row => {
