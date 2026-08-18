@@ -19,7 +19,8 @@
       place(center, counter(page).display())
       place(end)[
         #set text(black.lighten(25%))
-        #sys.inputs.at("revision", default: [])
+        #let rev = sys.inputs.at("revision", default: [])
+        #rev.slice(0, calc.min(10, rev.len()))
       ]
     },
   )
