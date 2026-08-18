@@ -3,6 +3,10 @@
 
 #let p10 = lq.color.map.petroff10
 
+#let hatch = tiling(size: (10pt, 10pt))[
+  #place(line(start: (0%, 100%), end: (100%, 0%), stroke: 0.5pt))
+]
+
 #cetz.canvas(length: 18cm, {
   import cetz.draw: *
 
@@ -104,7 +108,7 @@
 
   let elapsed = (datetime.today() - daterange.from) / (daterange.to - daterange.from)
   rect(
-    fill: black.transparentize(50%),
+    fill: hatch,
     (0, 0),
     (width, elapsed),
   )
