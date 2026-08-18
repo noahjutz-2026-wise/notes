@@ -25,7 +25,7 @@ jobs:
             --build-arg GIT_HASH="${{ github.sha }}" \
             -t typst-notes \
             -f Containerfile .
-          docker run --userns=keep-id --rm -v $(pwd)/output:/output:Z typst-notes
+          docker run --rm -v $(pwd)/output:/output typst-notes
 
       - name: Create Release
         uses: softprops/action-gh-release@v2
