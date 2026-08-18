@@ -15,8 +15,6 @@
       - Not RL
     ],
 
-    [Stop Condition], [],
-
     [Search Tools],
     [
       Search
@@ -44,8 +42,8 @@
     [
       Metadata
       - unique _key_
-      - _stage_ in [new, skimmed, read, understood]
-      - _decision_ in [exclude, include, uncertain, keep]
+      - _stage_ in [new, preskimmed, skimmed, read, understood]
+      - _decision_ in [exclude, include, uncertain, seed]
       - _reason_ for decision
       - _cluster_ in [sim2real, cyberrunner]
       - _date_ of modification
@@ -53,13 +51,16 @@
 
     [Methodology],
     [
-      Screening
-      - 1 min / paper
+      Search
+      - Using search terms
+      - Forward / Backward snowballing
 
-      Reading
-      - 1 h / paper
-
-      Snowballing
+      Escalation Ladder
+      - new: 1 min
+      - preskimmed: 10 min
+      - skimmed: 1 h
+      - read: 5 h
+      - understood: 5 d
     ],
 
     [Seed Papers],
