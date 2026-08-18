@@ -17,7 +17,9 @@ jobs:
           lfs: true
 
       - name: Create output directory
-        run: mkdir -p output
+        run: |
+          mkdir -p output
+          chmod 777 output
 
       - name: Build and Run Container
         run: |
