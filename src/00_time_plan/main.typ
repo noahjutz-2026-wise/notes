@@ -16,10 +16,17 @@
 
 #{
   show: template_doc_part
-  include "timetable/table.typ"
+  include "timetable/main.typ"
+  pagebreak()
 }
 
-#pagebreak()
+= Timeline
+
+#{
+  show: template_doc_part
+  include "timeline/main.typ"
+  pagebreak()
+}
 
 = Statistik
 

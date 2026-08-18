@@ -1,4 +1,4 @@
-#import "../config/schedule.typ": *
+#import "../config/weekly_schedule.typ": *
 #import "colors.typ": colors
 
 #{
