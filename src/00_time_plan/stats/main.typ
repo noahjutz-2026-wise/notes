@@ -34,15 +34,15 @@
     .to-dict()
 )
 
-= Expected work
-
-#import "bars_expected_work.typ"
-#bars_expected_work.d(expected_work)
+#figure(caption: [Expected Work])[
+  #import "bars_expected_work.typ"
+  #bars_expected_work.d(expected_work)
+]
 
 // #expected_work.values().map(((work, ..)) => work).sum()
 
-= Success rate
-
-#let raw_data = csv("../assets/tomato.tsv", delimiter: "\t")
-#import "bars_success_rate.typ"
-#bars_success_rate.d(raw_data, expected_work)
+#figure(caption: [Success rate])[
+  #let raw_data = csv("../assets/tomato.tsv", delimiter: "\t")
+  #import "bars_success_rate.typ"
+  #bars_success_rate.d(raw_data, expected_work)
+]
