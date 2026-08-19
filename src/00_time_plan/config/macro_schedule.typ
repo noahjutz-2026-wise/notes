@@ -40,12 +40,16 @@
 
 #let milestones = (
   (
-    datetime(year: 2026, month: 8, day: 18),
-    [Barto Sutton],
+    datetime(year: 2026, month: 8, day: 22),
+    [B.S. 5,6,12,13],
   ),
   (
-    datetime(year: 2026, month: 8, day: 22),
-    [HF Deep Learning],
+    datetime(year: 2026, month: 8, day: 24),
+    [Dreamerv1],
+  ),
+  (
+    datetime(year: 2026, month: 8, day: 25),
+    [\ Dreamerv3],
   ),
   (
     datetime(year: 2026, month: 9, day: 1),
