@@ -1,0 +1,32 @@
+[schema]
+tools = [
+    "google_scholar",
+    "semantic_scholar",
+    "research_rabbit",
+    "litmaps",
+    "consensus",
+    "elicit",
+    "openalex",
+    "oth",
+]
+stage = [
+    "new",
+    "prescanned",
+    "scanned",
+    "read",
+    "understood"
+]
+decision = [
+    "exclude",
+    "include",
+    "uncertain",
+    "seed"
+]
+cluster = [
+    "s2r",
+    "cr",
+    "rl"
+]
+reason = [
+    "superseded"
+]
