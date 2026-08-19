@@ -1,6 +1,6 @@
 #import "/deps.typ": lilaq as lq
 
-#let tool-names = (
+#let tools = (
   "google_scholar",
   "semantic_scholar",
   "research_rabbit",
@@ -9,18 +9,11 @@
   "elicit",
   "openalex",
   "oth",
-  "base",
-  "acm_dl",
-  "ieee_xplore",
+  // "base",
+  // "acm_dl",
+  // "ieee_xplore",
 )
-#let palette = lq.color.map.okabe-ito
-#let tool-display-names = (
-  "google_scholar": [Google Scholar],
-  "semantic_scholar": [Semantic Scholar],
-  "acm_dl": [ACM DL],
-  "ieee_xplore": [IEEE Xplore],
-  "arxiv": [arXiv],
-)
+#let palette = lq.color.map.petroff10
 
 // custom tiling: n vertical stripes, one per color
 #let color-tiling(..colors, cell-width: 4pt) = {
@@ -47,7 +40,7 @@
 #let ys = searches.map(s => (s.to - s.from).minutes())
 
 #let tool-fill(tools) = {
-  let colors = tools.filter(t => tool-names.contains(t)).map(t => palette.at(tool-names.position(x => x == t)))
+  let colors = tools.filter(t => tools.contains(t)).map(t => palette.at(tools.position(x => x == t)))
   if colors.len() == 0 { gray } else if colors.len() == 1 { colors.first() } else { colors }
 }
 #let fills = searches.map(s => tool-fill(s.tools))
@@ -84,11 +77,11 @@
   ylabel: [duration (min)],
   legend: lq.legend(
     position: top + left,
-    ..tool-names
+    ..tools
       .enumerate()
       .map(((i, name)) => (
-        legend-icon(palette.at(i)),
-        tool-display-names.at(name),
+        legend-icon(palette.at(calc.rem(i, 10))),
+        tools.at(i),
       ))
       .join(),
   ),
