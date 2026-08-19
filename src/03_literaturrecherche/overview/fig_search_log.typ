@@ -3,9 +3,15 @@
 #let tool-names = (
   "google_scholar",
   "semantic_scholar",
+  "research_rabbit",
+  "litmaps",
+  "consensus",
+  "elicit",
+  "openalex",
+  "oth",
+  "base",
   "acm_dl",
   "ieee_xplore",
-  "arxiv",
 )
 #let palette = lq.color.map.okabe-ito
 #let tool-display-names = (
