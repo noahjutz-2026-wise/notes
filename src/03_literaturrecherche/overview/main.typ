@@ -13,6 +13,7 @@
     [Exclusion Criteria],
     [
       - Not RL
+      - Bioinspired, humanoid, bipedal
     ],
 
     [Search Tools],

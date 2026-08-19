@@ -36,11 +36,11 @@
 
 // ---------- data ----------
 #let searches = toml("../data/search_log.toml").search
-#let xs = searches.map(s => s.screened - s.duplicates)
+#let xs = searches.map(s => s.screened)
 #let ys = searches.map(s => (s.to - s.from).minutes())
 
-#let tool-fill(tools) = {
-  let colors = tools.filter(t => tools.contains(t)).map(t => palette.at(tools.position(x => x == t)))
+#let tool-fill(selected-tools) = {
+  let colors = selected-tools.filter(t => tools.contains(t)).map(t => palette.at(tools.position(x => x == t)))
   if colors.len() == 0 { gray } else if colors.len() == 1 { colors.first() } else { colors }
 }
 #let fills = searches.map(s => tool-fill(s.tools))
@@ -73,7 +73,7 @@
 #lq.diagram(
   width: 100%,
   height: 10cm,
-  xlabel: [screened $-$ duplicates],
+  xlabel: [screened],
   ylabel: [duration (min)],
   legend: lq.legend(
     position: top + left,
@@ -90,7 +90,7 @@
       (xs.at(i),),
       (ys.at(i),),
       mark: custom-circle(fills.at(i)),
-      size: 16pt,
+      size: (8 + searches.at(i).added * 3) * 1pt,
     )
   }),
 )
