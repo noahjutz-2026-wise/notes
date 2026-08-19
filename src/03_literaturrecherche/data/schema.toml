@@ -11,10 +11,9 @@ tools = [
 ]
 stage = [
     "new",
-    "prescanned",
-    "scanned",
-    "read",
-    "understood"
+    "scanning",
+    "reading",
+    "understanding",
 ]
 decision = [
     "exclude",

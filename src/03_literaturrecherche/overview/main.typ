@@ -40,31 +40,11 @@
 
     [Search Terms],
     [
-      #{
-        json("../data/search_terms.json")
-          .pairs()
-          .map(p => {
-            let (t, c) = p
-            [
-              #t
-              #list(..c)
-            ]
-          })
-          .flatten()
-          .join()
-      }
+      see ../data/search_terms.json
     ],
 
-    [Data Extraction Schema],
-    [
-      Metadata
-      - unique _key_
-      - _stage_ in [new, preskimmed, skimmed, read, understood]
-      - _decision_ in [exclude, include, uncertain, seed]
-      - _reason_ for decision
-      - _cluster_ in [sim2real, cyberrunner]
-      - _date_ of modification
-    ],
+    [Metadata], [See ../data/schema.toml],
+    [Data Extraction Schema], [],
 
     [Methodology],
     [
