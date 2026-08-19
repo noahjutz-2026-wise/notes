@@ -90,3 +90,4 @@
 }
 
 = Search Log
+#include "fig_search_log.typ"
