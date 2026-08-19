@@ -71,8 +71,8 @@
 
 // ---------- plot ----------
 #lq.diagram(
-  width: 12cm,
-  height: 8cm,
+  width: 100%,
+  height: 10cm,
   xlabel: [screened $-$ duplicates],
   ylabel: [duration (min)],
   legend: lq.legend(
