@@ -91,6 +91,8 @@
   $,
 )
 
+_Trajectory._ State-Action-Reward cycle
+
 *Value Functions* _Page 81_
 
 #table(
@@ -156,7 +158,34 @@
   $
     v_(k+1) (s) & = EE_pi [R_(t+1) + gamma v_k (S_(t+1)) | S_t = s]
   $,
+
+  [_Value Iteration_],
+  $
+    v_(k+1)(s) = max_a EE [R_(t+1) + gamma v_(k)(S_(t+1)) | S_t=s, A_t=a]
+  $,
 )
+
+*Monte Carlo Control* _Page 100_
+
+#table(
+  columns: 2,
+  [_$epsilon$-soft policy_],
+  $
+    pi(a | s) >= epsilon/abs(cal(A)(s))
+  $,
+
+  [_Importance-Sampling Ratio_],
+  $
+    rho_(t:T-1) = product_(k=t)^(T-1) pi(A_k|S_k)/b(A_k|S_k)
+  $,
+)
+
+
+_Coverage._ Behavior Policy does everything that target policy does.
+
+_Exploring Starts (ES)._
+
+_Generalized Policy Improvement (GPI)._ Actor-Critic
 
 == Exercises
 
