@@ -199,6 +199,36 @@ _Exploring Starts (ES)._
 
 _Importance-Sampling Ratio._ Trajectory $pi(a)$ is $rho$ times as likely as $b(a)$ given the same $s$.
 
+*Parameterized Value Function Approximations* _Page 257_
+
+#table(
+  columns: 2,
+  [_Weight Vector_],
+  $
+    bold(upright(w))_t in RR^d
+  $,
+
+  [_Parameterized State Value Function Approximation_],
+  $
+    hat(v)(s, bold(upright(w))) approx v_pi (s)
+  $,
+
+  [_Parameterized Action-Value Function Approximation_],
+  $
+    hat(q)(s, a, bold(upright(w))) approx q_* (s, a)
+  $,
+
+  [_Eligibility Trace_],
+  $
+    bold(upright(z))_t in RR^d
+  $,
+
+  [_Policy Parameter_],
+  $
+    bold(theta) in RR^(d')
+  $,
+)
+
 
 == Exercises
 
