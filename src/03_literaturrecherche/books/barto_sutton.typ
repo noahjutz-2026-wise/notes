@@ -165,6 +165,8 @@ _Trajectory._ State-Action-Reward cycle
   $,
 )
 
+_Generalized Policy Improvement (GPI)._ Actor-Critic
+
 *Monte Carlo Control* _Page 100_
 
 #table(
@@ -178,6 +180,16 @@ _Trajectory._ State-Action-Reward cycle
   $
     rho_(t:T-1) = product_(k=t)^(T-1) pi(A_k|S_k)/b(A_k|S_k)
   $,
+
+  [_Ordinary Importance Sampling_],
+  $
+    V(s) = (sum_(t in cal(T)(s)) rho_(t:T(t)-1) G_t)/abs(cal(T)(s))
+  $,
+
+  [_Weighted Importance Sampling_],
+  $
+    V(s) = (sum_(t in cal(T)(s)) rho_(t:T(t)-1) G_t)/(sum_(t in cal(T)(s)) rho_(t:T(t)-1))
+  $,
 )
 
 
@@ -185,7 +197,8 @@ _Coverage._ Behavior Policy does everything that target policy does.
 
 _Exploring Starts (ES)._
 
-_Generalized Policy Improvement (GPI)._ Actor-Critic
+_Importance-Sampling Ratio._ Trajectory $pi(a)$ is $rho$ times as likely as $b(a)$ given the same $s$.
+
 
 == Exercises
 
