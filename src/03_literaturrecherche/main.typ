@@ -26,5 +26,5 @@
 
 #{
   show: template_doc_part
-  include "books/barto_sutton.typ"
+  include "publications/main.typ"
 }

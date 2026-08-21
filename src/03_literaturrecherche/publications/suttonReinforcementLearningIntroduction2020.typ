@@ -4,7 +4,7 @@
 #set text(lang: "en")
 #let argmax = $op("arg max", limits: #true)$
 
-= BartoSutton
+= suttonReinforcementLearningIntroduction2020
 
 == Notes
 
