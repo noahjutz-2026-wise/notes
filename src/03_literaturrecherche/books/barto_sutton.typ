@@ -57,7 +57,7 @@
     A_t (a) = argmax_a (Q_t (a) + c sqrt((ln t)/(N_t (a))))
   $,
 
-  [_Gradient Bandit_],
+  [_Soft-max_],
   $
     Pr(A_t=a) = e^(H_t (a))/(sum_(b=1)^k e^(H_t (b))) = pi_t (a)
   $,
@@ -223,9 +223,45 @@ _Importance-Sampling Ratio._ Trajectory $pi(a)$ is $rho$ times as likely as $b(a
     bold(upright(z))_t in RR^d
   $,
 
+  [Average Number of time steps spent in a state],
+  $
+    eta(s)
+  $,
+
+  [State distribution],
+  $
+    mu(s) = eta(s)/(sum_(s') eta(s'))
+  $,
+)
+
+*Policy Approximation* _Page 332_
+
+#table(
+  columns: 2,
+
   [_Policy Parameter_],
   $
     bold(theta) in RR^(d')
+  $,
+
+  [_Scalar Performance Measure_],
+  $
+    J(bold(theta)) = v_pi_theta (s_0)
+  $,
+
+  [_Policy Gradient Theorem_],
+  $
+    J(bold(theta)) & prop sum_s mu(s) sum_a q_pi (s, a) gradient pi(a|s, bold(theta))
+  $,
+
+  [_REINFORCE_ Monte Carlo],
+  $
+    J(bold(theta)) prop EE[G_t (gradient pi(A_t|S_t, bold(theta)))/pi(A_t|S_t, bold(theta))]
+  $,
+
+  [_REINFORCE_ baseline],
+  $
+    J(bold(theta)) prop
   $,
 )
 
