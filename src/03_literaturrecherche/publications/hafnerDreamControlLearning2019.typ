@@ -1,10 +1,10 @@
-= hafnerDreamControlLearning2019 (Dreamer v1)
+= hafnerDreamControlLearning2019 (dreamerv1)
 
 _Horizon:_ Number of time steps into the future considered
 
 _World Model:_ Continuous vector-values encoded by NN
 
-_Latent:_ ?
+_Latent State:_ Compressed versions of observations
 
 _Imagination:_ Simulated estimated rewards from previous states
 
