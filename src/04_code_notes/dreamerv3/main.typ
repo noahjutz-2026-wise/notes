@@ -1,5 +1,9 @@
 = JAX
 
+= Gymnasium
+
+https://gymnasium.farama.org
+
 = AMD ROCm / NVIDIA Container Toolkit
 
 = DreamerV3
