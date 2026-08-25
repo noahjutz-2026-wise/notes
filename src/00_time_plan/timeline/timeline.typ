@@ -117,7 +117,7 @@
     tick += duration(days: 1)
   }
 
-  let elapsed = (datetime.today() - daterange.from) / (daterange.to - daterange.from)
+  let elapsed = calc.min(1, (datetime.today() - daterange.from) / (daterange.to - daterange.from))
   rect(
     fill: hatch,
     (0, 0),
