@@ -4,7 +4,18 @@
 
 https://gymnasium.farama.org
 
-= AMD ROCm / NVIDIA Container Toolkit
+- #link("https://github.com/yannbouteiller/rtgym")[rtgym] enforces a clock
+
+= NVIDIA Container Toolkit
+
+Links
+
+- #link("https://podman-desktop.io/docs/podman/gpu")[Podman + NVIDIA]
+- #link("https://docs.nvidia.com/cuda/cuda-installation-guide-linux/")[CUDA Installation]
+- #link(
+    "https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html",
+  )[NVIDIA Container Toolkit]
+- #link("https://wiki.archlinux.org/title/Podman")[Podman ArchWiki]
 
 = DreamerV3
 
