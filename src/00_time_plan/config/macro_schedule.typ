@@ -9,12 +9,20 @@
     [Study RL],
   ),
   (
-    datetime(year: 2026, month: 9, day: 1),
-    [Literature Review],
+    datetime(year: 2026, month: 8, day: 25),
+    [Software Setup],
+  ),
+  (
+    datetime(year: 2026, month: 9, day: 4),
+    [Study RL],
+  ),
+  (
+    datetime(year: 2026, month: 9, day: 18),
+    [Physical Setup],
   ),
   (
     datetime(year: 2026, month: 9, day: 23),
-    [Physical Setup],
+    [Literature Review],
   ),
   (
     datetime(year: 2026, month: 9, day: 28),
@@ -44,19 +52,19 @@
     [B.S. 5,6,12,13],
   ),
   (
-    datetime(year: 2026, month: 8, day: 24),
-    [Dreamerv1],
+    datetime(year: 2026, month: 9, day: 4),
+    [B.S. Done],
   ),
   (
-    datetime(year: 2026, month: 8, day: 25),
-    [\ Dreamerv3],
-  ),
-  (
-    datetime(year: 2026, month: 9, day: 1),
-    [literature list v1.0.0],
-  ),
-  (
-    datetime(year: 2026, month: 9, day: 20),
+    datetime(year: 2026, month: 9, day: 11),
     [100% run],
+  ),
+  (
+    datetime(year: 2026, month: 9, day: 18),
+    [Baselines Measured],
+  ),
+  (
+    datetime(year: 2026, month: 9, day: 23),
+    [Literature Review v1.0.0],
   ),
 )
