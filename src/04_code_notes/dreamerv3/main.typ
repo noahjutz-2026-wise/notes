@@ -28,3 +28,13 @@ Forks
 Tools
 
 - #link("https://gist.github.com/qxcv/e8641342c102c2aa714c9caeca724101")[FromGymnasium] (#link("https://github.com/danijar/dreamerv3/issues/41")[Issue])
+
+== Hyperparameters
+
+#link("https://github.com/danijar/dreamerv3/blob/main/dreamerv3/configs.yaml")
+
+#table(
+  columns: 3,
+  table.header([Key], [Default], [Meaning]),
+  [],
+)
