@@ -6,7 +6,7 @@
 
 = suttonReinforcementLearningIntroduction2020
 
-== Notes
+== Cheatsheet
 
 #let p10 = lq.color.map.petroff10.enumerate().map(((i, c)) => ("_" + str(i), c)).to-dict()
 
