@@ -372,3 +372,11 @@ $
                    & = -1 + 1 (-14) \
                    & = -15
 $
+
+_Exercise 5.11_
+
+Because
+
+1. the numerator is either 1 or 0 ($pi(a|s) in {0, 1}$ for greedy policies)
+2. $pi(a|s)=0 <==> a != pi(a)$. This is the loop exit condition.
+3. $pi(a|s)=0 <==> W=0 <==> Q + W/C [...] = Q$. $Q$ stays the same.
