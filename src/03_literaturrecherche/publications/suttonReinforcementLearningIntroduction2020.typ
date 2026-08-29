@@ -267,6 +267,14 @@ _Importance-Sampling Ratio._ Trajectory $pi(a)$ is $rho$ times as likely as $b(a
   $,
 )
 
+== Notes
+
+*Tabular Prediction Methods*
+
+- *Monte Carlo:* After each episode, estimate each (first-)visit of each state(-action) value; Average
+- *Incremental MC:* $V<-V+1/(cal(T)(s))[G-V]$
+- *Off-Policy MC:* Scale value by policy importance-sampling ratio (ordinary/weighted)
+- *Incremental Off-Policy MC:* $V<-V+W/C [G-V]$
 
 == Exercises
 
