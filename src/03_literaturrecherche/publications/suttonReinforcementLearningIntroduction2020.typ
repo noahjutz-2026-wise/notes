@@ -202,7 +202,12 @@ _Importance-Sampling Ratio._ Trajectory $pi(a)$ is $rho$ times as likely as $b(a
 *Temporal Difference* _Page 131_
 
 #table(
-  columns: 2,
+  columns: (1fr, auto),
+  [_Temporal Difference Prediction_],
+  $
+    V(S_t) <- V(S_t) + alpha [R_(t+1) + gamma V(S_(t+1)) - V(S_t)]
+  $,
+
   [_Sarsa_],
   $
     Q(S_t, A_t) <- Q(S_t, A_t) + alpha [R_(t+1) + gamma Q(S_(t+1), A_(t+1)) - Q(S_t, A_t)]
