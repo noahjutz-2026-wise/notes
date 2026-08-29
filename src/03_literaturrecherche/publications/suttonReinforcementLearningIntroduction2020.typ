@@ -199,7 +199,20 @@ _Exploring Starts (ES)._
 
 _Importance-Sampling Ratio._ Trajectory $pi(a)$ is $rho$ times as likely as $b(a)$ given the same $s$.
 
-*Temporal Difference*
+*Temporal Difference* _Page 131_
+
+#table(
+  columns: 2,
+  [_Sarsa_],
+  $
+    Q(S_t, A_t) <- Q(S_t, A_t) + alpha [R_(t+1) + gamma Q(S_(t+1), A_(t+1)) - Q(S_t, A_t)]
+  $,
+
+  [_Q-Learning_],
+  $
+    Q(S_t, A_t) <- Q(S_t, A_t) + alpha [R_(t+1) + gamma max_a Q(S_(t+1), a) - Q(S_t, A_t)]
+  $,
+)
 
 *Parameterized Value Function Approximations* _Page 257_
 
