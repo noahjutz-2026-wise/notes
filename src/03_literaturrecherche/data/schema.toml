@@ -29,7 +29,8 @@ cluster = [
     "software"
 ]
 reason = [
-    "superseded"
+    "superseded",
+    "outofscope"
 ]
 
 [colors.stage]
