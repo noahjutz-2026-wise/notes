@@ -23,6 +23,7 @@ Forks
 - #link("https://github.com/InexperiencedMe/NaturalDreamer")[NaturalDreamer]
 - #link("https://github.com/DrunkJin/dreamer-from-scratch")[Dreamer From Scratch]
 - #link("https://docs.pytorch.org/rl/main/reference/dreamer_v3.html")[TorchRL]
+- #link("https://github.com/ray-project/ray/blob/master/rllib/algorithms/dreamerv3/README.md")[Ray RLlib]
 
 Tools
 
@@ -38,6 +39,14 @@ Hyperparameters
   [],
 )
 
+= PyTorch
+
+Provides GPU-Accelerated ndarrays, Neural-Network abstractions, ML implementations.
+
 = TorchRL
 
 - _TorchRL Episode Data (TED):_ TensorDict with MDP Information
+
+= Ray RLLib
+
+Distributed Computing for RL.
