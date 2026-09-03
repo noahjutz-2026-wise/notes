@@ -1,3 +1,4 @@
+#import "parse_literature.typ": parse_literature
 = Protokoll
 
 #{
@@ -72,3 +73,7 @@
 
 = Search Log
 #include "fig_search_log.typ"
+
+= Library
+
+// #parse_literature("../assets/literature.rdf")
