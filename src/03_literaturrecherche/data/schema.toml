@@ -31,3 +31,22 @@ cluster = [
 reason = [
     "superseded"
 ]
+
+[colors.stage]
+new = "#e2e8f0"
+scanned = "#bae6fd"
+read = "#bbf7d0"
+understood = "#86efac"
+
+[colors.decision]
+exclude = "#fecaca"
+include = "#bbf7d0"
+uncertain = "#fef08a"
+seed = "#fed7aa"
+
+[colors.cluster]
+s2r = "#e9d5ff"
+cr = "#fbcfe8"
+rl = "#bfdbfe"
+ml = "#c7d2fe"
+software = "#ddd6fe"
