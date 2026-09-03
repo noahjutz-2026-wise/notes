@@ -37,3 +37,7 @@ Hyperparameters
   table.header([Key], [Default], [Meaning]),
   [],
 )
+
+= TorchRL
+
+- _TorchRL Episode Data (TED):_ TensorDict with MDP Information
