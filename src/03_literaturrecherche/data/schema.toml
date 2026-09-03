@@ -11,9 +11,9 @@ tools = [
 ]
 stage = [
     "new",
-    "scanning",
-    "reading",
-    "understanding",
+    "scanned",
+    "read",
+    "understood",
 ]
 decision = [
     "exclude",
@@ -24,7 +24,9 @@ decision = [
 cluster = [
     "s2r",
     "cr",
-    "rl"
+    "rl",
+    "ml",
+    "software"
 ]
 reason = [
     "superseded"
