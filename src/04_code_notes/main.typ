@@ -13,9 +13,16 @@
 
 #pagebreak()
 
-= DreamerV3
+= Overview
 
 #{
   show: template_doc_part
-  include "dreamerv3/main.typ"
+  include "overview/main.typ"
+}
+
+= Tools
+
+#{
+  show: template_doc_part
+  include "tools/main.typ"
 }

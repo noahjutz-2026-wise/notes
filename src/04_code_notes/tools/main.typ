@@ -1,5 +1,3 @@
-= JAX
-
 = Gymnasium
 
 https://gymnasium.farama.org
@@ -24,12 +22,13 @@ Forks
 - #link("https://github.com/NM512/r2dreamer")[r2dreamer]
 - #link("https://github.com/InexperiencedMe/NaturalDreamer")[NaturalDreamer]
 - #link("https://github.com/DrunkJin/dreamer-from-scratch")[Dreamer From Scratch]
+- #link("https://docs.pytorch.org/rl/main/reference/dreamer_v3.html")[TorchRL]
 
 Tools
 
 - #link("https://gist.github.com/qxcv/e8641342c102c2aa714c9caeca724101")[FromGymnasium] (#link("https://github.com/danijar/dreamerv3/issues/41")[Issue])
 
-== Hyperparameters
+Hyperparameters
 
 #link("https://github.com/danijar/dreamerv3/blob/main/dreamerv3/configs.yaml")
 
