@@ -1,59 +1,52 @@
-/// Parse literature.rdf into an array of dicts with keys:
+/// Parse zotero_bbt.json into an array of dicts with keys:
 /// citationKey, stage, decision, cluster, label.
 /// Fields not present in an entry are `none`.
 #let parse_literature(path) = {
-  let data = xml(path)
-  let root = data.first()
-
-  // Typst strips namespace prefixes, so rdf:Description → Description, etc.
-  let item_tags = ("Description", "Article", "Book", "Document")
+  let data = json(path)
+  let items = data.at("items", default: ())
 
   let results = ()
 
-  for node in root.children {
-    if type(node) != dictionary { continue }
-    if node.tag not in item_tags { continue }
+  for item in items {
+    let citation_key = item.at("citationKey", default: none)
+    if citation_key == none { continue }
 
-    let citation_key = none
     let stage = none
     let decision = none
     let cluster = none
     let label = none
 
-    for child in node.children {
-      if type(child) != dictionary { continue }
-
-      if child.tag == "citationKey" {
-        citation_key = child.children.filter(c => type(c) == str).first(default: none)
+    let raw_tags = item.at("tags", default: ())
+    for entry in raw_tags {
+      let tag_str = if type(entry) == dictionary {
+        entry.at("tag", default: "")
+      } else if type(entry) == str {
+        entry
+      } else {
+        ""
       }
 
-      if child.tag == "subject" {
-        let text = child.children.filter(c => type(c) == str).first(default: none)
-        if text == none { continue }
-        if text.starts-with("stage:") {
-          stage = text.slice("stage:".len())
-        } else if text.starts-with("decision:") {
-          decision = text.slice("decision:".len())
-        } else if text.starts-with("status:") {
-          // Some entries use "status:" instead of "decision:"
-          decision = text.slice("status:".len())
-        } else if text.starts-with("cluster:") {
-          cluster = text.slice("cluster:".len())
-        } else if text.starts-with("label:") {
-          label = text.slice("label:".len())
-        }
+      if tag_str.starts-with("stage:") {
+        stage = tag_str.slice("stage:".len())
+      } else if tag_str.starts-with("decision:") {
+        decision = tag_str.slice("decision:".len())
+      } else if tag_str.starts-with("status:") {
+        // Some entries use "status:" instead of "decision:"
+        decision = tag_str.slice("status:".len())
+      } else if tag_str.starts-with("cluster:") {
+        cluster = tag_str.slice("cluster:".len())
+      } else if tag_str.starts-with("label:") {
+        label = tag_str.slice("label:".len())
       }
     }
 
-    if citation_key != none {
-      results.push((
-        citationKey: citation_key,
-        stage: stage,
-        decision: decision,
-        cluster: cluster,
-        label: label,
-      ))
-    }
+    results.push((
+      citationKey: citation_key,
+      stage: stage,
+      decision: decision,
+      cluster: cluster,
+      label: label,
+    ))
   }
 
   results

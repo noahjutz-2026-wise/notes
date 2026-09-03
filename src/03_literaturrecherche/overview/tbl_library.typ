@@ -13,7 +13,7 @@
 
 #let sort_by = "stage"
 
-#let entries = parse_literature("../assets/literature.rdf")
+#let entries = parse_literature("../assets/zotero_bbt.json")
 
 #let sorted_entries = entries.sorted(key: e => {
   let val = if sort_by == "citationKey" {
