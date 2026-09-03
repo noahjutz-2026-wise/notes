@@ -76,4 +76,4 @@
 
 = Library
 
-// #parse_literature("../assets/literature.rdf")
+#include "tbl_library.typ"
