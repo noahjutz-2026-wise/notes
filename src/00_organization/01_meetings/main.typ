@@ -89,7 +89,7 @@ Notizen
     - [ ] Theorie lernen (RL, NN, ML)
     - [ ] Tools lernen (PyTorch)
     - [ ] Entwicklung (Experimentspezifische Software)
-      - [ ] Sauber entwickeln
+      - [ ] Sauber entwickeln (Modular, Git LFS, Maintenance)
     - [ ] Literaturrecherche & Schreiben
   ],
   [],
