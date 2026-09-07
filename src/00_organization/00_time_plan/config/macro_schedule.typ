@@ -17,7 +17,7 @@
     [Study RL],
   ),
   (
-    datetime(year: 2026, month: 9, day: 11),
+    datetime(year: 2026, month: 9, day: 10),
     [Study Tools],
   ),
   (
