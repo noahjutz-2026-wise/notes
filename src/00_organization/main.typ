@@ -17,4 +17,12 @@
 #{
   show: template_doc_part
   include "00_time_plan/main.typ"
+  pagebreak()
+}
+
+= Meetings
+
+#{
+  show: template_doc_part
+  include "01_meetings/main.typ"
 }
