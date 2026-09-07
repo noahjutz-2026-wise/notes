@@ -1,3 +1,5 @@
+#import "/deps.typ": cheq
+
 #let template_base(body) = {
   set document(
     author: "Noah Jutz",
@@ -29,6 +31,7 @@
     font: "New Computer Modern",
   )
   show link: set text(blue.darken(30%))
+  show: cheq.checklist
   body
 }
 
