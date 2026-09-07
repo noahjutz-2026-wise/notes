@@ -52,51 +52,44 @@ Notizen
   [],
 
   [
-    *Erste 30 Tage*
-    - [ ] Womit soll ich anfangen?
-    - [ ] Wie soll ich meine Tätigkeiten dokumentieren?
-    - [ ] Struktur der Arbeit
-    - [ ] Milestones setzen
-    - [ ] Nächstes Meeting
+    *Zeitplanung & Risikomanagement*
+    - [ ] Zeitplan & Milestones prüfen
+    - [ ] Nächstes Meeting ausmachen
     #text(fill: black.lighten(60%))[
       - 09-23: Meeting, Planung
       - 09-28: Urlaub
-      - 11-01: Sim2Real
-      - 11-21: Optimieren
-      - 12-23: Schreiben
     ]
-  ],
-  [],
-
-  [
-    *Risikomanagement*
-    - [ ] Szenario 1: CR teilweise bis 2026-10-01 fertig
-      - Lösung: Teilweise funktionalität als Baseline verwenden
-    - [ ] Szenario 2: CR gar nicht bis 2026-10-01 fertig
-      - Lösung: Vergleich mit Werten aus CR-Paper
-    - [ ] Szenario 3: DreamerV3 nicht bis 2026-10-01 fertig
-      - Lösung: PPO verwenden (Mit CR Uncharted Territory!)
+    - [ ] 10-01: Baseline
+      - Szenario 1: CR voll funktionsfähig
+      - Szenario 2: CR teilweise fertig
+        - Lösung: Teilweise funktionalität als Baseline verwenden
+      - Szenario 3: CR gar nicht fertig
+        - Lösung: CR-Paper als Baseline verwenden
+      - Szenario 4: DreamerV3 nicht fertig
+        - Lösung: PPO verwenden (Mit CR Uncharted Territory!)
+    - [ ] 11-01: Sim2Real
+      - Kompatibilität schaffen:
+        - ML-Agents mit DreamerV3
+        - ML-Agents mit Kamera-Observation
+        - CR von Dreamer abkapseln (Ansonsten Implementierungs-Volatilität!)
+      - Sim isoliert testen
+      - CR Re-implementieren? (Consistent Framerate, Modularisierung)
+      - [ ] Modelle trainieren, speichern, evaluieren; Übertragen, auf HW evaluieren
+    - 11-21: Optimieren
+      - [ ] Sim2Real Papers lesen
+    - 12-23: Schreiben
+    - Durchgehend: Literaturrecherche, schreiben
+    - [ ] Optional: Vergleich versch. RL-Algorithmen
   ],
   [],
 
   [
     *Prioritäten* \
     Wie sollte ich folgendes priorisieren?
-    - [ ] Neues lernen
-      - [ ] Grundwissen Neurale Netze?
-      - [ ] PyTorch und TorchRL?
-      - [ ] BartoSutton Teil 2?
     - [ ] CyberRunner reproduzieren
     - [ ] Sim2Real ("Einfach" Modell rüberkopieren)
       - [ ] CyberRunner clean re-implementieren
     - [ ] Optimierung (Domain Randomization, etc.)
-  ],
-  [],
-
-  [
-    *Langfristiger Zeitplan*
-    - [ ] Gemeinsamen Konsens erstellen
-    - [ ] Präzisieren
   ],
   [],
 
@@ -107,9 +100,12 @@ Notizen
   [],
 
   [
-    *Weitere Fragen*
-    - Literaturempfehlungen:
-      - NNs, Sim2Real
-      - Papers
+    *Fragen zur Arbeit*
+    - [ ] Literaturempfehlungen:
+      - [ ] NNs, Sim2Real
+      - [ ] Papers
+    - [ ] Wie soll ich Softwareentwicklung dokumentieren?
+    - [ ] Wie soll ich experimente durchführen und dokumentieren?
+    - [ ] Struktur der Arbeit: Vorschlag vortragen
   ],
 )
