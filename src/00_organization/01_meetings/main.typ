@@ -47,7 +47,7 @@ Notizen
     - Paper über Dreamer, ML-Agents, CyberRunner gelesen
     - Papers gesammelt (Tabelle zeigen)
     - mit DreamerV3 Flappy Bird gelernt
-    - Tools: Ray+Prometheus+Grafana, JAX, Torch, NVIDIA-ctk, WandB, CyberRunner (ROS2), Gymnasium
+    - Tools: Ray, JAX, Torch, NVIDIA-ctk, WandB, CyberRunner (ROS2), Gymnasium
   ],
   [],
 
@@ -73,9 +73,9 @@ Notizen
     - [ ] Szenario 1: CR teilweise bis 2026-10-01 fertig
       - Lösung: Teilweise funktionalität als Baseline verwenden
     - [ ] Szenario 2: CR gar nicht bis 2026-10-01 fertig
-      - Lösung: Machbarkeit testen, ohne Vergleich
+      - Lösung: Vergleich mit Werten aus CR-Paper
     - [ ] Szenario 3: DreamerV3 nicht bis 2026-10-01 fertig
-      - Lösung: PPO verwenden (Uncharted Territory!)
+      - Lösung: PPO verwenden (Mit CR Uncharted Territory!)
   ],
   [],
 
