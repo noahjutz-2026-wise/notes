@@ -13,8 +13,12 @@
     [Software Setup],
   ),
   (
-    datetime(year: 2026, month: 9, day: 11),
+    datetime(year: 2026, month: 9, day: 1),
     [Study RL],
+  ),
+  (
+    datetime(year: 2026, month: 9, day: 11),
+    [Study Tools],
   ),
   (
     datetime(year: 2026, month: 9, day: 19),
@@ -50,10 +54,6 @@
   (
     datetime(year: 2026, month: 8, day: 22),
     [B.S. 5,6,12,13],
-  ),
-  (
-    datetime(year: 2026, month: 9, day: 11),
-    [B.S. Done],
   ),
   (
     datetime(year: 2026, month: 9, day: 16),
