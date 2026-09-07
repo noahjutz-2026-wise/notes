@@ -85,11 +85,12 @@ Notizen
 
   [
     *Prioritäten* \
-    Wie sollte ich folgendes priorisieren?
-    - [ ] CyberRunner reproduzieren
-    - [ ] Sim2Real ("Einfach" Modell rüberkopieren)
-      - [ ] CyberRunner clean re-implementieren
-    - [ ] Optimierung (Domain Randomization, etc.)
+    Abwägen zwischen Prioritäten:
+    - [ ] Theorie lernen (RL, NN, ML)
+    - [ ] Tools lernen (PyTorch)
+    - [ ] Entwicklung (Experimentspezifische Software)
+      - [ ] Sauber entwickeln
+    - [ ] Literaturrecherche & Schreiben
   ],
   [],
 
@@ -101,11 +102,9 @@ Notizen
 
   [
     *Fragen zur Arbeit*
-    - [ ] Literaturempfehlungen:
-      - [ ] NNs, Sim2Real
-      - [ ] Papers
-    - [ ] Wie soll ich Softwareentwicklung dokumentieren?
-    - [ ] Wie soll ich experimente durchführen und dokumentieren?
     - [ ] Struktur der Arbeit: Vorschlag vortragen
+    - [ ] Literaturempfehlungen: NNs, Sim2Real
+    - [ ] Wie soll ich den Softwareentwicklungsprozess dokumentieren?
+    - [ ] Wie soll ich Experimente durchführen und dokumentieren?
   ],
 )
