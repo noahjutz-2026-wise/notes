@@ -3,7 +3,7 @@
 #show: template_base
 
 #set document(
-  title: [Time Plan],
+  title: [Organisation],
   date: datetime(year: 2026, month: 8, day: 18),
 )
 
@@ -12,25 +12,9 @@
 
 #pagebreak()
 
-= Stundenplan
+= Zeitplan
 
 #{
   show: template_doc_part
-  include "timetable/main.typ"
-  pagebreak()
-}
-
-= Timeline
-
-#{
-  show: template_doc_part
-  include "timeline/main.typ"
-  pagebreak()
-}
-
-= Statistik
-
-#{
-  show: template_doc_part
-  include "stats/main.typ"
+  include "00_time_plan/main.typ"
 }
