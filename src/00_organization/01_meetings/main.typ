@@ -29,6 +29,15 @@ Notizen
 - alphapos(?) citation style
 - faq dokument
 
+= Kickoff (Ehrnsperger 2026-09-08)
+
+- [ ] *Blocker*:
+  - CUDA-GPU + mind. 64GB RAM
+  - 2. BRIO Labyrinth (1x original, 1x modifiziert)
+  - Arbeitsplatz
+- [ ] Zeitplan
+- [ ] Struktur der Arbeit
+
 = Kickoff (Weiß 2026-09-23)
 
 #table(
