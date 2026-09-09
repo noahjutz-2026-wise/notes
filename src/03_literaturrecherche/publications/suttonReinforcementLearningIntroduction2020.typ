@@ -1,4 +1,4 @@
-#import "/deps.typ": lilaq as lq, mannot
+#import "/src/deps.typ": lilaq as lq, mannot
 #import mannot: markhl
 
 #set text(lang: "en")

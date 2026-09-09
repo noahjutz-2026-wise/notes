@@ -1,4 +1,4 @@
-#import "/deps.typ": lilaq as lq
+#import "/src/deps.typ": lilaq as lq
 
 #let tools = (
   "google_scholar",

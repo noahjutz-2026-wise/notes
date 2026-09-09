@@ -1,4 +1,4 @@
-#import "/deps.typ": lilaq as lq
+#import "/src/deps.typ": lilaq as lq
 #import "../config/weekly_schedule.typ": days
 
 #let d(expected_work) = lq.diagram(

@@ -1,4 +1,4 @@
-#import "/deps.typ": cetz, lilaq as lq
+#import "/src/deps.typ": cetz, lilaq as lq
 #import "../config/macro_schedule.typ": daterange, milestones, sections
 
 #let p10 = lq.color.map.petroff10

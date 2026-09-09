@@ -1,4 +1,4 @@
-#import "/template.typ": *
+#import "/src/template.typ": *
 
 #set document(
   title: [Code Notes],

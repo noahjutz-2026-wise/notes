@@ -6,13 +6,13 @@
 ## Development
 
 ```sh
-tinymist preview --ignore-system-fonts --font-path src --pdf-standard a-3b --root src --input revision=$(git rev-parse --short HEAD) src/02_kernpunkte/main.typ
+tinymist preview --ignore-system-fonts --font-path src --pdf-standard a-3b --root . --input revision=$(git rev-parse --short HEAD) src/02_kernpunkte/main.typ
 ```
 
 ## Compiling
 
 ```sh
-typst c --ignore-system-fonts --font-path src --pdf-standard a-3b --root src --input revision=$(git rev-parse --short HEAD) src/03_literaturrecherche/main.typ
+typst c --ignore-system-fonts --font-path src --pdf-standard a-3b --root . --input revision=$(git rev-parse --short HEAD) src/03_literaturrecherche/main.typ
 ```
 
 ## Structure

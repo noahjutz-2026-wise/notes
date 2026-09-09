@@ -1,4 +1,4 @@
-#import "/template.typ": template_base
+#import "/src/template.typ": template_base
 
 #show: template_base
 

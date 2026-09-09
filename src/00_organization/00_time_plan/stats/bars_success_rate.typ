@@ -1,4 +1,4 @@
-#import "/deps.typ": lilaq as lq
+#import "/src/deps.typ": lilaq as lq
 
 #let d(raw_data, expected_work) = {
   let data = (

@@ -21,5 +21,5 @@ for dir_path in src/*/; do
         --font-path src \
         --pdf-standard a-3b \
         --input revision="$VERSION" \
-        --root src
+        --root .
 done

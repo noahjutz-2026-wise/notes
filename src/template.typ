@@ -1,4 +1,4 @@
-#import "/deps.typ": cheq
+#import "/src/deps.typ": cheq
 
 #let template_base(body) = {
   set document(
