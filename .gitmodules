@@ -1,0 +1,3 @@
+[submodule "vendor/literature"]
+	path = vendor/literature
+	url = https://github.com/noahjutz-2026-wise/literature

@@ -1,4 +1,4 @@
-/// Parse zotero_bbt.json into an array of dicts with keys:
+/// Parse betterbibtex.json into an array of dicts with keys:
 /// citationKey, stage, decision, cluster, label.
 /// Fields not present in an entry are `none`.
 #let parse_literature(path) = {

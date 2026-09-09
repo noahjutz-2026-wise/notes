@@ -7,5 +7,6 @@ WORKDIR /app
 
 COPY build.sh .
 COPY src src
+COPY vendor vendor
 
 CMD ["bash", "-c", "./build.sh /output ${GIT_HASH}"]
