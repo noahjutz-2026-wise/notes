@@ -34,7 +34,10 @@ Notizen
 - [x] *Blocker*:
   - [x] CUDA-GPU + mind. 64GB RAM
   - [x] 2. BRIO Labyrinth (1x original, 1x modifiziert)
-  - [ ] Arbeitsplatz
+
+= Studierendenmeeting (Ehrnsperger 2026-09-14)
+
+- [ ] Arbeitsplatz: Stand-up desk
 - [ ] Zeitplan
 - [ ] Struktur der Arbeit
 
@@ -112,7 +115,10 @@ Notizen
   [
     *Fragen zur Arbeit*
     - [ ] Struktur der Arbeit: Vorschlag vortragen
-    - [ ] Literaturempfehlungen: NNs, Sim2Real
+    - [ ] Literaturempfehlungen
+      - [ ] NNs
+      - [ ] Sim2Real
+      - [ ] Robotik/Timing
     - [ ] Wie soll ich den Softwareentwicklungsprozess dokumentieren?
     - [ ] Wie soll ich Experimente durchführen und dokumentieren?
   ],
