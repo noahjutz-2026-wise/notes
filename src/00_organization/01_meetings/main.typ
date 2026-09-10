@@ -121,5 +121,6 @@ Notizen
       - [ ] Robotik/Timing
     - [ ] Wie soll ich den Softwareentwicklungsprozess dokumentieren?
     - [ ] Wie soll ich Experimente durchführen und dokumentieren?
+    - [ ] Kann ich meine Arbeit auf Englisch schreiben?
   ],
 )
