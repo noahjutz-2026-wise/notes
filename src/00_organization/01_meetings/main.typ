@@ -123,4 +123,11 @@ Notizen
     - [ ] Wie soll ich Experimente durchführen und dokumentieren?
     - [ ] Kann ich meine Arbeit auf Englisch schreiben?
   ],
+  [],
+
+  [
+    *Inhaltliche Fragen*
+
+    - [ ] Wie kann ich experimente schneller iterieren, ohne Stunden auf ein Ergebnis zu warten?
+  ],
 )
