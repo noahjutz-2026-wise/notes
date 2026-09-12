@@ -33,7 +33,7 @@
       let label_or_title = if e.label != none and e.label != "" {
         e.label
       } else if t != none {
-        block(height: 2.4em, clip: true)[#t]
+        text(gray)[#block(height: 1em, clip: true)[#t]]
       } else {
         []
       }
