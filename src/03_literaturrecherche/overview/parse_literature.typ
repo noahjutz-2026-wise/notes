@@ -40,8 +40,11 @@
       }
     }
 
+    let title = item.at("title", default: none)
+
     results.push((
       citationKey: citation_key,
+      title: title,
       stage: stage,
       decision: decision,
       cluster: cluster,

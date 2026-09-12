@@ -16,8 +16,8 @@
 #let entries = parse_literature("/vendor/literature/betterbibtex.json")
 
 #let sorted_entries = entries.sorted(key: e => {
-  let val = if sort_by == "citationKey" {
-    if e.label != none and e.label != "" { e.label } else { e.citationKey }
+  let val = if sort_by == "label" {
+    if e.label != none and e.label != "" { e.label } else { e.at("title", default: none) }
   } else {
     e.at(sort_by, default: none)
   }
@@ -26,12 +26,19 @@
 
 #table(
   columns: 4,
-  table.header([*Citation Key*], [*Stage*], [*Decision*], [*Cluster*]),
+  table.header([*Label*], [*Stage*], [*Decision*], [*Cluster*]),
   ..sorted_entries
     .map(e => {
-      let key_or_label = if e.label != none and e.label != "" { e.label } else { e.citationKey }
+      let t = e.at("title", default: none)
+      let label_or_title = if e.label != none and e.label != "" {
+        e.label
+      } else if t != none {
+        block(height: 2.4em, clip: true)[#t]
+      } else {
+        []
+      }
       (
-        table.cell[#key_or_label],
+        table.cell[#label_or_title],
         table.cell(fill: cell_fill("stage", e.stage))[#(if e.stage != none { e.stage } else { [] })],
         table.cell(fill: cell_fill("decision", e.decision))[#(if e.decision != none { e.decision } else { [] })],
         table.cell(fill: cell_fill("cluster", e.cluster))[#(if e.cluster != none { e.cluster } else { [] })],
