@@ -17,16 +17,16 @@
     [Study RL],
   ),
   (
-    datetime(year: 2026, month: 9, day: 10),
+    datetime(year: 2026, month: 9, day: 12),
     [Study Tools],
   ),
   (
-    datetime(year: 2026, month: 9, day: 19),
-    [Physical Setup],
+    datetime(year: 2026, month: 9, day: 20),
+    [PPO in TorchRL],
   ),
   (
     datetime(year: 2026, month: 9, day: 23),
-    [Literature Review],
+    [Physical Setup],
   ),
   (
     datetime(year: 2026, month: 9, day: 28),
@@ -56,15 +56,7 @@
     [B.S. 5,6,12,13],
   ),
   (
-    datetime(year: 2026, month: 9, day: 16),
-    [100% run],
-  ),
-  (
-    datetime(year: 2026, month: 9, day: 19),
-    [Baselines Measured],
-  ),
-  (
     datetime(year: 2026, month: 9, day: 23),
-    [Literature Review v1.0.0],
+    [100% Run],
   ),
 )
