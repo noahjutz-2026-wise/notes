@@ -21,3 +21,15 @@
 - *Zeitplanung*
   - *vor 23.09.26:* Tag -42..0: RL-Buch lesen, Unity & TF/Torch lernen, Physischer Umbau CyberRunner
   - *ab 23.09.26:* Tag 1..6: Teamausflug SappZ; Tag 7..10: Abschluss Ziel 1; Tag 11..40: Ziel 2; Tag 41..60: Ziel 3; Tag 61..90: Arbeit schreiben.
+
+Addendum
+- *Nicht-Ziele:*
+  - Komplexe Physische Simulationen über Reibung hinaus
+- *Ziele*
+  - *Ziel 1:* Baselines: CR+Dreamer, MM+Dreamer, CR+PPO, MM+PPO
+  - *Ziel 2:* Transfer: Sim2Sim, Sim2Real, Real2Real, Real2Sim
+  - *Ziel 3:* Timing (clock & latency) analysieren, servo-setup oder originales setup simulieren
+- *Praktischer Teil (Programmieren):*
+  - _rl-deploy_: Deployment von DreamerV3 auf GPU-Cluster
+  - _cr-gymnasium:_ Algorithmus-Agnostischer CyberRunner (CV Reimplementation)
+  - _marble-maze-gymnasium:_ Algorithmus-Agnostischer marble-maze mit CV
