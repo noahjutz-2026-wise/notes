@@ -27,7 +27,7 @@
       for block in day {
         let ty = ((block.from - lo) / (hi - lo)) * height
         let hy = ((block.to - block.from) / (hi - lo)) * height
-        let c = color_map.at(block.body.text, default: none)
+        let c = color_map.at(block.body.at("text", default: ""), default: none)
         place(dy: ty)[
           #box(
             height: hy,

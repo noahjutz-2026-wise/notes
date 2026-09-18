@@ -9,7 +9,7 @@
     .fold((:), (acc, day) => {
       let (k, v) = day
       for block in v {
-        let unit = block.body.text
+        let unit = block.body.at("text", default: "")
         let dict = acc.at(unit, default: (:))
         dict.insert(k, dict.at(k, default: ()) + (block,))
         acc.insert(unit, dict)

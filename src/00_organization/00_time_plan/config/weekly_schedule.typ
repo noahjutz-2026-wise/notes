@@ -1,19 +1,16 @@
+#import "../util/pomodoro.typ": pomodoro
+
 #let mon = (
   (
     from: datetime(hour: 6, minute: 30, second: 0),
     to: datetime(hour: 7, minute: 30, second: 0),
     body: [get ready],
   ),
-  (
+  ..pomodoro((
     from: datetime(hour: 8, minute: 0, second: 0),
-    to: datetime(hour: 11, minute: 0, second: 0),
+    to: datetime(hour: 12, minute: 0, second: 0),
     body: [bib],
-  ),
-  (
-    from: datetime(hour: 12, minute: 0, second: 0),
-    to: datetime(hour: 13, minute: 0, second: 0),
-    body: [teammeeting],
-  ),
+  )),
   (
     from: datetime(hour: 13, minute: 30, second: 0),
     to: datetime(hour: 14, minute: 15, second: 0),
@@ -21,7 +18,7 @@
   ),
   (
     from: datetime(hour: 14, minute: 15, second: 0),
-    to: datetime(hour: 19, minute: 0, second: 0),
+    to: datetime(hour: 18, minute: 30, second: 0),
     body: [bib],
   ),
   (
