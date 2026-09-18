@@ -1,0 +1,109 @@
+pomodoro:
+  focus: 50m
+  break: 10m
+  long_break: 20m
+  sessions: 4
+
+schedule:
+  mon:
+    - from: "06:30"
+      to: "07:30"
+      body: "get ready"
+    - from: "08:00"
+      to: "11:00"
+      body: "bib"
+      pomodoro: true
+    - from: "12:00"
+      to: "13:30"
+      body: "bib"
+      pomodoro: true
+    - from: "13:30"
+      to: "14:15"
+      body: "Q&A"
+    - from: "14:15"
+      to: "19:00"
+      body: "bib"
+      pomodoro:
+        offset: 15m
+    - from: "20:00"
+      to: "22:00"
+      body: "merle"
+
+  tue: &tue
+    - from: "06:30"
+      to: "07:30"
+      body: "get ready"
+    - from: "08:00"
+      to: "11:00"
+      body: "bib"
+      pomodoro: true
+    - from: "12:00"
+      to: "17:00"
+      body: "bib"
+      pomodoro: true
+    - from: "18:00"
+      to: "20:00"
+      body: "gym"
+
+  wed:
+    - from: "06:30"
+      to: "07:30"
+      body: "get ready"
+    - from: "08:00"
+      to: "11:00"
+      body: "bib"
+      pomodoro: true
+    - from: "12:00"
+      to: "18:00"
+      body: "bib"
+      pomodoro: true
+    - from: "19:00"
+      to: "20:00"
+      body: "gym"
+
+  thu:
+    - from: "06:30"
+      to: "07:30"
+      body: "get ready"
+    - from: "08:00"
+      to: "11:00"
+      body: "bib"
+      pomodoro: true
+    - from: "12:00"
+      to: "19:00"
+      body: "bib"
+      pomodoro: true
+    - from: "20:00"
+      to: "22:00"
+      body: "shawarmen"
+
+  fri: *tue
+
+  sat:
+    - from: "06:30"
+      to: "07:30"
+      body: "get ready"
+    - from: "08:00"
+      to: "11:45"
+      body: "bib"
+      pomodoro: true
+    - from: "12:00"
+      to: "14:00"
+      body: "sarah"
+
+  sun:
+    - from: "08:00"
+      to: "09:00"
+      body: "get ready"
+    - from: "09:15"
+      to: "12:00"
+      body: "clean"
+    - from: "13:00"
+      to: "16:00"
+      body: "gym"
+    - from: "17:00"
+      to: "19:00"
+      body: "meal prep"
+    - from: "20:00"
+      to: "22:00"
+      body: "merle"
