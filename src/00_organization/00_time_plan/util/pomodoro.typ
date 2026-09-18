@@ -1,3 +1,26 @@
+#let build_cycle(focus, break_dur, long_break_dur, sessions, body, break_body, long_break_body) = {
+  let items = ()
+  let pair_count = calc.max(0, sessions - 1)
+
+  // 1. Initial focus session
+  items.push((type: "focus", dur: focus, body: body))
+
+  // 2. (sessions - 1) pairs of (break, focus)
+  for _ in range(pair_count) {
+    if break_dur > duration(seconds: 0) {
+      items.push((type: "break", dur: break_dur, body: break_body))
+    }
+    items.push((type: "focus", dur: focus, body: body))
+  }
+
+  // 3. Long break after sessions focus sessions
+  if long_break_dur > duration(seconds: 0) {
+    items.push((type: "long_break", dur: long_break_dur, body: long_break_body))
+  }
+
+  items
+}
+
 #let pomodoro(
   slot,
   focus: duration(minutes: 25),
@@ -6,6 +29,7 @@
   sessions: 4,
   break_body: none,
   long_break_body: none,
+  offset: duration(seconds: 0),
   ..rest,
 ) = {
   // Support positional arguments and different naming conventions for break
@@ -24,65 +48,64 @@
   }
   let long_break_dur = if pos.len() > 2 { pos.at(2) } else { long_break }
   let sessions_cnt = if pos.len() > 3 { pos.at(3) } else { sessions }
+  let offset_dur = if "offset" in rest.named() {
+    rest.named().at("offset")
+  } else if offset != none {
+    offset
+  } else {
+    duration(seconds: 0)
+  }
 
   if focus_dur <= duration(seconds: 0) or slot.from >= slot.to {
     return ()
   }
 
-  let cur = slot.from
-  let end = slot.to
+  let items = build_cycle(focus_dur, break_dur, long_break_dur, sessions_cnt, slot.body, break_body, long_break_body)
+  let cycle_sec = 0
+  for it in items {
+    cycle_sec += int(it.dur.seconds())
+  }
+
+  if cycle_sec <= 0 {
+    return ()
+  }
+
+  // Shift the timeline according to offset
+  let off_sec = int(offset_dur.seconds())
+  let shift_sec = calc.rem(calc.rem(off_sec, cycle_sec) + cycle_sec, cycle_sec)
+  let cur = slot.from - duration(seconds: shift_sec)
+
   let result = ()
+  let done = false
 
-  while cur < end {
-    // 1. Initial focus session of the cycle
-    let next_cur = calc.min(cur + focus_dur, end)
-    result.push((..slot, from: cur, to: next_cur, body: slot.body))
-    if cur + focus_dur >= end {
-      break
-    }
-    cur = next_cur
+  while not done {
+    for it in items {
+      let it_start = cur
+      let it_end = cur + it.dur
+      cur = it_end
 
-    // 2. (sessions - 1) pairs of (break, focus)
-    let finished_early = false
-    let pair_count = calc.max(0, sessions_cnt - 1)
-    for _ in range(pair_count) {
-      // Short break
-      if break_dur > duration(seconds: 0) {
-        next_cur = calc.min(cur + break_dur, end)
-        if break_body != none {
-          result.push((..slot, from: cur, to: next_cur, body: break_body))
-        }
-        if cur + break_dur >= end {
-          finished_early = true
-          break
-        }
-        cur = next_cur
+      // Skip sessions completely before slot.from
+      if it_end <= slot.from {
+        continue
       }
-
-      // Focus
-      next_cur = calc.min(cur + focus_dur, end)
-      result.push((..slot, from: cur, to: next_cur, body: slot.body))
-      if cur + focus_dur >= end {
-        finished_early = true
+      // Stop once sessions start past slot.to
+      if it_start >= slot.to {
+        done = true
         break
       }
-      cur = next_cur
-    }
 
-    if finished_early {
-      break
-    }
+      // Clamp interval to [slot.from, slot.to]
+      let s = calc.max(it_start, slot.from)
+      let e = calc.min(it_end, slot.to)
 
-    // 3. Long break after completing all focus sessions in the cycle
-    if long_break_dur > duration(seconds: 0) {
-      next_cur = calc.min(cur + long_break_dur, end)
-      if long_break_body != none {
-        result.push((..slot, from: cur, to: next_cur, body: long_break_body))
+      if e > s and it.body != none {
+        result.push((..slot, from: s, to: e, body: it.body))
       }
-      if cur + long_break_dur >= end {
+
+      if it_end >= slot.to {
+        done = true
         break
       }
-      cur = next_cur
     }
   }
 

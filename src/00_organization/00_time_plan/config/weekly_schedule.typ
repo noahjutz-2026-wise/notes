@@ -32,11 +32,14 @@
     to: datetime(hour: 14, minute: 15, second: 0),
     body: [Q&A],
   ),
-  ..pomodoro((
-    from: datetime(hour: 14, minute: 15, second: 0),
-    to: datetime(hour: 19, minute: 0, second: 0),
-    body: [bib],
-  )),
+  ..pomodoro(
+    (
+      from: datetime(hour: 14, minute: 15, second: 0),
+      to: datetime(hour: 19, minute: 0, second: 0),
+      body: [bib],
+    ),
+    offset: duration(minutes: 15),
+  ),
   (
     from: datetime(hour: 20, minute: 0, second: 0),
     to: datetime(hour: 22, minute: 0, second: 0),
