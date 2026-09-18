@@ -4,8 +4,8 @@
   break_: duration(minutes: 5),
   long_break: duration(minutes: 15),
   sessions: 4,
-  break_body: [],
-  long_break_body: [],
+  break_body: none,
+  long_break_body: none,
   ..rest,
 ) = {
   // Support positional arguments and different naming conventions for break
@@ -24,7 +24,6 @@
   }
   let long_break_dur = if pos.len() > 2 { pos.at(2) } else { long_break }
   let sessions_cnt = if pos.len() > 3 { pos.at(3) } else { sessions }
-  let lb_body = if long_break_body != none { long_break_body } else { break_body }
 
   if focus_dur <= duration(seconds: 0) or slot.from >= slot.to {
     return ()
@@ -50,7 +49,9 @@
       // Short break
       if break_dur > duration(seconds: 0) {
         next_cur = calc.min(cur + break_dur, end)
-        result.push((..slot, from: cur, to: next_cur, body: break_body))
+        if break_body != none {
+          result.push((..slot, from: cur, to: next_cur, body: break_body))
+        }
         if cur + break_dur >= end {
           finished_early = true
           break
@@ -75,7 +76,9 @@
     // 3. Long break after completing all focus sessions in the cycle
     if long_break_dur > duration(seconds: 0) {
       next_cur = calc.min(cur + long_break_dur, end)
-      result.push((..slot, from: cur, to: next_cur, body: lb_body))
+      if long_break_body != none {
+        result.push((..slot, from: cur, to: next_cur, body: long_break_body))
+      }
       if cur + long_break_dur >= end {
         break
       }
