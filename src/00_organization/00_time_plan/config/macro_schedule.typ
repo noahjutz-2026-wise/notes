@@ -21,10 +21,6 @@
     [Study Tools],
   ),
   (
-    datetime(year: 2026, month: 9, day: 20),
-    [PPO in TorchRL],
-  ),
-  (
     datetime(year: 2026, month: 9, day: 23),
     [Physical Setup],
   ),
