@@ -7,7 +7,9 @@
   sessions: 4,
 )
 
-#let pomodoro = pomodoro.with(..pomodoro_rules)
+#let pomodoro = pomodoro.with(
+  ..pomodoro_rules,
+)
 
 #let mon = (
   (
@@ -17,7 +19,12 @@
   ),
   ..pomodoro((
     from: datetime(hour: 8, minute: 0, second: 0),
-    to: datetime(hour: 12, minute: 0, second: 0),
+    to: datetime(hour: 11, minute: 0, second: 0),
+    body: [bib],
+  )),
+  ..pomodoro((
+    from: datetime(hour: 12, minute: 0, second: 0),
+    to: datetime(hour: 13, minute: 30, second: 0),
     body: [bib],
   )),
   (
@@ -27,7 +34,7 @@
   ),
   ..pomodoro((
     from: datetime(hour: 14, minute: 15, second: 0),
-    to: datetime(hour: 18, minute: 30, second: 0),
+    to: datetime(hour: 19, minute: 0, second: 0),
     body: [bib],
   )),
   (
@@ -43,16 +50,16 @@
     to: datetime(hour: 7, minute: 30, second: 0),
     body: [get ready],
   ),
-  (
+  ..pomodoro((
     from: datetime(hour: 8, minute: 0, second: 0),
-    to: datetime(hour: 12, minute: 0, second: 0),
+    to: datetime(hour: 11, minute: 0, second: 0),
     body: [bib],
-  ),
-  (
-    from: datetime(hour: 13, minute: 0, second: 0),
+  )),
+  ..pomodoro((
+    from: datetime(hour: 12, minute: 0, second: 0),
     to: datetime(hour: 17, minute: 0, second: 0),
     body: [bib],
-  ),
+  )),
   (
     from: datetime(hour: 18, minute: 0, second: 0),
     to: datetime(hour: 20, minute: 0, second: 0),
@@ -66,16 +73,16 @@
     to: datetime(hour: 7, minute: 30, second: 0),
     body: [get ready],
   ),
-  (
+  ..pomodoro((
     from: datetime(hour: 8, minute: 0, second: 0),
-    to: datetime(hour: 12, minute: 0, second: 0),
+    to: datetime(hour: 11, minute: 0, second: 0),
     body: [bib],
-  ),
-  (
-    from: datetime(hour: 13, minute: 0, second: 0),
+  )),
+  ..pomodoro((
+    from: datetime(hour: 12, minute: 0, second: 0),
     to: datetime(hour: 18, minute: 0, second: 0),
     body: [bib],
-  ),
+  )),
   (
     from: datetime(hour: 19, minute: 0, second: 0),
     to: datetime(hour: 20, minute: 0, second: 0),
@@ -89,16 +96,16 @@
     to: datetime(hour: 7, minute: 30, second: 0),
     body: [get ready],
   ),
-  (
+  ..pomodoro((
     from: datetime(hour: 8, minute: 0, second: 0),
-    to: datetime(hour: 12, minute: 0, second: 0),
+    to: datetime(hour: 11, minute: 0, second: 0),
     body: [bib],
-  ),
-  (
-    from: datetime(hour: 13, minute: 0, second: 0),
+  )),
+  ..pomodoro((
+    from: datetime(hour: 12, minute: 0, second: 0),
     to: datetime(hour: 19, minute: 0, second: 0),
     body: [bib],
-  ),
+  )),
   (
     from: datetime(hour: 20, minute: 0, second: 0),
     to: datetime(hour: 22, minute: 0, second: 0),
@@ -114,11 +121,11 @@
     to: datetime(hour: 7, minute: 30, second: 0),
     body: [get ready],
   ),
-  (
+  ..pomodoro((
     from: datetime(hour: 8, minute: 0, second: 0),
     to: datetime(hour: 11, minute: 45, second: 0),
     body: [bib],
-  ),
+  )),
   (
     from: datetime(hour: 12, minute: 0, second: 0),
     to: datetime(hour: 14, minute: 0, second: 0),
