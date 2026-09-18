@@ -42,7 +42,6 @@
 // #expected_work.values().map(((work, ..)) => work).sum()
 
 #figure(caption: [Success rate])[
-  #let raw_data = csv("../assets/tomato.tsv", delimiter: "\t")
   #import "bars_success_rate.typ"
-  #bars_success_rate.d(raw_data, expected_work)
+  #bars_success_rate.d(expected_work)
 ]
