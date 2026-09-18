@@ -2,7 +2,7 @@ pomodoro:
   focus: 50m
   break: 10m
   long_break: 20m
-  sessions: 4
+  sessions: 3
 
 schedule:
   mon:
@@ -21,10 +21,12 @@ schedule:
       to: "14:15"
       body: "Q&A"
     - from: "14:15"
-      to: "19:00"
+      to: "14:50"
       body: "bib"
-      pomodoro:
-        offset: 15m
+    - from: "15:10"
+      to: "19:10"
+      body: "bib"
+      pomodoro: true
     - from: "20:00"
       to: "22:00"
       body: "merle"
@@ -70,7 +72,7 @@ schedule:
       body: "bib"
       pomodoro: true
     - from: "12:00"
-      to: "19:00"
+      to: "19:10"
       body: "bib"
       pomodoro: true
     - from: "20:00"
@@ -84,7 +86,7 @@ schedule:
       to: "07:30"
       body: "get ready"
     - from: "08:00"
-      to: "11:45"
+      to: "12:00"
       body: "bib"
       pomodoro: true
     - from: "12:00"
