@@ -1,5 +1,14 @@
 #import "../util/pomodoro.typ": pomodoro
 
+#let pomodoro_rules = (
+  focus: duration(minutes: 50),
+  break_: duration(minutes: 10),
+  long_break: duration(minutes: 20),
+  sessions: 4,
+)
+
+#let pomodoro = pomodoro.with(..pomodoro_rules)
+
 #let mon = (
   (
     from: datetime(hour: 6, minute: 30, second: 0),
@@ -16,11 +25,11 @@
     to: datetime(hour: 14, minute: 15, second: 0),
     body: [Q&A],
   ),
-  (
+  ..pomodoro((
     from: datetime(hour: 14, minute: 15, second: 0),
     to: datetime(hour: 18, minute: 30, second: 0),
     body: [bib],
-  ),
+  )),
   (
     from: datetime(hour: 20, minute: 0, second: 0),
     to: datetime(hour: 22, minute: 0, second: 0),
