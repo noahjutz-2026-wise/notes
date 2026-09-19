@@ -86,11 +86,11 @@ schedule:
       to: "07:30"
       body: "get ready"
     - from: "08:00"
-      to: "12:00"
+      to: "13:00"
       body: "bib"
       pomodoro: true
-    - from: "12:00"
-      to: "14:00"
+    - from: "13:00"
+      to: "15:00"
       body: "sarah"
 
   sun:
