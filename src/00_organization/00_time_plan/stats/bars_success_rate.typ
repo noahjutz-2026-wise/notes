@@ -56,7 +56,7 @@
         }
         if expected_day == none { return none }
         let expected_dur = if type(expected_day) == dictionary {
-          expected_day.at("work", default: none)
+          expected_day.at("total", default: expected_day.at("work", default: none))
         } else {
           expected_day
         }
