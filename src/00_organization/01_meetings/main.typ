@@ -43,70 +43,51 @@ Notizen
 
 = Kickoff (Weiß 2026-09-23)
 
-#table(
-  columns: (1fr, auto),
-  table.header([], [*Notizen*]),
-  [
-    *Aktueller Stand*
-    - Anfang BA 2026-09-23
-    - Ziel des Meetings: Erste Schritte planen
-  ],
-  [],
+*Aktueller Stand*
+- Anfang BA 2026-09-23
+- Ziel des Meetings: Erste Schritte planen
 
-  [
-    *Bisherige Vorbereitung*
-    - BartoSutton: Kapitel 1-7 gelesen
-    - Paper über Dreamer, ML-Agents, CyberRunner gelesen
-    - Papers gesammelt (Tabelle zeigen)
-    - mit DreamerV3 Flappy Bird gelernt
-    - Tools: Ray, JAX, PyTorch, NVIDIA-ctk, WandB, CyberRunner (ROS2), Gymnasium
-  ],
-  [],
+*Bisherige Vorbereitung*
+- BartoSutton: Kapitel 1-7 gelesen
+- Paper über Dreamer, ML-Agents, CyberRunner gelesen
+- Papers gesammelt (Tabelle zeigen)
+- mit DreamerV3 Flappy Bird gelernt
+- Tools: Ray, JAX, PyTorch, NVIDIA-ctk, WandB, CyberRunner (ROS2), Gymnasium
 
-  [
-    *Zeitplanung & Risikomanagement*
-    - [ ] Zeitplan & Milestones prüfen
-    - [ ] Nächstes Meeting ausmachen
-    #text(fill: black.lighten(60%))[
-      - bis 09-27: Urlaub
-    ]
-    - [ ] 10-01: Baseline
-      - Szenario 1: CR voll funktionsfähig
-      - Szenario 2: CR teilweise fertig
-        - Lösung: Teilweise funktionalität als Baseline verwenden
-      - #highlight[Szenario 3: CR gar nicht fertig]
-        - Lösung: CR-Paper als Baseline verwenden
-      - Szenario 4: DreamerV3 nicht fertig
-        - Lösung: PPO verwenden
-    - [ ] 11-01: Sim2Real
-      - Kompatibilität schaffen:
-        - ML-Agents mit DreamerV3
-        - ML-Agents mit Kamera-Observation
-        - CR von Dreamer abkapseln (Ansonsten Implementierungs-Volatilität)
-      - Sim isoliert testen
-      - #highlight[Robust unter stochastischer Latenz]
-        - CR Re-implementieren? (Consistent Framerate, Modularisierung)
-      - [ ] Modelle trainieren, speichern, evaluieren; Übertragen, auf HW evaluieren
-    - 11-21: Optimieren
-      - [ ] Domain Randomization
-    - 12-23: Schreiben
-    - Durchgehend: Literaturrecherche, schreiben
-  ],
-  [],
+*Time Plan*
+- [-] Show time plan
+- [x] Next meeting: 2026-10-07 afternoon
+- [x] 10-01: Baseline
+  - #text(gray)[Szenario 1: CR works fully]
+  - #highlight[Szenario 2: CR works partially]
+    - Lösung: Teilweise funktionalität als Baseline verwenden
+  - #text(gray)[Szenario 3: CR doesn't work; Solution: Use CR-Paper as baseline]
+  - #text(gray)[Szenario 4: DreamerV3 doesn't work; Solution: Use PPO]
+- [x] 11-01: Sim2Real
+  - Transfer:
+    - ML-Agents with Ray DreamerV3
+    - CR with Ray DreamerV3
+    - Unify observations and actions
+  - Collect Data: Sim & Real, metrics, obs, rewards, images
+  - #text(gray)[Stochastic latency]
+    - Test if necessary
+    - #strike[reimplement CR? (Consistent Framerate, modular)]
+- [x] 11-21: Optimize
+  - Domain Randomization
+  - Don't focus on exact physical simulation
+- 12-23: Write
 
-  [
-    *Prioritäten* \
-    - [ ] Zeitplan vortragen: Realistisch?
-  ],
-  [],
+*Priorities* \
+- [x] Show time plan: realistic?
+- *No* CR rewrite
+- Immediate P1: Gather data, train
 
-  [
-    *Fragen zur Arbeit*
-    - [ ] Struktur der Arbeit vortragen: Anpassungen?
-      - [ ] Anforderungsanalyse?
-    - [ ] Literatur vortragen: Welche Richtung fokussieren?
-    - [ ] Experimente: Mit WandB, DVC
-    - [ ] Kann ich meine Arbeit auf Englisch schreiben?
-  ],
-  [],
-)
+*Questions about writing*
+- [x] Show thesis outline
+  - RE not necessary
+  - RL before CR
+- [x] Show literature
+  - Enough read
+  - Don't go too deep into latency
+- [-] Experiments: WandB, DVC
+- [x] Write thesis in english? Yes
