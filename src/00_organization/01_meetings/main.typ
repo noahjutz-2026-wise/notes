@@ -35,11 +35,17 @@ Notizen
   - [x] CUDA-GPU + mind. 64GB RAM
   - [x] 2. BRIO Labyrinth (1x original, 1x modifiziert)
 
-= Studierendenmeeting (Ehrnsperger 2026-09-14)
+= Studierendenmeeting (Ehrnsperger 2026-09-XX)
 
-- [ ] Arbeitsplatz: Stand-up desk
-- [ ] Zeitplan
-- [ ] Struktur der Arbeit
+*Show & tell*
+- [ ] Time Plan
+- [ ] Time invested so far
+- [ ] Thesis Outline
+- [ ] Literature
+
+*Misc.*
+- [ ] New desk
+- [ ] SHK Job: go ahead?
 
 = Kickoff (Weiß 2026-09-23)
 
