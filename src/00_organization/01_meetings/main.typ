@@ -59,7 +59,7 @@ Notizen
     - Paper über Dreamer, ML-Agents, CyberRunner gelesen
     - Papers gesammelt (Tabelle zeigen)
     - mit DreamerV3 Flappy Bird gelernt
-    - Tools: Ray, JAX, Torch, NVIDIA-ctk, WandB, CyberRunner (ROS2), Gymnasium
+    - Tools: Ray, JAX, PyTorch, NVIDIA-ctk, WandB, CyberRunner (ROS2), Gymnasium
   ],
   [],
 
@@ -68,66 +68,45 @@ Notizen
     - [ ] Zeitplan & Milestones prüfen
     - [ ] Nächstes Meeting ausmachen
     #text(fill: black.lighten(60%))[
-      - 09-23: Meeting, Planung
-      - 09-28: Urlaub
+      - bis 09-27: Urlaub
     ]
     - [ ] 10-01: Baseline
       - Szenario 1: CR voll funktionsfähig
       - Szenario 2: CR teilweise fertig
         - Lösung: Teilweise funktionalität als Baseline verwenden
-      - Szenario 3: CR gar nicht fertig
+      - #highlight[Szenario 3: CR gar nicht fertig]
         - Lösung: CR-Paper als Baseline verwenden
       - Szenario 4: DreamerV3 nicht fertig
-        - Lösung: PPO verwenden (Mit CR Uncharted Territory!)
+        - Lösung: PPO verwenden
     - [ ] 11-01: Sim2Real
       - Kompatibilität schaffen:
         - ML-Agents mit DreamerV3
         - ML-Agents mit Kamera-Observation
-        - CR von Dreamer abkapseln (Ansonsten Implementierungs-Volatilität!)
+        - CR von Dreamer abkapseln (Ansonsten Implementierungs-Volatilität)
       - Sim isoliert testen
-      - CR Re-implementieren? (Consistent Framerate, Modularisierung)
+      - #highlight[Robust unter stochastischer Latenz]
+        - CR Re-implementieren? (Consistent Framerate, Modularisierung)
       - [ ] Modelle trainieren, speichern, evaluieren; Übertragen, auf HW evaluieren
     - 11-21: Optimieren
-      - [ ] Sim2Real Papers lesen
+      - [ ] Domain Randomization
     - 12-23: Schreiben
     - Durchgehend: Literaturrecherche, schreiben
-    - [ ] Optional: Vergleich versch. RL-Algorithmen
   ],
   [],
 
   [
     *Prioritäten* \
-    Abwägen zwischen Prioritäten:
-    - [ ] Theorie lernen (RL, NN, ML)
-    - [ ] Tools lernen (PyTorch)
-    - [ ] Entwicklung (Experimentspezifische Software)
-      - [ ] Sauber entwickeln (Modular, Git LFS, Maintenance)
-    - [ ] Literaturrecherche & Schreiben
-  ],
-  [],
-
-  [
-    *Blocker*
-    - [ ] Brauche starke CUDA-GPU + mind. 64GB RAM
+    - [ ] Zeitplan vortragen: Realistisch?
   ],
   [],
 
   [
     *Fragen zur Arbeit*
-    - [ ] Struktur der Arbeit: Vorschlag vortragen
-    - [ ] Literaturempfehlungen
-      - [ ] NNs
-      - [ ] Sim2Real
-      - [ ] Robotik/Timing
-    - [ ] Wie soll ich den Softwareentwicklungsprozess dokumentieren?
-    - [ ] Wie soll ich Experimente durchführen und dokumentieren?
+    - [ ] Struktur der Arbeit vortragen: Anpassungen?
+      - [ ] Anforderungsanalyse?
+    - [ ] Literatur vortragen: Welche Richtung fokussieren?
+    - [ ] Experimente: Mit WandB, DVC
     - [ ] Kann ich meine Arbeit auf Englisch schreiben?
   ],
   [],
-
-  [
-    *Inhaltliche Fragen*
-
-    - [ ] Wie kann ich experimente schneller iterieren, ohne Stunden auf ein Ergebnis zu warten?
-  ],
 )
