@@ -71,9 +71,6 @@
   )
 }
 
-= Search Log
-#include "fig_search_log.typ"
-
 = Library
 
 #include "tbl_library.typ"
