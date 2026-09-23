@@ -52,3 +52,14 @@ Provides GPU-Accelerated ndarrays, Neural-Network abstractions, ML implementatio
 Distributed Computing for RL.
 
 - Prometheus: `podman run -p 9090:9090 docker.io/prom/prometheus`
+
+= Unity ML-Agents
+
+```bash
+# train
+mlagents-learn config.yaml --resume --inference
+```
+
+- Models exported as .pt and .onnx to results/ppo/FinalEasy/
+- Metrics: W&B: https://github.com/Unity-Technologies/ml-agents/issues/5733
+- RLLib: https://www.anyscale.com/blog/reinforcement-learning-with-rllib-in-the-unity-game-engine
