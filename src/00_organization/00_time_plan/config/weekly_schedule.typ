@@ -28,7 +28,7 @@
   }
 }
 
-#let raw_data = yaml("weekly_schedule.yaml")
+#let raw_data = yaml("../../../../vendor/planning/weekly_schedule.yaml")
 #let pomo_cfg = raw_data.at("pomodoro", default: (:))
 
 #let default_pomodoro_rules = (

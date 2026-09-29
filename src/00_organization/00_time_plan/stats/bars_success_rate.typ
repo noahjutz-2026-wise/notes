@@ -5,7 +5,7 @@
   let (expected_work, data_source) = if rest.pos().len() > 0 {
     (rest.pos().at(0), if raw_data != none { raw_data } else { arg1 })
   } else {
-    (arg1, if raw_data != none { raw_data } else { json("../assets/super_productivity.json") })
+    (arg1, if raw_data != none { raw_data } else { json("../../../../vendor/planning/super_productivity.json") })
   }
 
   let sp = if type(data_source) == str {
