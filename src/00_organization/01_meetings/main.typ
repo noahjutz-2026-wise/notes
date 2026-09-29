@@ -97,3 +97,12 @@ Notizen
   - Don't go too deep into latency
 - [-] Experiments: WandB, DVC
 - [x] Write thesis in english? Yes
+
+= Baselines (Weiß 2026-10-07)
+
+*State*
+- [ ] Show goals, actions and state
+- [ ] Show latest thesis
+
+*Questions*
+- [ ] Calibrate priorities

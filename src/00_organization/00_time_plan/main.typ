@@ -1,4 +1,4 @@
-= Stundenplan
+= Timetable
 
 #include "timetable/main.typ"
 
@@ -6,6 +6,18 @@
 
 #include "timeline/main.typ"
 
-= Statistik
+= Statistics
 
 #include "stats/main.typ"
+#pagebreak()
+
+= Realtime Task Planning: Path of least resistance
+
+- *State:* Need data to find out how well a transferred model works
+- *Action:* Measure performance of unity model on real
+  - [ ] MLAgents train until x% success
+    - [ ] Python script that stores metrics and data, trains until >75% success, saves .onnx
+  - [ ] onnxruntime infer on real
+    - [ ] Python script that stores metrics and data, runs inference control loop for N eval runs
+  P2: Baseline performance of sim \
+  P3: Baseline performance of cr
