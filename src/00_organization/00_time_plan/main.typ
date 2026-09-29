@@ -13,8 +13,11 @@
 
 = Realtime Task Planning: Path of least resistance
 
-- *State:* Need data to find out how well a transferred model works
-- *Action:* Measure performance of unity model on real
+
+- *State:* (2026-09-29) \
+  Need data to find out how well a transferred model works
+- *Action:* \
+  Measure performance of unity model on real
   - [ ] MLAgents train until x% success
     - [ ] Python script that stores metrics and data, trains until >75% success, saves .onnx
   - [ ] onnxruntime infer on real
