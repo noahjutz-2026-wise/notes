@@ -19,8 +19,12 @@
 - *Action:* \
   Measure performance of unity model on real
   - [ ] MLAgents train until x% success
-    - [ ] Python script that stores metrics and data, trains until >75% success, saves .onnx
+    - [/] Python script that stores metrics and data, trains until >75% success, saves .onnx
+      - [x] Store to wandb
+      - [x] Save model
+      - [x] parallelize
+      - [x] hyperparameter tuning
   - [ ] onnxruntime infer on real
-    - [ ] Python script that stores metrics and data, runs inference control loop for N eval runs
+    - [/] Python script that stores metrics and data, runs inference control loop for N eval runs
   P2: Baseline performance of sim \
   P3: Baseline performance of cr
