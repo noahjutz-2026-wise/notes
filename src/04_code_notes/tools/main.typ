@@ -49,9 +49,17 @@ Provides GPU-Accelerated ndarrays, Neural-Network abstractions, ML implementatio
 
 = Ray RLLib
 
-Distributed Computing for RL.
+RLLink Inversion of Control architecture:
 
-- Prometheus: `podman run -p 9090:9090 docker.io/prom/prometheus`
+- #link(
+    "https://github.com/ray-project/ray/blob/2655772c33d8b6ba09aa2dc1d5a365087dc536a0/python/ray/rllib/examples/envs/classes/utils/dummy_external_client.py",
+  )[Dummy Client]
+- #link(
+    "https://github.com/ray-project/ray/blob/2655772c33d8b6ba09aa2dc1d5a365087dc536a0/python/ray/rllib/examples/envs/env_connecting_to_rllib_w_tcp_client.py",
+  )[Example server]
+  - #link(
+      "https://github.com/ray-project/ray/blob/2655772c33d8b6ba09aa2dc1d5a365087dc536a0/python/ray/rllib/env/external/env_runner_server_for_external_inference.py",
+    )[EnvRunnerServerForExternalInference]
 
 = Unity ML-Agents
 
@@ -62,4 +70,4 @@ mlagents-learn config.yaml --resume --inference
 
 - Models exported as .pt and .onnx to results/ppo/FinalEasy/
 - Metrics: W&B: https://github.com/Unity-Technologies/ml-agents/issues/5733
-- RLLib: https://www.anyscale.com/blog/reinforcement-learning-with-rllib-in-the-unity-game-engine
+- #strike[RLLib: https://www.anyscale.com/blog/reinforcement-learning-with-rllib-in-the-unity-game-engine] *dead*
