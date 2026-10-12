@@ -11,20 +11,26 @@
 #include "stats/main.typ"
 #pagebreak()
 
-= Realtime Task Planning: Path of least resistance
+= Deadlines
 
+#table(
+  columns: 2,
+  table.header([Date], [Goal]),
+  datetime(year: 2026, month: 10, day: 12).display(),
+  [
+    - [ ] Define spaces and run on unity
+      - [ ] crs2r-labyrinth-gymnasium
+      - [ ] crs2r-mlagents
+  ],
 
-- *State:* (2026-09-29) \
-  Need data to find out how well a transferred model works
-- *Action:* \
-  Measure performance of unity model on real
-  - [ ] MLAgents train until x% success
-    - [/] Python script that stores metrics and data, trains until >75% success, saves .onnx
-      - [x] Store to wandb
-      - [x] Save model
-      - [x] parallelize
-      - [x] hyperparameter tuning
-  - [ ] onnxruntime infer on real
-    - [/] Python script that stores metrics and data, runs inference control loop for N eval runs
-  P2: Baseline performance of sim \
-  P3: Baseline performance of cr
+  datetime(year: 2026, month: 10, day: 13).display(),
+  [
+    - [ ] crs2r-learn
+    - [ ] crs2r-control-loop
+  ],
+
+  datetime(year: 2026, month: 10, day: 14).display(),
+  [
+    - [ ] containerize & ship
+  ],
+)
