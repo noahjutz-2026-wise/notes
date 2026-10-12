@@ -25,6 +25,7 @@
 #{
   show: template_doc_part
   include "01_meetings/main.typ"
+  pagebreak()
 }
 
 = Miscellaneous
