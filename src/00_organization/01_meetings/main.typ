@@ -35,18 +35,6 @@ Notizen
   - [x] CUDA-GPU + mind. 64GB RAM
   - [x] 2. BRIO Labyrinth (1x original, 1x modifiziert)
 
-= Studierendenmeeting (Ehrnsperger 2026-09-XX)
-
-*Show & tell*
-- [ ] Time Plan
-- [ ] Time invested so far
-- [ ] Thesis Outline
-- [ ] Literature
-
-*Misc.*
-- [ ] New desk
-- [ ] SHK Job: go ahead?
-
 = Kickoff (Weiß 2026-09-23)
 
 *Aktueller Stand*
@@ -98,11 +86,31 @@ Notizen
 - [-] Experiments: WandB, DVC
 - [x] Write thesis in english? Yes
 
-= Baselines (Weiß 2026-10-07)
+= Baselines (Weiß 2026-10-12)
 
-*State*
-- [ ] Show goals, actions and state
-- [ ] Show latest thesis
+- [x] Check Thesis
+  - [x] Content: What's missing, unnecessary, inaccurate? \
+    All good; Safety defined as functional safety
+  - [x] Structure & wording: What's out of place? \
+    All good
+- [x] Hardware issues
+  - Could be fixed but takes time & doesn't give me anything to write about
+  - Est. time: 1d-2d
+  - Meeting today w/ Ehrnsperger
+- [x] Architecture:
+  - [x] inversion of control
+  - [x] ray API stack
+  - [-] pipelines, containerization
+- [-] Prototype:
+  - [-] ML-Agents
 
-*Questions*
-- [ ] Calibrate priorities
+= Studierendenmeeting (Ehrnsperger 2026-10-12)
+
+- [ ] Thesis
+- [ ] Hardware issues
+  - Can someone do it for me?
+  - Simplify design
+
+*Misc.*
+- [ ] New desk
+- [ ] SHK Job: go ahead?
