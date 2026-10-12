@@ -12,7 +12,7 @@
 
 #pagebreak()
 
-= Zeitplan
+= Time Plan
 
 #{
   show: template_doc_part
@@ -25,4 +25,12 @@
 #{
   show: template_doc_part
   include "01_meetings/main.typ"
+}
+
+= Miscellaneous
+
+
+#{
+  show: template_doc_part
+  include "02_misc/main.typ"
 }
