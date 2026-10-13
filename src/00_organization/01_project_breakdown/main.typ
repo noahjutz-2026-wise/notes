@@ -1,5 +1,9 @@
 #import "/src/deps.typ": treet
 
+#show figure: set block(breakable: true)
+
+= Research Question
+
 RQ: How well does a #text(gray)[Unity] simulation trained model work in reality #text(gray)[on the BRIO labyrinth]?
 
 Answer:
@@ -42,8 +46,36 @@ Answer:
 - It _compares_ to previous work (in terms of performance, cost)
   - CyberRunner, marble-maze baseline performances
 
+Every experiment is OFAT of a tuned baseline, the resulting ablation data should be seen relative to that baseline.
 
-#show figure: set block(breakable: true)
+#figure(caption: [Research Questions and required ablations])[
+  #table(
+    columns: 5,
+    stroke: none,
+    table.header([*ID*], [*Group*], [*Question*], [*Req. data*], [*Req. exp.*]),
+    table.hline(),
+    [RQ1], [Extent], [(Best) Accuracy], $ max_("s2r","eval") limits("mean")_("episodes")("Accuracy") $, [-],
+    [RQ2], [Extent], [(Best) Speed], $ min_("s2r","eval") limits("mean")_("successes")("WallClock") $, [-],
+    [RQ3], [Extent], [(Best) Distance], $ max_("s2r","eval") limits("mean")_("episodes")("Distance") $, [-],
+    [RQ4], [Extent], [(Best) S2R Gap], $ min_("s2r","eval") limits("mean")_("episodes")("S2RGap") $, [-],
+    table.hline(),
+    [RQ5], [Performance], [DR Physics], $ "corr"("DR Phys", "reward") $, [],
+    [RQ6], [Performance], [DR Latency], $"corr"("DR Latency", "reward")$, [],
+    [RQ7], [Performance], [Algorithm], $"corr"("Algo", "reward")$, [],
+    [RQ8], [Performance], [ObsShape], $"corr"("ObsShape", "reward")$, [],
+  )
+]
+
+// #figure(caption: [Experiments])[
+//   #table(
+//     columns: 2,
+//     stroke: none,
+//     table.header([*ID*], []),
+//     [Exp1],
+//     table.hline(),
+//   )
+// ]
+
 #figure(caption: [Data dimensions])[
   #table(
     columns: 7,
@@ -62,12 +94,12 @@ Answer:
     [X], [Episode], [Phys], [MotorAcc], $?$, [-], [-],
     [X], [Episode], [Phys], [ObsLatency], $[0,1] [s]$, [-], [-],
     [X], [Episode], [Phys], [ActLatency], $[0,1] [s]$, [-], [-],
-    [X], [Episode], [Phys], [[...]Rand], ${plus.minus 15%, plus.minus 30%, ...}$, [-], [-],
+    [X], [Episode], [Phys], table.cell(fill: red)[DR], ${plus.minus 15%, plus.minus 30%, ...}$, [-], [-],
     table.hline(),
     [X], [Update], [], [], $$, [], [],
     table.hline(),
     [X], [Run], [Conf], [_Seed_], $NN_0$, [-], [-],
-    [X], [Run], [Conf], [Algo], ${"PPO", "Dreamer"}$, [-], [-],
+    [X], [Run], [Conf], table.cell(fill: red)[Algo], ${"PPO", "Dreamer"}$, [-], [-],
     [X], [Run], [Conf], [Env], ${"sim:easy", ..., "real"}$, [-], [-],
     [X], [Run], [Conf], [TransferFromEnv], ${"..Env", "none"}$, [-], [-],
     [X], [Run], [Conf], [Sim:Parallelization], $NN$, [-], [-],
@@ -101,7 +133,4 @@ Answer:
   )
 ]
 
-RQ \
-#treet.tree-list(marker-font: "JetBrains Mono")[
-  -
-]
+= Experiments
