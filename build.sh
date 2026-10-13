@@ -12,8 +12,8 @@ for dir_path in src/*/; do
     file="${dir_path}main.typ"
 
     if [ ! -f "$file" ]; then
-        echo "$file not found."
-        exit 1
+        echo "$file not found, skipping."
+        continue
     fi
 
     typst compile "$file" "$OUTPUT/${name}.pdf" \
