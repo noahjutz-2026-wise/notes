@@ -17,7 +17,6 @@ RQ: How well does a #text(gray)[Unity] simulation trained model work in reality 
     [X], [Episode], [Time], [_Episode_], $NN_0$, [-], [-],
     [X], [Episode], [Phys], [BallFriction], $?$, [-], [-],
     [X], [Episode], [Phys], [BoardFriction], $?$, [-], [-],
-    [X], [Episode], [Phys], [BoardFriction], $?$, [-], [-],
     [X], [Episode], [Phys], [MotorVel], $?$, [-], [-],
     [X], [Episode], [Phys], [MotorAcc], $?$, [-], [-],
     [X], [Episode], [Phys], [ObsLatency], $[0,1] [s]$, [-], [-],
