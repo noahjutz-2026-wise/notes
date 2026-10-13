@@ -1,5 +1,5 @@
 #import "/src/deps.typ": cetz, lilaq as lq
-#import "../../../../vendor/planning/macro_schedule.typ": daterange, milestones, sections
+#import "/vendor/planning/macro_schedule.typ": daterange, milestones, sections
 
 #let p10 = lq.color.map.petroff10
 
@@ -7,7 +7,7 @@
   #place(line(start: (0%, 100%), end: (100%, 0%), stroke: 0.5pt))
 ]
 
-#cetz.canvas(length: 20cm, {
+#cetz.canvas(length: 23cm, {
   import cetz.draw: *
 
   let width = 128pt
@@ -64,7 +64,7 @@
       source,
       anchor: "east",
       padding: pad,
-      c,
+      text(size: 8pt, str(i + 1) + "  " + d.display("[year]-[month]-[day]")),
     )
   }
 
