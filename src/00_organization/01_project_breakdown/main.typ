@@ -119,6 +119,7 @@ Procedure:
     [Y], [Update], [Algo], [Dreamer:PolLoss], $?$, $?$, [-],
     [Y], [Update], [Algo], [PPO:Loss], $?$, $?$, [-],
     [Y], [Update], [Algo], [PolEntropy], $?$, $?$, [-],
+    [Y], [Update], [Algo], [ModelWeights], $?$, [-], [-],
     table.hline(),
     [Y], [Run], [Rew], [Accuracy], $[0, 1]$, $floor(dot) ceil(dot) dash(dot)$, [Progress],
   )
