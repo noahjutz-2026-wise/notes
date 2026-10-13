@@ -2,6 +2,47 @@
 
 RQ: How well does a #text(gray)[Unity] simulation trained model work in reality #text(gray)[on the BRIO labyrinth]?
 
+Answer:
+- It works to this _extent_
+  - accuracy
+  - speed
+  - distance
+  - s2r gap
+- With the _robustness_
+  - to physics, visual noise, latency, ... (up to X%)
+- It works _because_
+  - ...
+- It doesn't work _because_
+  - difficult maze section
+  - jerky movement (Act)
+  - estimator / reality mismatch
+  - inaccurate learned dynamics model (loss)
+  - inaccurate physics parameters
+- under the following _prerequisites_
+  - DR
+  - accurate modeling of friction, vel, acc, latency
+  - frequency
+  - reward shape
+  - observation shape
+  - Lighting conditions
+  - Prioritized sampling & sample augmentation
+  - Hardware (gpu, ram, bus, ...)
+- _performance_ is influenced by
+  - hyperparameters
+  - algorithm
+  - curriculum learning
+- At the _cost_ of
+  - compute time vs real time saved
+- _limitations_ are
+  - e.g., dynamics changes dynamically during an episode
+  - Frequency limited by Round-trip control loop time
+- _preliminary results_ include
+  - sim $->$ sim2
+  - real $->$ real2
+- It _compares_ to previous work (in terms of performance, cost)
+  - CyberRunner, marble-maze baseline performances
+
+
 #show figure: set block(breakable: true)
 #figure(caption: [Data dimensions])[
   #table(
