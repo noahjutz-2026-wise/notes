@@ -42,31 +42,51 @@
     current_date = d
   }
 
-  for i in range(milestones.len()) {
+  // --- Milestone labels: equally-spaced column to the left ---
+  let n = milestones.len()
+  // x position of the label column (left of the bar)
+  let label_x = -80pt
+  // vertical spacing between labels (fraction of canvas height)
+  let label_spacing = 1.0 / (n + 1)
+
+  for i in range(n) {
     let (d, c) = milestones.at(i)
-    let y = (d - daterange.from) / (daterange.to - daterange.from)
-    let target = (width / 2, y)
-    let source = (rel: (-(width / 2 + 2 * pad), 0), to: target)
+    // actual date position on the bar
+    let ruler_y = (d - daterange.from) / (daterange.to - daterange.from)
+    // equally spaced label position
+    let label_y = label_spacing * (i + 1)
+
+    let label_name = "milestone-label-" + str(i + 1)
+    let ruler_name = "milestone-ruler-" + str(i + 1)
+
+    // dot on the bar at the actual date
     circle(
-      target,
+      (width / 2, ruler_y),
       radius: 2pt,
       stroke: none,
       fill: black,
+      name: ruler_name,
     )
 
-    line(
-      source,
-      target,
-      stroke: 1pt + black.lighten(40%),
-    )
-
+    // label in the equally-spaced column
     content(
-      source,
+      (label_x, label_y),
       anchor: "east",
       padding: pad,
       text(size: 8pt, str(i + 1) + "  " + d.display("[year]-[month]-[day]")),
+      name: label_name,
+    )
+
+    // orthogonal connector: label → vertical channel → ruler dot
+    line(
+      (label_x + pad, label_y),
+      (-2 * pad, label_y),
+      (-2 * pad, ruler_y),
+      (width / 2, ruler_y),
+      stroke: 0.75pt + black.lighten(40%),
     )
   }
+
 
   let tick = daterange.from + duration(days: 1)
   while true {
