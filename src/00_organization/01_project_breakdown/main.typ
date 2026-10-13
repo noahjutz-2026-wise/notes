@@ -7,46 +7,20 @@
 RQ: How well does a #text(gray)[Unity] simulation trained model work in reality #text(gray)[on the BRIO labyrinth]?
 
 Answer:
-- It works to this _extent_
-  - accuracy
-  - speed
-  - distance
-  - s2r gap
 - With the _robustness_
   - to physics, visual noise, latency, ... (up to X%)
-- It works _because_
-  - ...
-- It doesn't work _because_
-  - difficult maze section
-  - jerky movement (Act)
-  - estimator / reality mismatch
-  - inaccurate learned dynamics model (loss)
-  - inaccurate physics parameters
-- under the following _prerequisites_
-  - DR
-  - accurate modeling of friction, vel, acc, latency
-  - frequency
-  - reward shape
-  - observation shape
-  - Lighting conditions
-  - Prioritized sampling & sample augmentation
-  - Hardware (gpu, ram, bus, ...)
-- _performance_ is influenced by
-  - hyperparameters
-  - algorithm
-  - curriculum learning
 - At the _cost_ of
   - compute time vs real time saved
 - _limitations_ are
-  - e.g., dynamics changes dynamically during an episode
   - Frequency limited by Round-trip control loop time
 - _preliminary results_ include
   - sim $->$ sim2
   - real $->$ real2
-- It _compares_ to previous work (in terms of performance, cost)
-  - CyberRunner, marble-maze baseline performances
 
-Every experiment is OFAT of a tuned baseline, the resulting ablation data should be seen relative to that baseline.
+Procedure:
+- Tuned Baseline (Exp3)
+- OFAT relative to Exp3
+- Every Exp is based on aggregation of N *eval* episodes
 
 #figure(caption: [Research Questions and required ablations])[
   #table(
@@ -64,8 +38,19 @@ Every experiment is OFAT of a tuned baseline, the resulting ablation data should
     table.hline(),
     [RQ8], [Performance], [DR Physics], $ "corr"("DR Phys", "reward") $, [],
     [RQ9], [Performance], [DR Latency], $"corr"("DR Latency", "reward")$, [],
-    [RQ10], [Performance], [Algorithm], $"corr"("Algo", "reward")$, [],
-    [RQ11], [Performance], [ObsShape], $"corr"("ObsShape", "reward")$, [],
+    [RQ10], [Performance], [Noise Obs], $"corr"("DR Obs", "reward")$, [],
+    [RQ11], [Performance], [Noise Act], $"corr"("DR Act", "reward")$, [],
+    [RQ12], [Performance], [Algorithm], $"corr"("Algo", "reward")$, [],
+    [RQ13], [Performance], [ObsShape], $"corr"("ObsShape", "reward")$, [],
+    [RQ14], [Performance], [Curriculum], $$, [],
+    [#strike[RQ15]], [Performance], [Reward Shaping], $$, [],
+    [#strike[RQ16]], [Performance], [Prioritized Sampling], $$, [],
+    [#strike[RQ17]], [Performance], [Sample Augmenting], $$, [],
+    [RQ18], [Reason], [Maze section], $$, [Exp4],
+    [RQ19], [Reason], [Jerky movement], $$, [Exp4],
+    [RQ20], [Reason], [est./real mismatch], $$, [Exp4],
+    [RQ21], [Reason], [Not enough exp], $$, [Exp4],
+    [RQ22], [Reason], [dyn change], $$, [Exp4],
   )
 ]
 
