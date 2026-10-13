@@ -20,11 +20,19 @@
   pagebreak()
 }
 
+= Project Breakdown
+
+#{
+  show: template_doc_part
+  include "01_project_breakdown/main.typ"
+  pagebreak()
+}
+
 = Meetings
 
 #{
   show: template_doc_part
-  include "01_meetings/main.typ"
+  include "02_meetings/main.typ"
   pagebreak()
 }
 
@@ -33,5 +41,5 @@
 
 #{
   show: template_doc_part
-  include "02_misc/main.typ"
+  include "03_misc/main.typ"
 }

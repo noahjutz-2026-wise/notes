@@ -9,8 +9,3 @@
 = Statistics
 
 #include "stats/main.typ"
-#pagebreak()
-
-= Project Breakdown
-
-#include "project_breakdown/main.typ"
