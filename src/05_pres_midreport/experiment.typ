@@ -164,7 +164,7 @@
     )
 
     // Tuner next to the config
-    node((1, -3), name: "tuner")[tuner]
+    node((1, -3), name: "tuner")[HPO]
     edge(<tuner>, <sim_learner_config>, "->")
     edge(
       <eval_runner_metrics>, "r", "u", "u", "u", "u", "u", "u", <tuner>,
