@@ -89,6 +89,10 @@
 #gh.section-slide(number: "03", title: [Roadmap])
 
 #gh.content-slide(title: [Milestones])[
+  #include "/src/00_organization/00_time_plan/timeline/timeline.typ"
+]
+
+#gh.content-slide(title: [Milestones])[
   #import "/vendor/planning/macro_schedule.typ": milestones
 
   #table(
