@@ -43,4 +43,38 @@
 
     node((2, 1), name: "sim_model_label", stroke: none)[Sim Model]
     node((2, 2), name: "sim_model")[#cetz.canvas(symbols.symbol_neural_net)]
+
+    node((3, 0), name: "real_learn_label", stroke: none)[Learner]
+    node((3, 1), name: "real_learn_traj")[#cetz.canvas(symbols.symbol_buffer)]
+    edge((3, 1), (3, 2), "->")
+    node((3, 2), name: "real_learn_model")[#cetz.canvas(symbols.symbol_neural_net)]
+    node(
+      enclose: (<real_learn_label>, <real_learn_traj>, <real_learn_model>),
+      name: "real_learn",
+      shape: fletcher.shapes.house,
+      stroke: 2pt + yellow
+    )
+
+    node((4, 0), name: "real_runner_label", stroke: none)[Runner]
+    node((4, 1), name: "real_runner_system")[#cetz.canvas(symbols.symbol_iso_square_rod)]
+    node((4, 2), name: "real_runner_model")[#cetz.canvas(symbols.symbol_neural_net)]
+    node(
+      enclose: (<real_runner_label>, <real_runner_system>, <real_runner_model>),
+      name: "real_runner",
+      shape: fletcher.shapes.house,
+      stroke: 2pt + blue
+    )
+    edge(<real_runner_system>, <real_learn_traj>, "->")[#text(0.5em)[samples]]
+    edge(<real_learn_model>, <real_runner_model>, "->")
+
+    node((3.5, -1), name: "real_label", stroke: none)[Real]
+    node(
+      enclose: (<real_learn>, <real_runner>, <real_label>),
+      stroke: 2pt,
+      corner-radius: 8pt
+    )
+
+    // Connect sim and real via sim_model
+    edge(<runner_model>, <sim_model>, "->")
+    edge(<sim_model>, <real_runner_model>, "->")
 })
