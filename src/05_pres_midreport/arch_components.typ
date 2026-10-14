@@ -26,27 +26,24 @@
       stroke: 2pt + yellow,
     )
 
-    // RunnerServer (middle, empty blue house, as tall as the others)
+    // RunnerServer & RunnerClient (middle, blue house covering both)
     node((1, 0), name: "rs_label", stroke: none)[RunnerServer]
     node((1, 1), name: "rs_traj", stroke: none, width: 0pt)[#hide[#symbol(symbols.symbol_buffer)]]
     node((1, 2), name: "rs_model", stroke: none, width: 0pt)[#hide[#symbol(symbols.symbol_neural_net)]]
-    node(
-      enclose: (<rs_label>, <rs_traj>, <rs_model>),
-      name: "runner_server",
-      shape: fletcher.shapes.house,
-      stroke: 2pt + blue,
-    )
 
-    // RunnerClient (right of RunnerServer, blue-ish house)
     node((2, 0), name: "rc_label", stroke: none)[RunnerClient]
     node((2, 1), name: "rc_buffer")[#symbol(symbols.symbol_buffer)]
     node((2, 1.5), name: "rc_gym")[gym.Env]
     node((2, 2), name: "rc_model")[#symbol(symbols.symbol_neural_net)]
+
     node(
-      enclose: (<rc_label>, <rc_buffer>, <rc_gym>, <rc_model>),
-      name: "runner_client",
+      enclose: (
+        <rs_label>, <rs_traj>, <rs_model>,
+        <rc_label>, <rc_buffer>, <rc_gym>, <rc_model>,
+      ),
+      name: "runner",
       shape: fletcher.shapes.house,
-      stroke: 2pt + blue.lighten(40%),
+      stroke: 2pt + blue,
     )
 
     // System (right-most, gray/black house)
