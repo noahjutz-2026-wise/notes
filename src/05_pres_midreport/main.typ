@@ -73,10 +73,14 @@
 #gh.section-slide(number: "02", title: [Thesis])
 
 #gh.content-slide(title: [Research Question])[
-  #place(end)[How well does a unity trained model \ work in reality?]
+  How well does a unity trained model work in reality?
+]
 
+#gh.content-slide(title: [Experiments])[
   #include "experiment.typ"
 ]
+
+
 
 #gh.closing-slide(
   title: [Thanks.],

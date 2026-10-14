@@ -26,15 +26,20 @@
   line((0.15, 0.40), (0.15, 0.15), (0.45, 0.00), (0.45, 0.25))
   // Right face vertical & bottom edge
   line((0.75, 0.40), (0.75, 0.15), (0.45, 0.00))
-  // Rod going up from right side/corner, bending into a hook toward center and dangling down
+  // Rod going up from right side/corner, bending into a hook toward center
   line(
     (0.75, 0.40),
     (0.75, 0.88),
     (0.68, 0.95),
     (0.52, 0.95),
     (0.45, 0.88),
-    (0.45, 0.62),
+    (0.45, 0.74),
   )
+  // Camera: square body on top, trapezoid/flaring lens pointing down toward cube (wider aperture at bottom)
+  // Body (square)
+  line((0.41, 0.69), (0.49, 0.69), (0.49, 0.74), (0.41, 0.74), close: true, fill: black, stroke: none)
+  // Lens (flaring out downward towards the target)
+  line((0.42, 0.69), (0.48, 0.69), (0.52, 0.62), (0.38, 0.62), close: true, fill: black, stroke: none)
 }
 
 #let symbol_neural_net = {
