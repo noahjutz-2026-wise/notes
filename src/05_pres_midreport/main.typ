@@ -4,6 +4,7 @@
 #import touying: *
 
 #show link: set text(blue)
+#set table(stroke: none, inset: 12pt)
 
 #show: gh.register
 #show: cheq.checklist
@@ -32,8 +33,6 @@
 #gh.content-slide(title: [Code projects])[
   #table(
     columns: 3,
-    stroke: none,
-    inset: 12pt,
     table.header([*Project*], [*Description*], [*Status*]),
     table.hline(),
     link("https://codeberg.org/CyberRunner/cr-container")[cr-container], [Containerized Legacy CR], [$arrow.r.hook$ Superseded by cr-robostack],
@@ -46,8 +45,6 @@
 #gh.content-slide(title: [Hardware Projects])[
   #table(
     columns: 3,
-    stroke: none,
-    inset: 12pt,
     table.header([*Project*], [*Description*], [*Status*]),
     table.hline(),
     link("https://codeberg.org/CyberRunner/cr-3d-models")[cr-3d-models],
