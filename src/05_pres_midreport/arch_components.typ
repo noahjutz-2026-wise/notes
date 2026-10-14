@@ -1,5 +1,6 @@
 #import "/src/deps.typ": fletcher, cetz
 #import "symbols.typ"
+#import "util.typ": symbol
 
 #set text(size: 14pt)
 
@@ -15,9 +16,9 @@
 
     // Learner (left, yellow house)
     node((0, 0), name: "learner_label", stroke: none)[Learner]
-    node((0, 1), name: "learner_traj")[#cetz.canvas(symbols.symbol_buffer)]
+    node((0, 1), name: "learner_traj")[#symbol(symbols.symbol_buffer)]
     edge(<learner_traj>, <learner_model>, "->")[optim]
-    node((0, 2), name: "learner_model")[#cetz.canvas(symbols.symbol_neural_net)]
+    node((0, 2), name: "learner_model")[#symbol(symbols.symbol_neural_net)]
     node(
       enclose: (<learner_label>, <learner_traj>, <learner_model>),
       name: "learner",
@@ -27,8 +28,8 @@
 
     // RunnerServer (middle, empty blue house, as tall as the others)
     node((1, 0), name: "rs_label", stroke: none)[RunnerServer]
-    node((1, 1), name: "rs_traj", stroke: none, width: 0pt)[#hide[#cetz.canvas(symbols.symbol_buffer)]]
-    node((1, 2), name: "rs_model", stroke: none, width: 0pt)[#hide[#cetz.canvas(symbols.symbol_neural_net)]]
+    node((1, 1), name: "rs_traj", stroke: none, width: 0pt)[#hide[#symbol(symbols.symbol_buffer)]]
+    node((1, 2), name: "rs_model", stroke: none, width: 0pt)[#hide[#symbol(symbols.symbol_neural_net)]]
     node(
       enclose: (<rs_label>, <rs_traj>, <rs_model>),
       name: "runner_server",
@@ -38,9 +39,9 @@
 
     // RunnerClient (right of RunnerServer, blue-ish house)
     node((2, 0), name: "rc_label", stroke: none)[RunnerClient]
-    node((2, 1), name: "rc_buffer")[#cetz.canvas(symbols.symbol_buffer)]
+    node((2, 1), name: "rc_buffer")[#symbol(symbols.symbol_buffer)]
     node((2, 1.5), name: "rc_gym")[gym.Env]
-    node((2, 2), name: "rc_model")[#cetz.canvas(symbols.symbol_neural_net)]
+    node((2, 2), name: "rc_model")[#symbol(symbols.symbol_neural_net)]
     node(
       enclose: (<rc_label>, <rc_buffer>, <rc_gym>, <rc_model>),
       name: "runner_client",
@@ -53,9 +54,9 @@
     // left column = rotated interface cells, right column = unity/cyberrunner
     node((3.5, 0), name: "sys_label", stroke: none)[System]
     node((3, 1), name: "sys_ml")[#rotate(90deg, reflow: true)[mlagents gym]]
-    node((4, 1), name: "sys_unity")[#cetz.canvas(symbols.symbol_unity) unity]
+    node((4, 1), name: "sys_unity")[#symbol(symbols.symbol_unity) \ unity]
     node((3, 2), name: "sys_gym")[#rotate(90deg, reflow: true)[gym]]
-    node((4, 2), name: "sys_cr")[#cetz.canvas(symbols.symbol_iso_square_rod) CR]
+    node((4, 2), name: "sys_cr")[#symbol(symbols.symbol_iso_square_rod) \ CR]
     node(
       enclose: (<sys_label>, <sys_ml>, <sys_unity>, <sys_gym>, <sys_cr>),
       name: "system",
