@@ -15,7 +15,7 @@
     // Sim block
     node((0, 0), name: "sim_learner_label", stroke: none)[Learner]
     node((0, 1), name: "sim_learner_traj")[#cetz.canvas(symbols.symbol_buffer)]
-    edge("->")
+    edge("->")[optim]
     node((0, 2), name: "sim_learner_model")[#cetz.canvas(symbols.symbol_neural_net)]
     node(
       enclose: (<sim_learner_label>, <sim_learner_traj>, <sim_learner_model>),
@@ -33,8 +33,9 @@
       shape: fletcher.shapes.house,
       stroke: 2pt + blue
     )
+    edge(<sim_runner_system>, <sim_runner_model>, "<->")[explore]
     edge(<sim_runner_system>, <sim_learner_traj>, "->")[samples]
-    edge(<sim_learner_model>, <sim_runner_model>, "->")
+    edge(<sim_learner_model>, <sim_runner_model>, "->")[copy]
 
     node((0.5, -1), name: "sim_label", stroke: none)[Sim]
     node(
@@ -50,7 +51,7 @@
     // Real block
     node((3, 0), name: "real_learner_label", stroke: none)[Learner]
     node((3, 1), name: "real_learner_traj")[#cetz.canvas(symbols.symbol_buffer)]
-    edge((3, 1), (3, 2), "->")
+    edge((3, 1), (3, 2), "->")[optim]
     node((3, 2), name: "real_learner_model")[#cetz.canvas(symbols.symbol_neural_net)]
     node(
       enclose: (<real_learner_label>, <real_learner_traj>, <real_learner_model>),
@@ -68,8 +69,9 @@
       shape: fletcher.shapes.house,
       stroke: 2pt + blue
     )
+    edge(<real_runner_system>, <real_runner_model>, "<->")[explore]
     edge(<real_runner_system>, <real_learner_traj>, "->")[samples]
-    edge(<real_learner_model>, <real_runner_model>, "->")
+    edge(<real_learner_model>, <real_runner_model>, "->")[copy]
 
     node((3.5, -1), name: "real_label", stroke: none)[Fine-Tune]
     node(
@@ -92,6 +94,7 @@
       shape: fletcher.shapes.house,
       stroke: 2pt + blue
     )
+    edge(<eval_runner_system>, <eval_runner_model>, "<->")[infer]
 
     node((6, -1), name: "eval_label", stroke: none)[Eval]
     node(
