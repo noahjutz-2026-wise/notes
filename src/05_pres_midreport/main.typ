@@ -1,6 +1,7 @@
 #import "/src/deps.typ": touying
 #import "/src/deps.typ": cheq
 #import "/src/deps.typ": gh-minimal-slides as gh
+#import "/vendor/planning/macro_schedule.typ": milestones
 #import touying: *
 
 #show link: set text(blue)
@@ -92,20 +93,30 @@
   #include "/src/00_organization/00_time_plan/timeline/timeline.typ"
 ]
 
-#gh.content-slide(title: [Milestones])[
-  #import "/vendor/planning/macro_schedule.typ": milestones
-
-  #table(
-    columns: 3,
-    table.header([*\#*], [*Date*], [*Goal*]),
-    table.hline(),
-    ..milestones
-      .enumerate()
+#let milestones_tbl = {
+  milestones.enumerate()
       .map(((i, m)) => {
         let (d, c) = m
         (str(i + 1), d.display("[year]-[month]-[day]"), c)
       })
-      .flatten(),
+      .flatten()
+}
+
+#gh.content-slide(title: [Milestones])[
+  #table(
+    columns: 3,
+    table.header([*\#*], [*Date*], [*Goal*]),
+    table.hline(),
+    ..milestones_tbl.slice(0, 3 * 7)
+  )
+]
+
+#gh.content-slide(title: [Milestones])[
+  #table(
+    columns: 3,
+    table.header([*\#*], [*Date*], [*Goal*]),
+    table.hline(),
+    ..milestones_tbl.slice(3 * 7)
   )
 ]
 
