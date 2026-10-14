@@ -110,4 +110,53 @@
     // Connect real and eval via finetuned_model
     edge(<real_runner_model>, <finetuned_model>, "->")
     edge(<finetuned_model>, <eval_runner_model>, "->")
+
+    // Metrics below each learner and runner
+    // Sim Learner metrics (update)
+    node((0, 3), name: "sim_learner_metrics")[
+      #cetz.canvas(symbols.symbol_metrics)
+      update
+    ]
+    edge(<sim_learner>, <sim_learner_metrics>, "->")
+
+    // Sim Runner metrics (step)
+    node((1, 3), name: "sim_runner_metrics")[
+      #cetz.canvas(symbols.symbol_metrics)
+      step
+    ]
+    edge(<sim_runner>, <sim_runner_metrics>, "->")
+
+    // Real Learner metrics (update)
+    node((3, 3), name: "real_learner_metrics")[
+      #cetz.canvas(symbols.symbol_metrics)
+      update
+    ]
+    edge(<real_learner>, <real_learner_metrics>, "->")
+
+    // Real Runner metrics (step)
+    node((4, 3), name: "real_runner_metrics")[
+      #cetz.canvas(symbols.symbol_metrics)
+      step
+    ]
+    edge(<real_runner>, <real_runner_metrics>, "->")
+
+    // Eval Runner metrics (step)
+    node((6, 3), name: "eval_runner_metrics")[
+      #cetz.canvas(symbols.symbol_metrics)
+      step
+    ]
+    edge(<eval_runner>, <eval_runner_metrics>, "->")
+
+    // Config above learners
+    node((0, -2), name: "sim_learner_config")[
+      #cetz.canvas(symbols.symbol_config)
+      config
+    ]
+    edge(<sim_learner_config>, <sim_learner>, "->")
+
+    node((3, -2), name: "real_learner_config")[
+      #cetz.canvas(symbols.symbol_config)
+      config
+    ]
+    edge(<real_learner_config>, <real_learner>, "->")
 })
