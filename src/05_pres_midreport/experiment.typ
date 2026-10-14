@@ -1,12 +1,15 @@
 #import "/src/deps.typ": fletcher, cetz
 #import "symbols.typ"
 
+#set text(size: 14pt)
+
 #fletcher.diagram(
   node-stroke: 1pt,
   node-shape: fletcher.shapes.rect,
   node-inset: 8pt,
   spacing: (32pt, 32pt),
   label-sep: 0pt,
+  label-size: 12pt,
   {
     import fletcher: node, edge
     // Sim block
@@ -30,7 +33,7 @@
       shape: fletcher.shapes.house,
       stroke: 2pt + blue
     )
-    edge(<sim_runner_system>, <sim_learner_traj>, "->")[#text(0.5em)[samples]]
+    edge(<sim_runner_system>, <sim_learner_traj>, "->")[samples]
     edge(<sim_learner_model>, <sim_runner_model>, "->")
 
     node((0.5, -1), name: "sim_label", stroke: none)[Sim]
@@ -65,7 +68,7 @@
       shape: fletcher.shapes.house,
       stroke: 2pt + blue
     )
-    edge(<real_runner_system>, <real_learner_traj>, "->")[#text(0.5em)[samples]]
+    edge(<real_runner_system>, <real_learner_traj>, "->")[samples]
     edge(<real_learner_model>, <real_runner_model>, "->")
 
     node((3.5, -1), name: "real_label", stroke: none)[Fine-Tune]

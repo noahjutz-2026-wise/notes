@@ -20,16 +20,21 @@
 #let symbol_iso_square_rod = {
   import cetz.draw: *
   // Isometric cube
-  // Top face
+  // Top face (center is at (0.45, 0.40))
   line((0.45, 0.55), (0.75, 0.40), (0.45, 0.25), (0.15, 0.40), close: true)
   // Left face vertical & bottom edge
   line((0.15, 0.40), (0.15, 0.15), (0.45, 0.00), (0.45, 0.25))
   // Right face vertical & bottom edge
   line((0.75, 0.40), (0.75, 0.15), (0.45, 0.00))
-  // Rod going up from the right side / corner
-  line((0.75, 0.40), (0.75, 0.90))
-  // Rod cap
-  line((0.70, 0.925), (0.80, 0.875))
+  // Rod going up from right side/corner, bending into a hook toward center and dangling down
+  line(
+    (0.75, 0.40),
+    (0.75, 0.88),
+    (0.68, 0.95),
+    (0.52, 0.95),
+    (0.45, 0.88),
+    (0.45, 0.62),
+  )
 }
 
 #let symbol_neural_net = {
