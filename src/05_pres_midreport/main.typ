@@ -85,7 +85,23 @@
   #include "experiment.typ"
 ]
 
+#gh.section-slide(number: "03", title: [Roadmap])
 
+#gh.content-slide(title: [Milestones])[
+  #import "/vendor/planning/macro_schedule.typ": milestones
+
+  #table(
+    columns: 3,
+    table.header([\#], [Date], [Goal]),
+    ..milestones
+      .enumerate()
+      .map(((i, m)) => {
+        let (d, c) = m
+        (str(i + 1), d.display("[year]-[month]-[day]"), c)
+      })
+      .flatten(),
+  )
+]
 
 #gh.closing-slide(
   title: [Thanks.],

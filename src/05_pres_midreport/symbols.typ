@@ -61,28 +61,28 @@
   line((0.5, 0.85), (0.85, 0.75))
 
   // Layer 1 nodes (2 nodes)
-  line((0.1, 0.25), (0.15, 0.3), (0.2, 0.25), (0.15, 0.2), close: true)
-  line((0.1, 0.75), (0.15, 0.8), (0.2, 0.75), (0.15, 0.7), close: true)
+  circle((0.15, 0.25), radius: 0.045, fill: black, stroke: none)
+  circle((0.15, 0.75), radius: 0.045, fill: black, stroke: none)
 
   // Layer 2 nodes (3 nodes)
-  line((0.45, 0.15), (0.5, 0.2), (0.55, 0.15), (0.5, 0.1), close: true)
-  line((0.45, 0.5), (0.5, 0.55), (0.55, 0.5), (0.5, 0.45), close: true)
-  line((0.45, 0.85), (0.5, 0.9), (0.55, 0.85), (0.5, 0.8), close: true)
+  circle((0.5, 0.15), radius: 0.045, fill: black, stroke: none)
+  circle((0.5, 0.5), radius: 0.045, fill: black, stroke: none)
+  circle((0.5, 0.85), radius: 0.045, fill: black, stroke: none)
 
   // Layer 3 nodes (2 nodes)
-  line((0.8, 0.25), (0.85, 0.3), (0.9, 0.25), (0.85, 0.2), close: true)
-  line((0.8, 0.75), (0.85, 0.8), (0.9, 0.75), (0.85, 0.7), close: true)
+  circle((0.85, 0.25), radius: 0.045, fill: black, stroke: none)
+  circle((0.85, 0.75), radius: 0.045, fill: black, stroke: none)
 }
 
 #let symbol_buffer = {
   import cetz.draw: *
-  // 3 simple squares stacked and offset without stroke overlap (no fill)
-  // Back square: only top and left visible edges
-  line((0.64, 0.78), (0.64, 1.00), (0.08, 1.00), (0.08, 0.44), (0.22, 0.44))
-  // Middle square: only top and left visible edges
-  line((0.78, 0.56), (0.78, 0.78), (0.22, 0.78), (0.22, 0.22), (0.36, 0.22))
+  // 3 simple squares stacked with equal x and y offset (dx = dy = 0.16), no stroke overlap (no fill)
+  // Back square: visible top and left edges
+  line((0.68, 0.84), (0.68, 1.00), (0.00, 1.00), (0.00, 0.32), (0.16, 0.32))
+  // Middle square: visible top and left edges
+  line((0.84, 0.68), (0.84, 0.84), (0.16, 0.84), (0.16, 0.16), (0.32, 0.16))
   // Front square: full square
-  line((0.36, 0.00), (0.92, 0.00), (0.92, 0.56), (0.36, 0.56), close: true)
+  line((0.32, 0.00), (1.00, 0.00), (1.00, 0.68), (0.32, 0.68), close: true)
 }
 
 #let symbol_metrics = {
