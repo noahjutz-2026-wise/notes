@@ -82,6 +82,10 @@
   #include "experiment.typ"
 ]
 
+#gh.content-slide(title: [Architecture])[
+  #include "arch_components.typ"
+]
+
 #gh.section-slide(number: "03", title: [Roadmap])
 
 #gh.content-slide(title: [Milestones])[
