@@ -68,14 +68,40 @@
     edge(<real_runner_system>, <real_learner_traj>, "->")[#text(0.5em)[samples]]
     edge(<real_learner_model>, <real_runner_model>, "->")
 
-    node((3.5, -1), name: "real_label", stroke: none)[Real]
+    node((3.5, -1), name: "real_label", stroke: none)[Fine-Tune]
     node(
       enclose: (<real_learner>, <real_runner>, <real_label>),
       stroke: 2pt,
       corner-radius: 8pt
     )
 
+    // Fine-tuned Model between Fine-Tune and Eval
+    node((5, 1), name: "finetuned_model_label", stroke: none)[Fine-Tuned Model]
+    node((5, 2), name: "finetuned_model")[#cetz.canvas(symbols.symbol_neural_net)]
+
+    // Eval block
+    node((6, 0), name: "eval_runner_label", stroke: none)[Runner]
+    node((6, 1), name: "eval_runner_system")[#cetz.canvas(symbols.symbol_iso_square_rod)]
+    node((6, 2), name: "eval_runner_model")[#cetz.canvas(symbols.symbol_neural_net)]
+    node(
+      enclose: (<eval_runner_label>, <eval_runner_system>, <eval_runner_model>),
+      name: "eval_runner",
+      shape: fletcher.shapes.house,
+      stroke: 2pt + blue
+    )
+
+    node((6, -1), name: "eval_label", stroke: none)[Eval]
+    node(
+      enclose: (<eval_runner>, <eval_label>),
+      stroke: 2pt,
+      corner-radius: 8pt
+    )
+
     // Connect sim and real via sim_model
     edge(<sim_runner_model>, <sim_model>, "->")
-    edge(<sim_model>, <real_runner_model>, "->")
+    edge(<sim_model>, <real_learner_model>, "->")
+
+    // Connect real and eval via finetuned_model
+    edge(<real_runner_model>, <finetuned_model>, "->")
+    edge(<finetuned_model>, <eval_runner_model>, "->")
 })
