@@ -73,7 +73,12 @@
 #gh.section-slide(number: "02", title: [Thesis])
 
 #gh.content-slide(title: [Research Question])[
-  How well does a unity trained model work in reality?
+  *Does a unity trained model work in reality?*
+  - How _performant_? (e.g. accuracy, speed, reward)
+  - How _robust_? (e.g. to noise, latency)
+  - At what _cost_? (e.g. samples, compute)
+  - _Why_? (e.g. domain randomization, algorithm)
+  - _Why_ not? (e.g. difficult sections, jerky movement)
 ]
 
 #gh.content-slide(title: [Experiments])[
