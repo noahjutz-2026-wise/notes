@@ -89,7 +89,8 @@
 
   #table(
     columns: 3,
-    table.header([\#], [Date], [Goal]),
+    table.header([*\#*], [*Date*], [*Goal*]),
+    table.hline(),
     ..milestones
       .enumerate()
       .map(((i, m)) => {
