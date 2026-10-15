@@ -4,63 +4,56 @@
 
 #set text(size: 14pt)
 
-#fletcher.MARKS.update(m => m + (
-  "Oc": (inherit: "O", tip-origin: 0, tail-origin: 0),
-  "(c": (inherit: "(", tip-origin: 0, tail-origin: 0),
-  ")c": (inherit: ")", tip-origin: 0, tail-origin: 0),
+#fletcher.MARKS.update(m => (
+  m
+    + (
+      "Oc": (inherit: "O", tip-origin: 0, tail-origin: 0),
+      "(c": (inherit: "(", tip-origin: 0, tail-origin: 0),
+      ")c": (inherit: ")", tip-origin: 0, tail-origin: 0),
+    )
 ))
 
 #fletcher.diagram(
   node-stroke: 1pt,
-  node-inset: 5pt,
-  spacing: (32pt, 32pt),
-  label-sep: 0pt,
+  node-inset: 8pt,
+  spacing: (16pt, 16pt),
   label-size: 10pt,
   {
     import fletcher: edge, node
 
-    node((-1, 0), name: "algo_label", stroke: none)[Algorithm]
-    node(enclose: (<algo_label>), name: "algo")
+    node(enclose: ((-1, 0), (0, 0)), name: "algo_label")[Algorithm]
 
-    node((-2, 2), name: "learner_label", stroke: none)[Learner]
-    node(enclose: (<learner_label>), name: "learner", stroke: 1pt + yellow.darken(15%))
+    node(enclose: ((-1, 3), (-1, 5)), name: "learner_label", stroke: yellow)[Learner]
 
-    node((0, 2), name: "rs_label", stroke: none)[EnvRunnerServer \
-      ForExternalInference]
-    node(enclose: (<rs_label>), name: "envrunner", stroke: 1pt + blue)
+    node((0, 3), name: "rs_label", stroke: blue)[EnvRunnerServer]
 
-    node((2, 2), name: "rc_label", stroke: none)[EnvRunnerClient]
-    node(enclose: (<rc_label>), name: "rc")
+    node((2, 3), name: "rc_label")[EnvRunnerClient]
 
-    node((4, 2), name: "env_base")[env-base]
+    node((4, 3), name: "env_base")[env-base]
     node((7, 1), name: "env_sim")[env-sim]
     node((7, 3), name: "env_real")[env-real]
-    node((9, 1), name: "backend_sim")[
-      #symbol(symbols.symbol_unity, symbol-size: 0.55cm) \ backend-sim
-    ]
-    node((9, 3), name: "backend_real")[
-      #symbol(symbols.symbol_iso_square_rod, symbol-size: 0.55cm) \ backend-real
-    ]
+    node((9, 1), name: "backend_sim")[backend-sim]
+    node((9, 3), name: "backend_real")[backend-real]
 
-    node((-2, 1), name: "if_alg_learner")
-    node((0, 1), inset: 0pt, name: "if_alg_runner")
-    node((3, 2), inset: 0pt, name: "if_zmq")
-    node((8, 1), inset: 0pt, name: "if_bs_sim")
-    node((8, 3), inset: 0pt, name: "if_bs_real")
+    node((rel: (0pt, -32pt), to: (-1, 0)), name: "if_alg_learner")
+    node((rel: (0pt, -32pt), to: (0, 0)), name: "if_alg_runner")
+    node((3, 3), name: "if_zmq")
+    node((8, 1), name: "if_bs_sim")
+    node((8, 3), name: "if_bs_real")
 
-    edge(<algo>, <if_alg_learner>, "-(c", snap-to: (auto, none), corner: left)
-    edge(<learner>, <if_alg_learner>, "-Oc", snap-to: (auto, none))
-    edge(<algo>, <if_alg_runner>, "-(c", snap-to: (auto, none), corner: right)
-    edge(<envrunner>, <if_alg_runner>, "-Oc", snap-to: (auto, none))
+    edge((-1, 0), "d", "-(c", snap-to: (auto, none))
+    edge((0, 0), "d", "-(c", snap-to: (auto, none))
+    edge((-1, 3), "u", "-Oc", snap-to: (auto, none))
+    edge(<rs_label>, "u", "-Oc", snap-to: (auto, none))
 
-    let if-ep = (rel: (0, -0.25), to: (<envrunner.east>, 50%, <rc.west>))
-    let if-gs = (rel: (0, 0.25), to: (<envrunner.east>, 50%, <rc.west>))
-    edge(vertices: ((rel: (0, -0.25), to: <envrunner.east>), if-ep), "-(c", snap-to: (none, none))[EPISODES]
-    edge(vertices: ((rel: (0, -0.25), to: <rc.west>), if-ep), "-Oc", snap-to: (none, none))
-    edge(vertices: ((rel: (0, 0.25), to: <envrunner.east>), if-gs), "-Oc", snap-to: (none, none))[GET_STATE]
-    edge(vertices: ((rel: (0, 0.25), to: <rc.west>), if-gs), "-(c", snap-to: (none, none))
+    let if-ep = (rel: (0, -0.25), to: (<rs_label.east>, 50%, <rc_label.west>))
+    let if-gs = (rel: (0, 0.25), to: (<rs_label.east>, 50%, <rc_label.west>))
+    edge(vertices: ((rel: (0, -0.25), to: <rs_label.east>), if-ep), "-(c", snap-to: (none, none))[EPISODES]
+    edge(vertices: ((rel: (0, -0.25), to: <rc_label.west>), if-ep), "-Oc", snap-to: (none, none))
+    edge(vertices: ((rel: (0, 0.25), to: <rs_label.east>), if-gs), "-Oc", snap-to: (none, none))[GET_STATE]
+    edge(vertices: ((rel: (0, 0.25), to: <rc_label.west>), if-gs), "-(c", snap-to: (none, none))
 
-    edge(<rc>, <if_zmq>, "-(c", snap-to: (auto, none), label-side: left)[ZMQ]
+    edge(<rc_label>, <if_zmq>, "-(c", snap-to: (auto, none), label-side: left)[ZMQ]
     edge(<env_base>, <if_zmq>, "-Oc", snap-to: (auto, none))
 
     edge(<env_base>, (rel: (1, 0)), "-(c")
