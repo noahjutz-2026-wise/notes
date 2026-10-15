@@ -1,6 +1,6 @@
 #import "/src/deps.typ": cetz, fletcher
 #import "symbols.typ"
-#import "util.typ": symbol
+#import "util.typ": symbol, uml-component
 
 #set text(size: 14pt)
 
@@ -20,20 +20,19 @@
   spacing: (16pt, 16pt),
   label-size: 10pt,
   mark-scale: 150%,
-  // node-shape: fletcher.shapes.rect,
   {
     import fletcher: edge, node
 
-    node(enclose: ((-1, 0), (0, 0)), name: "algo_label")[Algorithm]
+    node(enclose: ((-1, 0), (0, 0)), name: "algo_label")[#uml-component[Algorithm]]
     node(enclose: ((-1, 3), (-1, 5)), name: "learner_label", stroke: yellow)[Learner]
     node(enclose: ((0, 3), (0, 5)), name: "rs_label", stroke: blue)[EnvRunnerServer]
     node(enclose: ((3, 3), (3, 5)), name: "rc_label")[EnvRunnerClient]
     node(enclose: ((6, 3), (6, 5)), name: "env_base")[env-base]
 
-    node((10, 3), name: "env_sim")[env-sim]
-    node((10, 5), name: "env_real")[env-real]
-    node((12, 3), name: "backend_sim")[backend-sim]
-    node((12, 5), name: "backend_real")[backend-real]
+    node((7, 3), name: "env_sim")[env-sim]
+    node((7, 5), name: "env_real")[env-real]
+    node((10, 3), name: "backend_sim")[backend-sim]
+    node((10, 5), name: "backend_real")[backend-real]
 
     edge((-1, 0), "d", "-(")
     edge((0, 0), "d", "-(")
@@ -56,5 +55,13 @@
 
     edge(<env_sim>, <env_base>, "-|>h")
     edge(<env_real>, <env_base>, "-|>h")
+
+    edge((7, 5), "r", "-(")
+    edge((8, 5), "r", "-->", stroke: gray)
+    edge((9, 5), "r", "O-")
+
+    edge((0, 3), "r", "-O")
+    edge((1, 3), "r", "<--", stroke: gray)
+    edge((2, 3), "r", ")-")
   },
 )
