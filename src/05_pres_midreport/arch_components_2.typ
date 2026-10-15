@@ -18,6 +18,7 @@
   node-inset: 8pt,
   spacing: (16pt, 16pt),
   label-size: 10pt,
+  mark-scale: 150%,
   {
     import fletcher: edge, node
 
@@ -25,11 +26,11 @@
 
     node(enclose: ((-1, 3), (-1, 5)), name: "learner_label", stroke: yellow)[Learner]
 
-    node((0, 3), name: "rs_label", stroke: blue)[EnvRunnerServer]
+    node(enclose: ((0, 3), (0, 5)), name: "rs_label", stroke: blue)[EnvRunnerServer]
 
-    node((2, 3), name: "rc_label")[EnvRunnerClient]
+    node(enclose: ((2, 3), (2, 5)), name: "rc_label")[EnvRunnerClient]
 
-    node((4, 3), name: "env_base")[env-base]
+    node(enclose: ((4, 3), (4, 5)), name: "env_base")[env-base]
     node((7, 1), name: "env_sim")[env-sim]
     node((7, 3), name: "env_real")[env-real]
     node((9, 1), name: "backend_sim")[backend-sim]
@@ -44,7 +45,9 @@
     edge((-1, 0), "d", "-(c", snap-to: (auto, none))
     edge((0, 0), "d", "-(c", snap-to: (auto, none))
     edge((-1, 3), "u", "-Oc", snap-to: (auto, none))
-    edge(<rs_label>, "u", "-Oc", snap-to: (auto, none))
+    edge((0, 3), "u", "-Oc", snap-to: (auto, none))
+    edge((-1, 2), "u", snap-to: (auto, none), "-->", stroke: gray)
+    edge((0, 2), "u", snap-to: (auto, none), "-->", stroke: gray)
 
     let if-ep = (rel: (0, -0.25), to: (<rs_label.east>, 50%, <rc_label.west>))
     let if-gs = (rel: (0, 0.25), to: (<rs_label.east>, 50%, <rc_label.west>))
