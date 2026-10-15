@@ -53,22 +53,26 @@
 
     // Env system (right): env-base, env variants, and their backends
     node((4, 2), name: "env_base")[env-base]
-    node((5, 1), name: "env_sim")[env-sim]
-    node((5, 3), name: "env_real")[env-real]
-    node((7, 1), name: "backend_sim", shape: fletcher.shapes.rect)[#symbol(symbols.symbol_unity, symbol-size: 0.55cm) \ backend-sim]
-    node((7, 3), name: "backend_real", shape: fletcher.shapes.rect)[#symbol(symbols.symbol_iso_square_rod, symbol-size: 0.55cm) \ backend-real]
+    node((7, 1), name: "env_sim")[env-sim]
+    node((7, 3), name: "env_real")[env-real]
+    node(
+      (9, 1),
+      name: "backend_sim",
+      shape: fletcher.shapes.rect,
+    )[#symbol(symbols.symbol_unity, symbol-size: 0.55cm) \ backend-sim]
+    node(
+      (9, 3),
+      name: "backend_real",
+      shape: fletcher.shapes.rect,
+    )[#symbol(symbols.symbol_iso_square_rod, symbol-size: 0.55cm) \ backend-real]
 
     // Ball-and-socket interface points (hidden nodes at integer coordinates;
     // each interface is two edges meeting at the point, socket + ball)
-    node((-2, 1), [], inset: 0pt, name: "if_alg_learner")
+    node((-2, 1), name: "if_alg_learner")
     node((0, 1), [], inset: 0pt, name: "if_alg_runner")
-    node((1, 2), [], inset: 0pt, name: "if_episodes")
-    node((1, 3), [], inset: 0pt, name: "if_getstate")
     node((3, 2), [], inset: 0pt, name: "if_zmq")
-    node((4, 1), [], inset: 0pt, name: "if_eb_sim")
-    node((4, 3), [], inset: 0pt, name: "if_eb_real")
-    node((6, 1), [], inset: 0pt, name: "if_bs_sim")
-    node((6, 3), [], inset: 0pt, name: "if_bs_real")
+    node((8, 1), [], inset: 0pt, name: "if_bs_sim")
+    node((8, 3), [], inset: 0pt, name: "if_bs_real")
 
     // Algorithm's required interfaces, provided by Learner and EnvRunner
     edge(<algo>, <if_alg_learner>, "-(c", snap-to: (auto, none), corner: left)
@@ -76,23 +80,46 @@
     edge(<algo>, <if_alg_runner>, "-(c", snap-to: (auto, none), corner: right)
     edge(<envrunner>, <if_alg_runner>, "-Oc", snap-to: (auto, none))
 
-    // Server <-> client interfaces
-    // EPISODES: required by the server, provided by the client
-    edge(<envrunner>, <if_episodes>, "-(c", snap-to: (auto, none), label-side: left)[EPISODES]
-    edge(<rc>, <if_episodes>, "-Oc", snap-to: (auto, none))
-    // GET_STATE: provided by the server, consumed by the client
-    edge(<envrunner>, <if_getstate>, "-Oc", snap-to: (auto, none), corner: left, label-pos: 0.3)[GET_STATE]
-    edge(<rc>, <if_getstate>, "-(c", snap-to: (auto, none), corner: right)
+    // Server <-> client interfaces: each pair is two straight horizontal
+    // segments at a fixed offset above / below the box midline; socket and
+    // ball tips meet exactly midway between the boxes' side anchors. All
+    // segment endpoints share one height by construction: each vertex is the
+    // box anchor (or the midway point) shifted by the same grid offset.
+    let if-ep = (rel: (0, -0.25), to: (<envrunner.east>, 50%, <rc.west>))
+    let if-gs = (rel: (0, 0.25), to: (<envrunner.east>, 50%, <rc.west>))
+    edge(
+      vertices: ((rel: (0, -0.25), to: <envrunner.east>), if-ep),
+      snap-to: (none, none),
+      "-(c",
+      label-side: left,
+    )[EPISODES]
+    edge(
+      vertices: ((rel: (0, -0.25), to: <rc.west>), if-ep),
+      snap-to: (none, none),
+      "-Oc",
+    )
+    edge(
+      vertices: ((rel: (0, 0.25), to: <envrunner.east>), if-gs),
+      snap-to: (none, none),
+      "-Oc",
+    )[GET_STATE]
+    edge(
+      vertices: ((rel: (0, 0.25), to: <rc.west>), if-gs),
+      snap-to: (none, none),
+      "-(c",
+    )
 
     // Client <-> env-base: ZMQ interface to the training environment
     edge(<rc>, <if_zmq>, "-(c", snap-to: (auto, none), label-side: left)[ZMQ]
     edge(<env_base>, <if_zmq>, "-Oc", snap-to: (auto, none))
 
-    // env-base requires the env variants
-    edge(<env_base>, <if_eb_sim>, "-(c", snap-to: (auto, none))
-    edge(<env_sim>, <if_eb_sim>, "-Oc", snap-to: (auto, none))
-    edge(<env_base>, <if_eb_real>, "-(c", snap-to: (auto, none))
-    edge(<env_real>, <if_eb_real>, "-Oc", snap-to: (auto, none))
+    // env-base requires the env variants: one dangling socket, tied to the
+    // env variants' lollipops by dashed dependency arrows
+    edge(<env_base>, (rel: (1, 0)), "-(c")
+    edge(<env_sim>, (rel: (-1, 0)), "-Oc")
+    edge(<env_real>, (rel: (-1, 0)), "-Oc")
+    edge((5, 2), (6, 1), "->", dash: "dashed", stroke: gray)
+    edge((5, 2), (6, 3), "->", dash: "dashed", stroke: gray)
 
     // Env variants require their backends
     edge(<env_sim>, <if_bs_sim>, "-(c", snap-to: (auto, none))
