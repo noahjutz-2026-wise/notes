@@ -29,10 +29,10 @@
     node(enclose: ((3, 3), (3, 5)), name: "rc_label")[EnvRunnerClient]
     node(enclose: ((6, 3), (6, 5)), name: "env_base")[env-base]
 
-    node((10, 1), name: "env_sim")[env-sim]
-    node((10, 3), name: "env_real")[env-real]
-    node((12, 1), name: "backend_sim")[backend-sim]
-    node((12, 3), name: "backend_real")[backend-real]
+    node((10, 3), name: "env_sim")[env-sim]
+    node((10, 5), name: "env_real")[env-real]
+    node((12, 3), name: "backend_sim")[backend-sim]
+    node((12, 5), name: "backend_real")[backend-real]
 
     edge((-1, 0), "d", "-(")
     edge((0, 0), "d", "-(")
@@ -53,10 +53,7 @@
     edge((4, 4), "r", "-->", stroke: gray)
     edge((5, 4), "r", "O-")
 
-    edge(<env_base>, (rel: (1, 0)), "-(c")
-    edge(<env_sim>, (rel: (-1, 0)), "-Oc")
-    edge(<env_real>, (rel: (-1, 0)), "-Oc")
-    edge((8, 2), (9, 1), "->", dash: "dashed", stroke: gray)
-    edge((8, 2), (9, 3), "->", dash: "dashed", stroke: gray)
+    edge(<env_sim>, <env_base>, "-|>")
+    edge(<env_real>, <env_base>, "-|>")
   },
 )
