@@ -42,6 +42,18 @@
   line((0.42, 0.69), (0.48, 0.69), (0.52, 0.62), (0.38, 0.62), close: true, fill: black, stroke: none)
 }
 
+#let symbol_module = {
+  import cetz.draw: *
+  // UML component (module): square body with two smaller squares
+  // protruding from its left edge, equally spaced vertically
+  // (margin below, between, and above the tabs are all equal)
+  // Main body square
+  line((0.3, 0.0), (1.0, 0.0), (1.0, 1.0), (0.3, 1.0), close: true)
+  // Left tabs: heights 0.2, margins/gap 0.2 (0.2..0.4 and 0.6..0.8)
+  line((0.05, 0.2), (0.3, 0.2), (0.3, 0.4), (0.05, 0.4), close: true)
+  line((0.05, 0.6), (0.3, 0.6), (0.3, 0.8), (0.05, 0.8), close: true)
+}
+
 #let symbol_neural_net = {
   import cetz.draw: *
   // Connections between Layer 1 (2 nodes) and Layer 2 (3 nodes)
