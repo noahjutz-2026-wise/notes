@@ -13,7 +13,8 @@ tinymist preview \
     --font-path src \
     --pdf-standard a-3b \
     --root . \
-    --input revision=$(git rev-parse --short HEAD) \
+    --input GIT_HASH="$(git rev-parse --short HEAD)" \
+    --input GIT_TAG="$(git describe --tags --exact-match)" \
     src/00_organization/main.typ
 ```
 
@@ -25,7 +26,8 @@ typst compile \
     --font-path src \
     --pdf-standard a-3b \
     --root . \
-    --input revision=$(git rev-parse --short HEAD) \
+    --input GIT_HASH="$(git rev-parse --short HEAD)" \
+    --input GIT_TAG="$(git describe --tags --exact-match)" \
     src/00_organization/main.typ
 ```
 

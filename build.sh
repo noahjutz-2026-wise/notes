@@ -2,6 +2,7 @@
 
 OUTPUT=$1
 VERSION=$2
+TAG=$3
 
 mkdir -p "$OUTPUT"
 
@@ -20,6 +21,7 @@ for dir_path in src/*/; do
         --ignore-system-fonts \
         --font-path src \
         --pdf-standard a-3b \
-        --input revision="$VERSION" \
+        --input GIT_HASH="$VERSION" \
+        --input GIT_TAG="$TAG" \
         --root .
 done

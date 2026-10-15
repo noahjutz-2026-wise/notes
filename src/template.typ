@@ -21,8 +21,10 @@
       place(center, counter(page).display())
       place(end)[
         #set text(black.lighten(25%))
-        #let rev = sys.inputs.at("revision", default: [])
-        #rev.slice(0, calc.min(10, rev.len()))
+        #let hash = sys.inputs.at("GIT_HASH", default: "").trim()
+        #let tag = sys.inputs.at("GIT_TAG", default: "").trim()
+        #hash.slice(0, calc.min(10, hash.len()))
+        #if tag.len() > 0 [ (#tag) ]
       ]
     },
   )

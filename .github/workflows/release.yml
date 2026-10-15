@@ -26,6 +26,7 @@ jobs:
         run: |
           docker build \
             --build-arg GIT_HASH="${{ github.sha }}" \
+            --build-arg GIT_TAG="${{ github.ref_name }}" \
             -t typst-notes \
             -f Containerfile .
           docker run --rm -v $(pwd)/output:/output typst-notes

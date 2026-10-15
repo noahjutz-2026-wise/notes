@@ -23,9 +23,9 @@
   kicker: quote(name),
   title: context document.title,
   badges: (
-    "v1.0.0-alpha02",
-    context sys.inputs.at("revision", default: none),
-  ).filter(it => it != none),
+    sys.inputs.at("GIT_HASH", default: ""),
+    sys.inputs.at("GIT_TAG", default: ""),
+  ).filter(it => it.trim().len() > 0),
   footer-left: [
     #{ context document.author.join() } #sym.dot #{ context document.date.display() }
   ],
