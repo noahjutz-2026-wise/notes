@@ -12,13 +12,18 @@
 
 #let uml-component(body, name: [component], symb: symbol(symbols.symbol_module, canvas-size: auto)) = box({
   stack(
-    dir: ltr,
-    spacing: 1fr,
-    hide(symb),
-    h(4pt),
-    [«#name»],
-    h(4pt),
-    symb,
+    stack(
+      dir: ltr,
+      spacing: 1fr,
+      hide(symb),
+      h(4pt),
+      text(gray)[«#name»],
+      h(4pt),
+      symb,
+    ),
+    v(4pt),
+    v(1fr),
+    body,
+    v(1fr),
   )
-  body
 })

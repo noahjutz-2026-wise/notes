@@ -24,15 +24,15 @@
     import fletcher: edge, node
 
     node(enclose: ((-1, 0), (0, 0)), name: "algo_label")[#uml-component[Algorithm]]
-    node(enclose: ((-1, 3), (-1, 5)), name: "learner_label", stroke: yellow)[Learner]
-    node(enclose: ((0, 3), (0, 5)), name: "rs_label", stroke: blue)[EnvRunnerServer]
-    node(enclose: ((3, 3), (3, 5)), name: "rc_label")[EnvRunnerClient]
-    node(enclose: ((6, 3), (6, 5)), name: "env_base")[env-base]
+    node(enclose: ((-1, 3), (-1, 5)), name: "learner_label", stroke: yellow)[#uml-component[Learner]]
+    node(enclose: ((0, 3), (0, 5)), name: "rs_label", stroke: blue)[#uml-component[EnvRunnerServer]]
+    node(enclose: ((3, 3), (3, 5)), name: "rc_label")[#uml-component[EnvRunnerClient]]
+    node(enclose: ((6, 3), (6, 5)), name: "env_base")[#uml-component[env-base]]
 
-    node((7, 3), name: "env_sim")[env-sim]
-    node((7, 5), name: "env_real")[env-real]
-    node((10, 3), name: "backend_sim")[backend-sim]
-    node((10, 5), name: "backend_real")[backend-real]
+    node((7, 3), name: "env_sim")[#uml-component[env-sim]]
+    node((7, 5), name: "env_real")[#uml-component[env-real]]
+    node((10, 3), name: "backend_sim")[#uml-component[backend-sim]]
+    node((10, 5), name: "backend_real")[#uml-component[backend-real]]
 
     edge((-1, 0), "d", "-(")
     edge((0, 0), "d", "-(")
@@ -60,8 +60,8 @@
     edge((8, 5), "r", "-->", stroke: gray)
     edge((9, 5), "r", "O-")
 
-    edge((0, 3), "r", "-O")
-    edge((1, 3), "r", "<--", stroke: gray)
-    edge((2, 3), "r", ")-")
+    edge((7, 3), "r", "-O")
+    edge((8, 3), "r", "<--", stroke: gray)
+    edge((9, 3), "r", ")-")
   },
 )
