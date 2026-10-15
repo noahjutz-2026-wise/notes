@@ -95,7 +95,7 @@
 ]
 
 #gh.content-slide(title: [Architecture])[
-  #include "arch_components.typ"
+  #include "arch_components_2.typ"
 ]
 
 #gh.section-slide(number: "03", title: [Roadmap])
