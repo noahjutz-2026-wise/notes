@@ -24,13 +24,13 @@
 
     node(enclose: ((-1, 0), (0, 0)), name: "algo_label")[Algorithm]
 
-    node(enclose: ((-1, 3), (-1, 5)), name: "learner_label", stroke: yellow)[Learner]
+    node(enclose: ((-1, 3), (-1, 6)), name: "learner_label", stroke: yellow)[Learner]
 
-    node(enclose: ((0, 3), (0, 5)), name: "rs_label", stroke: blue)[EnvRunnerServer]
+    node(enclose: ((0, 3), (0, 6)), name: "rs_label", stroke: blue)[EnvRunnerServer]
 
-    node(enclose: ((2, 3), (2, 5)), name: "rc_label")[EnvRunnerClient]
+    node(enclose: ((2, 3), (2, 6)), name: "rc_label")[EnvRunnerClient]
 
-    node(enclose: ((4, 3), (4, 5)), name: "env_base")[env-base]
+    node(enclose: ((4, 3), (4, 6)), name: "env_base")[env-base]
     node((7, 1), name: "env_sim")[env-sim]
     node((7, 3), name: "env_real")[env-real]
     node((9, 1), name: "backend_sim")[backend-sim]
