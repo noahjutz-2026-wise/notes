@@ -36,10 +36,18 @@
     columns: 3,
     table.header([*Project*], [*Description*], [*Status*]),
     table.hline(),
-    link("https://codeberg.org/CyberRunner/cr-container")[cr-container], [Containerized Legacy CR], [$arrow.r.hook$ Superseded by cr-robostack],
-    link("https://codeberg.org/CyberRunner/cr-patched")[cr-patched], [Hacky fixes], [$arrow.r.hook$ Superseded by cr-robostack],
-    link("https://codeberg.org/CyberRunner/cr-autostart")[cr-autostart], [Bash helper scripts], [$arrow.r.hook$ Superseded by cr-robostack],
-    link("https://codeberg.org/CyberRunner/cr-robostack")[cr-robostack], [Portable, reproducible, CR fork], [$arrow.r.loop$ Migrate to crs2r-system-real],
+    link("https://codeberg.org/CyberRunner/cr-container")[cr-container],
+    [Containerized Legacy CR],
+    [$arrow.r.hook$ Superseded by cr-robostack],
+    link("https://codeberg.org/CyberRunner/cr-patched")[cr-patched],
+    [Hacky fixes],
+    [$arrow.r.hook$ Superseded by cr-robostack],
+    link("https://codeberg.org/CyberRunner/cr-autostart")[cr-autostart],
+    [Bash helper scripts],
+    [$arrow.r.hook$ Superseded by cr-robostack],
+    link("https://codeberg.org/CyberRunner/cr-robostack")[cr-robostack],
+    [Portable, reproducible, CR fork],
+    [$arrow.r.loop$ Migrate to crs2r-system-real],
   )
 ]
 
@@ -94,12 +102,13 @@
 ]
 
 #let milestones_tbl = {
-  milestones.enumerate()
-      .map(((i, m)) => {
-        let (d, c) = m
-        (str(i + 1), d.display("[year]-[month]-[day]"), c)
-      })
-      .flatten()
+  milestones
+    .enumerate()
+    .map(((i, m)) => {
+      let (d, c) = m
+      (str(i + 1), d.display("[year]-[month]-[day]"), c)
+    })
+    .flatten()
 }
 
 #gh.content-slide(title: [Milestones])[
@@ -107,7 +116,7 @@
     columns: 3,
     table.header([*\#*], [*Date*], [*Goal*]),
     table.hline(),
-    ..milestones_tbl.slice(0, 3 * 7)
+    ..milestones_tbl.slice(0, 3 * 7),
   )
 ]
 
@@ -116,11 +125,12 @@
     columns: 3,
     table.header([*\#*], [*Date*], [*Goal*]),
     table.hline(),
-    ..milestones_tbl.slice(3 * 7)
+    ..milestones_tbl.slice(3 * 7),
   )
 ]
 
 #gh.closing-slide(
-  title: [Thanks.],
-  links: ("github.com/xingjian-zhang/gh-minimal-slides", "typst.app/universe"),
+  kicker: [],
+  title: [Thank you],
+  links: ("github.com/noahjutz-2026-wise", "codeberg.org/CyberRunner"),
 )
