@@ -10,6 +10,7 @@
       "Oc": (inherit: "O", tip-origin: 0, tail-origin: 0),
       "(c": (inherit: "(", tip-origin: 0, tail-origin: 0),
       ")c": (inherit: ")", tip-origin: 0, tail-origin: 0),
+      "|>h": (inherit: "latex", fill: none, stroke: 1pt),
     )
 ))
 
@@ -53,7 +54,7 @@
     edge((4, 4), "r", "-->", stroke: gray)
     edge((5, 4), "r", "O-")
 
-    edge(<env_sim>, <env_base>, "-|>")
-    edge(<env_real>, <env_base>, "-|>")
+    edge(<env_sim>, <env_base>, "-|>h")
+    edge(<env_real>, <env_base>, "-|>h")
   },
 )
