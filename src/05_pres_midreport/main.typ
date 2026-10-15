@@ -22,7 +22,10 @@
 #gh.cover-slide(
   kicker: quote(name),
   title: context document.title,
-  badges: ("v1.0.0-alpha02",),
+  badges: (
+    "v1.0.0-alpha02",
+    context sys.inputs.at("revision", default: none),
+  ).filter(it => it != none),
   footer-left: [
     #{ context document.author.join() } #sym.dot #{ context document.date.display() }
   ],
