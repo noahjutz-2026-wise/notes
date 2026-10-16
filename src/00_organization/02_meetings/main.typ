@@ -104,6 +104,11 @@ Notizen
 - [-] Prototype:
   - [-] ML-Agents
 
+= Masterseminar Stefan Karmainski (2026-10-12)
+
+- IsaacSim: 12ms control loop
+- RL Framework: ??RL
+
 = Studierendenmeeting (Ehrnsperger 2026-10-12)
 
 - [-] Thesis

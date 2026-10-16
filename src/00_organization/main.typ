@@ -35,11 +35,3 @@
   include "02_meetings/main.typ"
   pagebreak()
 }
-
-= Miscellaneous
-
-
-#{
-  show: template_doc_part
-  include "03_misc/main.typ"
-}
