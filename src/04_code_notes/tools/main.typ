@@ -63,6 +63,10 @@ RLLink Inversion of Control architecture:
 
 = Unity ML-Agents
 
+== mlagents-learn
+
+Learning Framework - will circumvent with ray
+
 ```bash
 # train
 mlagents-learn config.yaml --resume --inference
@@ -71,3 +75,10 @@ mlagents-learn config.yaml --resume --inference
 - Models exported as .pt and .onnx to results/ppo/FinalEasy/
 - Metrics: W&B: https://github.com/Unity-Technologies/ml-agents/issues/5733
 - #strike[RLLib: https://www.anyscale.com/blog/reinforcement-learning-with-rllib-in-the-unity-game-engine] *dead*
+
+== mlagents-envs
+
+== C\# Package
+
+- BC or keyboard input: `Agent.Heuristic()`
+- Regular Intervals: `DecisionRequester`
