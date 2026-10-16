@@ -1,4 +1,4 @@
-= Vorstellungsgespräch (Weiß 2026-06-15)
+= Vorstellungsgespräch (Weiß-1 2026-06-15)
 
 Hintergrundinformationen
 - Arbeite bei Sappz an CyberRunner inbetriebnahme
@@ -29,13 +29,7 @@ Notizen
 - alphapos(?) citation style
 - faq dokument
 
-= Kickoff (Ehrnsperger 2026-09-08)
-
-- [x] *Blocker*:
-  - [x] CUDA-GPU + mind. 64GB RAM
-  - [x] 2. BRIO Labyrinth (1x original, 1x modifiziert)
-
-= Kickoff (Weiß 2026-09-23)
+= Kickoff (Weiß-2 2026-09-23)
 
 *Aktueller Stand*
 - Anfang BA 2026-09-23
@@ -86,7 +80,7 @@ Notizen
 - [-] Experiments: WandB, DVC
 - [x] Write thesis in english? Yes
 
-= Baselines (Weiß 2026-10-12)
+= Baselines (Weiß-3 2026-10-12)
 
 - [x] Check Thesis
   - [x] Content: What's missing, unnecessary, inaccurate? \
@@ -104,18 +98,22 @@ Notizen
 - [-] Prototype:
   - [-] ML-Agents
 
-= Masterseminar Stefan Karmainski (2026-10-12)
+= Masterseminar (Stefan Karmainski 2026-10-12)
 
 - IsaacSim: 12ms control loop
 - RL Framework: ??RL
 
-= Studierendenmeeting (Ehrnsperger 2026-10-12)
+= Studierendenmeeting (Ehrnsperger-1 2026-10-12)
 
 - [-] Thesis
 - [x] Hardware issues
 - [-] New desk
 - [/] SHK Job: go ahead?
 
-= Studierendenmeeting (Ehrnsperger 2026-10-19)
+= Studierendenmeeting (Ehrnsperger-2 2026-10-19)
 
 - [ ] Presentation
+
+= Hardware (Weiß-4 2026-10-\?\?)
+
+- [ ] Hardware Setup
