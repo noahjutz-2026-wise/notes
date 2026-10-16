@@ -29,10 +29,10 @@
     node(enclose: ((3, 3), (3, 5)), name: "rc_label")[#uml-component[EnvRunnerClient]]
     node(enclose: ((6, 3), (6, 5)), name: "env_base")[#uml-component[env-base]]
 
-    node((7, 3), name: "env_sim")[#uml-component[env-sim]]
-    node((7, 5), name: "env_real")[#uml-component[env-real]]
-    node((10, 3), name: "backend_sim")[#uml-component[backend-sim]]
-    node((10, 5), name: "backend_real")[#uml-component[backend-real]]
+    node((7, 3), name: "env_sim")[#uml-component[env-unity]]
+    node((7, 5), name: "env_real")[#uml-component[env-cr]]
+    node((10, 3), name: "backend_sim")[#uml-component[backend-unity]]
+    node((10, 5), name: "backend_real")[#uml-component[backend-cr]]
 
     edge((-1, 0), "d", "-(")
     edge((0, 0), "d", "-(")
