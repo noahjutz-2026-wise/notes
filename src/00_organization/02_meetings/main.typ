@@ -106,11 +106,11 @@ Notizen
 
 = Studierendenmeeting (Ehrnsperger 2026-10-12)
 
-- [ ] Thesis
-- [ ] Hardware issues
-  - Can someone do it for me?
-  - Simplify design
+- [-] Thesis
+- [x] Hardware issues
+- [-] New desk
+- [/] SHK Job: go ahead?
 
-*Misc.*
-- [ ] New desk
-- [ ] SHK Job: go ahead?
+= Studierendenmeeting (Ehrnsperger 2026-10-19)
+
+- [ ] Presentation
