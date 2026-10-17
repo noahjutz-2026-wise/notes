@@ -7,7 +7,7 @@ Monorepo of various documents related to my bachelor's thesis.
 
 ## Development
 
-```sh
+```bash
 tinymist preview \
     --ignore-system-fonts \
     --font-path src \
@@ -20,7 +20,7 @@ tinymist preview \
 
 ## Compiling
 
-```sh
+```bash
 typst compile \
     --ignore-system-fonts \
     --font-path src \
@@ -29,6 +29,13 @@ typst compile \
     --input GIT_HASH="$(git rev-parse --short HEAD)" \
     --input GIT_TAG="$(git describe --tags --exact-match)" \
     src/00_organization/main.typ
+```
+
+With podman:
+
+```bash
+podman build -t thesis-notes .
+podman run --userns=keep-id -v ./build:/output thesis-notes
 ```
 
 ## Structure
